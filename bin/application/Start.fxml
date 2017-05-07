@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="497.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Main">
+   <children>
+      <Button fx:id="startEasy" layoutX="224.0" layoutY="140.0" mnemonicParsing="false" onAction="#onStartEasy" prefHeight="78.0" prefWidth="140.0" text="EASY" />
+      <Button fx:id="startNormal" layoutX="224.0" layoutY="234.0" mnemonicParsing="false" onAction="#onStartNormal" prefHeight="78.0" prefWidth="140.0" text="NORMAL" />
+      <Button fx:id="startHard" layoutX="224.0" layoutY="328.0" mnemonicParsing="false" onAction="#onStartHard" prefHeight="78.0" prefWidth="140.0" text="HARD" />
+      <ImageView fx:id="startHelp" fitHeight="124.0" fitWidth="140.0" layoutX="435.0" layoutY="328.0" onMouseClicked="#onStartHelp" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="startExit" fitHeight="145.0" fitWidth="160.0" layoutX="14.0" layoutY="315.0" onMouseClicked="#onStartExit" pickOnBounds="true" preserveRatio="true" />
+      <Text layoutX="69.0" layoutY="411.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ImageView-预留-退出" />
+      <Text layoutX="480.0" layoutY="395.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ImageView-预留-帮助" />
+   </children>
+</Pane>
