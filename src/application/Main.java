@@ -41,9 +41,14 @@ public class Main extends Application{
 	@FXML
 	private void onStartEasy(ActionEvent event) throws IOException{
 		Parent easy = FXMLLoader.load(getClass().getResource("Easy.fxml"));
-
-		Scene scene = new Scene(easy,569,900);
+		Parent help = FXMLLoader.load(getClass().getResource("Help.fxml"));
+		
+		Scene scene = new Scene(easy,800,900);
 		thisStage.setScene(scene);
+		Scene helpScene = new Scene(help,250,250);
+		Stage helpStage = new Stage();
+		helpStage.setScene(helpScene);
+		helpStage.show();
 	}
 	@FXML
 	private void onStartNormal(ActionEvent event) throws IOException{
