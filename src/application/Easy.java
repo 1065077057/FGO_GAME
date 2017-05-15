@@ -24,6 +24,7 @@ public class Easy extends Main{
 	private final static Image IMGA = new Image("application/images/059E.png");
 	private final static Image IMGB = new Image("application/images/060E.png");
 	private final static Image IMGC = new Image("application/images/068E.png");
+	private final static Image IMGKB = new Image("application/images/KB.png");
 	// 图片数量计数器，辅助 randomChoose 方法随机分配图片，控制图片数量
 	private static int IMGANUM = 0;
 	private static int IMGBNUM = 0;
@@ -36,6 +37,19 @@ public class Easy extends Main{
 	private int score = 0;
 	private int reward = 0;
 	private int punish = 0;
+	
+	private Image img_0_0_kb;
+	private Image img_0_1_kb;
+	private Image img_0_2_kb;
+	private Image img_0_3_kb;
+	private Image img_1_0_kb;
+	private Image img_1_1_kb;
+	private Image img_1_2_kb;
+	private Image img_1_3_kb;
+	private Image img_2_0_kb;
+	private Image img_2_1_kb;
+	private Image img_2_2_kb;
+	private Image img_2_3_kb;
 	
 	// Easy.fxml 中映射的数据域
 	@FXML
@@ -109,13 +123,15 @@ public class Easy extends Main{
 	 */
 	@FXML
 	protected void onClicked00(MouseEvent event){
-		if((event.getButton().toString() == "PRIMARY")&&(img_0_0.getOpacity() == 0)){
-			FadeTransition ft = new FadeTransition(Duration.millis(900),img_0_0);
+		if((event.getButton().toString() == "PRIMARY")&&(img_0_0.getImage() == IMGKB)){
+			img_0_0.setImage(img_0_0_kb);
+			FadeTransition ft = new FadeTransition(Duration.millis(900),img_0_0); 
 			ft.setFromValue(0);
 			ft.setToValue(1);
 			ft.setCycleCount(1);
 			ft.setAutoReverse(false);
 			ft.play();
+
 			if(onePoint == null){
 				onePoint = img_0_0.getImage().toString();
 				last = img_0_0;
@@ -137,15 +153,17 @@ public class Easy extends Main{
 						reward = 0;
 					}
 				}else{
+					img_0_0.setImage(IMGKB);
+					last.setImage(IMGKB);
 					FadeTransition ftimg = new FadeTransition(Duration.millis(900),img_0_0);
-					ftimg.setFromValue(1);
-					ftimg.setToValue(0);
+					ftimg.setFromValue(0);
+					ftimg.setToValue(1);
 					ftimg.setCycleCount(1);
 					ftimg.setAutoReverse(false);
 					ftimg.play();
 					FadeTransition ftlast = new FadeTransition(Duration.millis(900),last);
-					ftlast.setFromValue(1);
-					ftlast.setToValue(0);
+					ftlast.setFromValue(0);
+					ftlast.setToValue(1);
 					ftlast.setCycleCount(1);
 					ftlast.setAutoReverse(false);
 					ftlast.play();
@@ -175,13 +193,15 @@ public class Easy extends Main{
 	}
 	@FXML
 	protected void onClicked01(MouseEvent event){
-		if((event.getButton().toString() == "PRIMARY")&&(img_0_1.getOpacity() == 0)){
+		if((event.getButton().toString() == "PRIMARY")&&(img_0_1.getImage() == IMGKB)){
+			img_0_1.setImage(img_0_1_kb);
 			FadeTransition ft = new FadeTransition(Duration.millis(900),img_0_1);
 			ft.setFromValue(0);
 			ft.setToValue(1);
 			ft.setCycleCount(1);
 			ft.setAutoReverse(false);
 			ft.play();
+			
 			if(onePoint == null){
 				onePoint = img_0_1.getImage().toString();
 				last = img_0_1;
@@ -192,15 +212,17 @@ public class Easy extends Main{
 					onePoint = null;
 					twoPoint = null;
 				}else{
+					img_0_1.setImage(IMGKB);
+					last.setImage(IMGKB);
 					FadeTransition ftimg = new FadeTransition(Duration.millis(900),img_0_1);
-					ftimg.setFromValue(1);
-					ftimg.setToValue(0);
+					ftimg.setFromValue(0);
+					ftimg.setToValue(1);
 					ftimg.setCycleCount(1);
 					ftimg.setAutoReverse(false);
 					ftimg.play();
 					FadeTransition ftlast = new FadeTransition(Duration.millis(900),last);
-					ftlast.setFromValue(1);
-					ftlast.setToValue(0);
+					ftlast.setFromValue(0);
+					ftlast.setToValue(1);
 					ftlast.setCycleCount(1);
 					ftlast.setAutoReverse(false);
 					ftlast.play();
@@ -213,7 +235,8 @@ public class Easy extends Main{
 	}
 	@FXML
 	protected void onClicked02(MouseEvent event){
-		if((event.getButton().toString() == "PRIMARY")&&(img_0_2.getOpacity() == 0)){
+		if((event.getButton().toString() == "PRIMARY")&&(img_0_2.getImage() == IMGKB)){
+			img_0_2.setImage(img_0_2_kb);
 			FadeTransition ft = new FadeTransition(Duration.millis(900),img_0_2);
 			ft.setFromValue(0);
 			ft.setToValue(1);
@@ -230,15 +253,17 @@ public class Easy extends Main{
 					onePoint = null;
 					twoPoint = null;
 				}else{
+					img_0_2.setImage(IMGKB);
+					last.setImage(IMGKB);
 					FadeTransition ftimg = new FadeTransition(Duration.millis(900),img_0_2);
-					ftimg.setFromValue(1);
-					ftimg.setToValue(0);
+					ftimg.setFromValue(0);
+					ftimg.setToValue(1);
 					ftimg.setCycleCount(1);
 					ftimg.setAutoReverse(false);
 					ftimg.play();
 					FadeTransition ftlast = new FadeTransition(Duration.millis(900),last);
-					ftlast.setFromValue(1);
-					ftlast.setToValue(0);
+					ftlast.setFromValue(0);
+					ftlast.setToValue(1);
 					ftlast.setCycleCount(1);
 					ftlast.setAutoReverse(false);
 					ftlast.play();
@@ -251,7 +276,8 @@ public class Easy extends Main{
 	}
 	@FXML
 	protected void onClicked03(MouseEvent event){
-		if((event.getButton().toString() == "PRIMARY")&&(img_0_3.getOpacity() == 0)){
+		if((event.getButton().toString() == "PRIMARY")&&(img_0_3.getImage() == IMGKB)){
+			img_0_3.setImage(img_0_3_kb);
 			FadeTransition ft = new FadeTransition(Duration.millis(900),img_0_3);
 			ft.setFromValue(0);
 			ft.setToValue(1);
@@ -268,15 +294,17 @@ public class Easy extends Main{
 					onePoint = null;
 					twoPoint = null;
 				}else{
+					img_0_3.setImage(IMGKB);
+					last.setImage(IMGKB);
 					FadeTransition ftimg = new FadeTransition(Duration.millis(900),img_0_3);
-					ftimg.setFromValue(1);
-					ftimg.setToValue(0);
+					ftimg.setFromValue(0);
+					ftimg.setToValue(1);
 					ftimg.setCycleCount(1);
 					ftimg.setAutoReverse(false);
 					ftimg.play();
 					FadeTransition ftlast = new FadeTransition(Duration.millis(900),last);
-					ftlast.setFromValue(1);
-					ftlast.setToValue(0);
+					ftlast.setFromValue(0);
+					ftlast.setToValue(1);
 					ftlast.setCycleCount(1);
 					ftlast.setAutoReverse(false);
 					ftlast.play();
@@ -338,31 +366,53 @@ public class Easy extends Main{
 	// 重新开始一局 Easy 难度的游戏
 	@FXML
 	protected void beganOnClicked(ActionEvent event){
-		img_0_0.setOpacity(0);
-		img_0_1.setOpacity(0);
-		img_0_2.setOpacity(0);
-		img_0_3.setOpacity(0);
-		img_1_0.setOpacity(0);
-		img_1_1.setOpacity(0);
-		img_1_2.setOpacity(0);
-		img_1_3.setOpacity(0);
-		img_2_0.setOpacity(0);
-		img_2_1.setOpacity(0);
-		img_2_2.setOpacity(0);
-		img_2_3.setOpacity(0);
+		/*
+		 * 每次重新开始都要保持透明度为 100% 否则
+		 * 会出现“没有还原”的bug
+		 */
+		img_0_0.setOpacity(1);
+		img_0_1.setOpacity(1);
+		img_0_2.setOpacity(1);
+		img_0_3.setOpacity(1);
+		img_1_0.setOpacity(1);
+		img_1_1.setOpacity(1);
+		img_1_2.setOpacity(1);
+		img_1_3.setOpacity(1);
+		img_2_0.setOpacity(1);
+		img_2_1.setOpacity(1);
+		img_2_2.setOpacity(1);
+		img_2_3.setOpacity(1);
+
+		/*
+		 * 不能使用 scene builder 上确定的 Image 地址
+		 * 是不一样的，所以这里使用了初始化。
+		 */
+		img_0_0.setImage(IMGKB);
+		img_0_1.setImage(IMGKB);
+		img_0_2.setImage(IMGKB);
+		img_0_3.setImage(IMGKB);
+		img_1_0.setImage(IMGKB);
+		img_1_1.setImage(IMGKB);
+		img_1_2.setImage(IMGKB);
+		img_1_3.setImage(IMGKB);
+		img_2_0.setImage(IMGKB);
+		img_2_1.setImage(IMGKB);
+		img_2_2.setImage(IMGKB);
+		img_2_3.setImage(IMGKB);
+		
 		// 随机分牌
-		img_0_0.setImage(randomChoose());
-		img_0_1.setImage(randomChoose());
-		img_0_2.setImage(randomChoose());
-		img_0_3.setImage(randomChoose());
-		img_1_0.setImage(randomChoose());
-		img_1_1.setImage(randomChoose());
-		img_1_2.setImage(randomChoose());
-		img_1_3.setImage(randomChoose());
-		img_2_0.setImage(randomChoose());
-		img_2_1.setImage(randomChoose());
-		img_2_2.setImage(randomChoose());
-		img_2_3.setImage(randomChoose());
+		img_0_0_kb = randomChoose();
+		img_0_1_kb = randomChoose();
+		img_0_2_kb = randomChoose();
+		img_0_3_kb = randomChoose();
+		img_1_0_kb = randomChoose();
+		img_1_1_kb = randomChoose();
+		img_1_2_kb = randomChoose();
+		img_1_3_kb = randomChoose();
+		img_2_0_kb = randomChoose();
+		img_2_1_kb = randomChoose();
+		img_2_2_kb = randomChoose();
+		img_2_3_kb = randomChoose();
 		// 重置计数器，防止死循环
 		IMGANUM = 0;
 		IMGBNUM = 0;
