@@ -42,19 +42,19 @@
                </image>
             </ImageView>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#00050a" height="200.0" stroke="BLACK" strokeType="INSIDE" width="10.0" />
-            <ImageView fx:id="img_0_3" fitHeight="200.0" fitWidth="142.0" onMouseClicked="#onClicked03" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="file:/X:/eclipse/workspace/Javafx%20test/src/application/images/KB.png" />
-               </image>
-            </ImageView>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#01101e" height="200.0" stroke="BLACK" strokeType="INSIDE" width="10.0" />
             <ImageView fx:id="img_0_1" fitHeight="200.0" fitWidth="142.0" onMouseClicked="#onClicked01" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="file:/X:/eclipse/workspace/Javafx%20test/src/application/images/KB.png" />
                </image>
             </ImageView>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#021628" height="200.0" stroke="BLACK" strokeType="INSIDE" width="10.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#01101e" height="200.0" stroke="BLACK" strokeType="INSIDE" width="10.0" />
             <ImageView fx:id="img_0_2" fitHeight="200.0" fitWidth="142.0" onMouseClicked="#onClicked02" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="file:/X:/eclipse/workspace/Javafx%20test/src/application/images/KB.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#021628" height="200.0" stroke="BLACK" strokeType="INSIDE" width="10.0" />
+            <ImageView fx:id="img_0_3" fitHeight="200.0" fitWidth="142.0" onMouseClicked="#onClicked03" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="file:/X:/eclipse/workspace/Javafx%20test/src/application/images/KB.png" />
                </image>

@@ -6,7 +6,10 @@ import java.io.IOException;
 import java.util.Random;
 
 import javafx.animation.FadeTransition;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -121,22 +124,76 @@ public class Easy extends Main{
 	 * 3.完成核心需求  “翻牌后是否匹配”
 	 * 4.
 	 */
+	
+	/*
+	 * 关于 Timeline
+	 * 在监视器中使用了几个 EventHandler 对象，主要添加在 KeyFrame 中
+	 * 完成 Timeline 的功能。
+	 * 之前单纯使用 FadeTransition 能改变透明度，但是完成不了连续动画，
+	 * 这样为了展现完整的翻牌效果（不是翻牌，使用更改透明度，感觉更好）
+	 * 其中的一些命名的效果解释：
+	 * backToLeave	卡背消失
+	 * cardToOpen	卡片正面显示
+	 * backToOpen	卡背显示
+	 * cardToLeave	卡片正面消失
+	 * KeyFrame 命名一样，只是前面加上 kyOf
+	 * Timeline 命名同，表示 A状态 To B状态
+	 * last 的命名规则：为了控制上一个 ImageView（两张牌不匹配的时候），所有变量
+	 * 前加上 last 即可
+	 * 这样封装成帧后在 Timeline 中表现成动画
+	 * */
 	@FXML
 	protected void onClicked00(MouseEvent event){
 		if((event.getButton().toString() == "PRIMARY")&&(img_0_0.getImage() == IMGKB)){
-			img_0_0.setImage(img_0_0_kb);
-			FadeTransition ft = new FadeTransition(Duration.millis(900),img_0_0); 
-			ft.setFromValue(0);
-			ft.setToValue(1);
-			ft.setCycleCount(1);
-			ft.setAutoReverse(false);
-			ft.play();
+			EventHandler<ActionEvent> backToLeave = e -> {
+				FadeTransition ft = new FadeTransition(Duration.millis(900),img_0_0); 
+				ft.setFromValue(1);
+				ft.setToValue(0);
+				ft.setCycleCount(1);
+				ft.setAutoReverse(false);
+				ft.play();
+			};
+			EventHandler<ActionEvent> backToOpen = e -> {
+				img_0_0.setImage(IMGKB);
+				FadeTransition ft = new FadeTransition(Duration.millis(900),img_0_0); 
+				ft.setFromValue(0);
+				ft.setToValue(1);
+				ft.setCycleCount(1);
+				ft.setAutoReverse(false);
+				ft.play();
+			};
+			EventHandler<ActionEvent> cardToOpen = e -> {
+				img_0_0.setImage(img_0_0_kb);
+				FadeTransition ft = new FadeTransition(Duration.millis(900),img_0_0); 
+				ft.setFromValue(0);
+				ft.setToValue(1);
+				ft.setCycleCount(1);
+				ft.setAutoReverse(false);
+				ft.play();
+			};
+			EventHandler<ActionEvent> cardToLeave = e -> {
+				FadeTransition ft = new FadeTransition(Duration.millis(900),img_0_0); 
+				ft.setFromValue(1);
+				ft.setToValue(0);
+				ft.setCycleCount(1);
+				ft.setAutoReverse(false);
+				ft.play();
+			};
+
+			KeyFrame kfOfCardToLeave = new KeyFrame(Duration.millis(900),cardToLeave);
+			KeyFrame kfOfCardToOpen = new KeyFrame(Duration.millis(900),cardToOpen);
+			KeyFrame kfOfBackToLeave = new KeyFrame(Duration.millis(1),backToLeave);
+			KeyFrame kfOfBackToOpen = new KeyFrame(Duration.millis(900),backToOpen);
+			Timeline backToCard = new Timeline(kfOfBackToLeave,kfOfCardToOpen);
+			Timeline cardToBack = new Timeline(kfOfCardToLeave,kfOfBackToOpen);
+			
+			backToCard.play();
 
 			if(onePoint == null){
-				onePoint = img_0_0.getImage().toString();
+				onePoint = img_0_0_kb.toString();
 				last = img_0_0;
 			}else{
-				twoPoint = img_0_0.getImage().toString();
+				twoPoint = img_0_0_kb.toString();
 				if(onePoint.equals(twoPoint)){
 					last = null;
 					onePoint = null;
@@ -153,20 +210,29 @@ public class Easy extends Main{
 						reward = 0;
 					}
 				}else{
-					img_0_0.setImage(IMGKB);
-					last.setImage(IMGKB);
-					FadeTransition ftimg = new FadeTransition(Duration.millis(900),img_0_0);
-					ftimg.setFromValue(0);
-					ftimg.setToValue(1);
-					ftimg.setCycleCount(1);
-					ftimg.setAutoReverse(false);
-					ftimg.play();
-					FadeTransition ftlast = new FadeTransition(Duration.millis(900),last);
-					ftlast.setFromValue(0);
-					ftlast.setToValue(1);
-					ftlast.setCycleCount(1);
-					ftlast.setAutoReverse(false);
-					ftlast.play();
+					EventHandler<ActionEvent> lastCardToLeave = e -> {
+						FadeTransition ft = new FadeTransition(Duration.millis(900),last); 
+						ft.setFromValue(1);
+						ft.setToValue(0);
+						ft.setCycleCount(1);
+						ft.setAutoReverse(false);
+						ft.play();
+					};
+					EventHandler<ActionEvent> lastBackToOpen = e -> {
+						last.setImage(IMGKB);
+						FadeTransition ft = new FadeTransition(Duration.millis(900),last); 
+						ft.setFromValue(0);
+						ft.setToValue(1);
+						ft.setCycleCount(1);
+						ft.setAutoReverse(false);
+						ft.play();
+					};
+					KeyFrame kfOfLastBackToOpen = new KeyFrame(Duration.millis(900),lastBackToOpen);
+					KeyFrame kfOfLastCardToLeave = new KeyFrame(Duration.millis(900),lastCardToLeave);
+					Timeline lastCardToBack = new Timeline(kfOfLastCardToLeave,kfOfLastBackToOpen);
+					
+					cardToBack.play();
+					lastCardToBack.play();
 					last = null;
 					onePoint = null;
 					twoPoint = null;
@@ -194,38 +260,82 @@ public class Easy extends Main{
 	@FXML
 	protected void onClicked01(MouseEvent event){
 		if((event.getButton().toString() == "PRIMARY")&&(img_0_1.getImage() == IMGKB)){
-			img_0_1.setImage(img_0_1_kb);
-			FadeTransition ft = new FadeTransition(Duration.millis(900),img_0_1);
-			ft.setFromValue(0);
-			ft.setToValue(1);
-			ft.setCycleCount(1);
-			ft.setAutoReverse(false);
-			ft.play();
+			EventHandler<ActionEvent> backToLeave = e -> {
+				FadeTransition ft = new FadeTransition(Duration.millis(900),img_0_1); 
+				ft.setFromValue(1);
+				ft.setToValue(0);
+				ft.setCycleCount(1);
+				ft.setAutoReverse(false);
+				ft.play();
+			};
+			EventHandler<ActionEvent> backToOpen = e -> {
+				img_0_1.setImage(IMGKB);
+				FadeTransition ft = new FadeTransition(Duration.millis(900),img_0_1); 
+				ft.setFromValue(0);
+				ft.setToValue(1);
+				ft.setCycleCount(1);
+				ft.setAutoReverse(false);
+				ft.play();
+			};
+			EventHandler<ActionEvent> cardToOpen = e -> {
+				img_0_1.setImage(img_0_1_kb);
+				FadeTransition ft = new FadeTransition(Duration.millis(900),img_0_1); 
+				ft.setFromValue(0);
+				ft.setToValue(1);
+				ft.setCycleCount(1);
+				ft.setAutoReverse(false);
+				ft.play();
+			};
+			EventHandler<ActionEvent> cardToLeave = e -> {
+				FadeTransition ft = new FadeTransition(Duration.millis(900),img_0_1); 
+				ft.setFromValue(1);
+				ft.setToValue(0);
+				ft.setCycleCount(1);
+				ft.setAutoReverse(false);
+				ft.play();
+			};
+			KeyFrame kfOfCardToLeave = new KeyFrame(Duration.millis(900),cardToLeave);
+			KeyFrame kfOfCardToOpen = new KeyFrame(Duration.millis(900),cardToOpen);
+			KeyFrame kfOfBackToLeave = new KeyFrame(Duration.millis(1),backToLeave);
+			KeyFrame kfOfBackToOpen = new KeyFrame(Duration.millis(900),backToOpen);
+			Timeline backToCard = new Timeline(kfOfBackToLeave,kfOfCardToOpen);
+			Timeline cardToBack = new Timeline(kfOfCardToLeave,kfOfBackToOpen);
+			
+			backToCard.play();
 			
 			if(onePoint == null){
-				onePoint = img_0_1.getImage().toString();
+				onePoint = img_0_1_kb.toString();
 				last = img_0_1;
 			}else{
-				twoPoint = img_0_1.getImage().toString();
+				twoPoint = img_0_1_kb.toString();
 				if(onePoint.equals(twoPoint)){
 					last = null;
 					onePoint = null;
 					twoPoint = null;
 				}else{
-					img_0_1.setImage(IMGKB);
-					last.setImage(IMGKB);
-					FadeTransition ftimg = new FadeTransition(Duration.millis(900),img_0_1);
-					ftimg.setFromValue(0);
-					ftimg.setToValue(1);
-					ftimg.setCycleCount(1);
-					ftimg.setAutoReverse(false);
-					ftimg.play();
-					FadeTransition ftlast = new FadeTransition(Duration.millis(900),last);
-					ftlast.setFromValue(0);
-					ftlast.setToValue(1);
-					ftlast.setCycleCount(1);
-					ftlast.setAutoReverse(false);
-					ftlast.play();
+					EventHandler<ActionEvent> lastCardToLeave = e -> {
+						FadeTransition ft = new FadeTransition(Duration.millis(900),last); 
+						ft.setFromValue(1);
+						ft.setToValue(0);
+						ft.setCycleCount(1);
+						ft.setAutoReverse(false);
+						ft.play();
+					};
+					EventHandler<ActionEvent> lastBackToOpen = e -> {
+						last.setImage(IMGKB);
+						FadeTransition ft = new FadeTransition(Duration.millis(900),last); 
+						ft.setFromValue(0);
+						ft.setToValue(1);
+						ft.setCycleCount(1);
+						ft.setAutoReverse(false);
+						ft.play();
+					};
+					KeyFrame kfOfLastBackToOpen = new KeyFrame(Duration.millis(900),lastBackToOpen);
+					KeyFrame kfOfLastCardToLeave = new KeyFrame(Duration.millis(900),lastCardToLeave);
+					Timeline lastCardToBack = new Timeline(kfOfLastCardToLeave,kfOfLastBackToOpen);
+					
+					cardToBack.play();
+					lastCardToBack.play();
 					last = null;
 					onePoint = null;
 					twoPoint = null;
@@ -236,37 +346,81 @@ public class Easy extends Main{
 	@FXML
 	protected void onClicked02(MouseEvent event){
 		if((event.getButton().toString() == "PRIMARY")&&(img_0_2.getImage() == IMGKB)){
-			img_0_2.setImage(img_0_2_kb);
-			FadeTransition ft = new FadeTransition(Duration.millis(900),img_0_2);
-			ft.setFromValue(0);
-			ft.setToValue(1);
-			ft.setCycleCount(1);
-			ft.setAutoReverse(false);
-			ft.play();
+			EventHandler<ActionEvent> backToLeave = e -> {
+				FadeTransition ft = new FadeTransition(Duration.millis(900),img_0_2); 
+				ft.setFromValue(1);
+				ft.setToValue(0);
+				ft.setCycleCount(1);
+				ft.setAutoReverse(false);
+				ft.play();
+			};
+			EventHandler<ActionEvent> backToOpen = e -> {
+				img_0_2.setImage(IMGKB);
+				FadeTransition ft = new FadeTransition(Duration.millis(900),img_0_2); 
+				ft.setFromValue(0);
+				ft.setToValue(1);
+				ft.setCycleCount(1);
+				ft.setAutoReverse(false);
+				ft.play();
+			};
+			EventHandler<ActionEvent> cardToOpen = e -> {
+				img_0_2.setImage(img_0_2_kb);
+				FadeTransition ft = new FadeTransition(Duration.millis(900),img_0_2); 
+				ft.setFromValue(0);
+				ft.setToValue(1);
+				ft.setCycleCount(1);
+				ft.setAutoReverse(false);
+				ft.play();
+			};
+			EventHandler<ActionEvent> cardToLeave = e -> {
+				FadeTransition ft = new FadeTransition(Duration.millis(900),img_0_2); 
+				ft.setFromValue(1);
+				ft.setToValue(0);
+				ft.setCycleCount(1);
+				ft.setAutoReverse(false);
+				ft.play();
+			};
+			KeyFrame kfOfCardToLeave = new KeyFrame(Duration.millis(900),cardToLeave);
+			KeyFrame kfOfCardToOpen = new KeyFrame(Duration.millis(900),cardToOpen);
+			KeyFrame kfOfBackToLeave = new KeyFrame(Duration.millis(1),backToLeave);
+			KeyFrame kfOfBackToOpen = new KeyFrame(Duration.millis(900),backToOpen);
+			Timeline backToCard = new Timeline(kfOfBackToLeave,kfOfCardToOpen);
+			Timeline cardToBack = new Timeline(kfOfCardToLeave,kfOfBackToOpen);
+			
+			backToCard.play();
 			if(onePoint == null){
-				onePoint = img_0_2.getImage().toString();
+				onePoint = img_0_2_kb.toString();
 				last = img_0_2;
 			}else{
-				twoPoint = img_0_2.getImage().toString();
+				twoPoint = img_0_2_kb.toString();
 				if(onePoint.equals(twoPoint)){
 					last = null;
 					onePoint = null;
 					twoPoint = null;
 				}else{
-					img_0_2.setImage(IMGKB);
-					last.setImage(IMGKB);
-					FadeTransition ftimg = new FadeTransition(Duration.millis(900),img_0_2);
-					ftimg.setFromValue(0);
-					ftimg.setToValue(1);
-					ftimg.setCycleCount(1);
-					ftimg.setAutoReverse(false);
-					ftimg.play();
-					FadeTransition ftlast = new FadeTransition(Duration.millis(900),last);
-					ftlast.setFromValue(0);
-					ftlast.setToValue(1);
-					ftlast.setCycleCount(1);
-					ftlast.setAutoReverse(false);
-					ftlast.play();
+					EventHandler<ActionEvent> lastCardToLeave = e -> {
+						FadeTransition ft = new FadeTransition(Duration.millis(900),last); 
+						ft.setFromValue(1);
+						ft.setToValue(0);
+						ft.setCycleCount(1);
+						ft.setAutoReverse(false);
+						ft.play();
+					};
+					EventHandler<ActionEvent> lastBackToOpen = e -> {
+						last.setImage(IMGKB);
+						FadeTransition ft = new FadeTransition(Duration.millis(900),last); 
+						ft.setFromValue(0);
+						ft.setToValue(1);
+						ft.setCycleCount(1);
+						ft.setAutoReverse(false);
+						ft.play();
+					};
+					KeyFrame kfOfLastBackToOpen = new KeyFrame(Duration.millis(900),lastBackToOpen);
+					KeyFrame kfOfLastCardToLeave = new KeyFrame(Duration.millis(900),lastCardToLeave);
+					Timeline lastCardToBack = new Timeline(kfOfLastCardToLeave,kfOfLastBackToOpen);
+					
+					cardToBack.play();
+					lastCardToBack.play();
 					last = null;
 					onePoint = null;
 					twoPoint = null;
@@ -277,37 +431,81 @@ public class Easy extends Main{
 	@FXML
 	protected void onClicked03(MouseEvent event){
 		if((event.getButton().toString() == "PRIMARY")&&(img_0_3.getImage() == IMGKB)){
-			img_0_3.setImage(img_0_3_kb);
-			FadeTransition ft = new FadeTransition(Duration.millis(900),img_0_3);
-			ft.setFromValue(0);
-			ft.setToValue(1);
-			ft.setCycleCount(1);
-			ft.setAutoReverse(false);
-			ft.play();
+			EventHandler<ActionEvent> backToLeave = e -> {
+				FadeTransition ft = new FadeTransition(Duration.millis(900),img_0_3); 
+				ft.setFromValue(1);
+				ft.setToValue(0);
+				ft.setCycleCount(1);
+				ft.setAutoReverse(false);
+				ft.play();
+			};
+			EventHandler<ActionEvent> backToOpen = e -> {
+				img_0_3.setImage(IMGKB);
+				FadeTransition ft = new FadeTransition(Duration.millis(900),img_0_3); 
+				ft.setFromValue(0);
+				ft.setToValue(1);
+				ft.setCycleCount(1);
+				ft.setAutoReverse(false);
+				ft.play();
+			};
+			EventHandler<ActionEvent> cardToOpen = e -> {
+				img_0_3.setImage(img_0_3_kb);
+				FadeTransition ft = new FadeTransition(Duration.millis(900),img_0_3); 
+				ft.setFromValue(0);
+				ft.setToValue(1);
+				ft.setCycleCount(1);
+				ft.setAutoReverse(false);
+				ft.play();
+			};
+			EventHandler<ActionEvent> cardToLeave = e -> {
+				FadeTransition ft = new FadeTransition(Duration.millis(900),img_0_3); 
+				ft.setFromValue(1);
+				ft.setToValue(0);
+				ft.setCycleCount(1);
+				ft.setAutoReverse(false);
+				ft.play();
+			};
+			KeyFrame kfOfCardToLeave = new KeyFrame(Duration.millis(900),cardToLeave);
+			KeyFrame kfOfCardToOpen = new KeyFrame(Duration.millis(900),cardToOpen);
+			KeyFrame kfOfBackToLeave = new KeyFrame(Duration.millis(1),backToLeave);
+			KeyFrame kfOfBackToOpen = new KeyFrame(Duration.millis(900),backToOpen);
+			Timeline backToCard = new Timeline(kfOfBackToLeave,kfOfCardToOpen);
+			Timeline cardToBack = new Timeline(kfOfCardToLeave,kfOfBackToOpen);
+			
+			backToCard.play();
 			if(onePoint == null){
-				onePoint = img_0_3.getImage().toString();
+				onePoint = img_0_3_kb.toString();
 				last = img_0_3;
 			}else{
-				twoPoint = img_0_3.getImage().toString();
+				twoPoint = img_0_3_kb.toString();
 				if(onePoint.equals(twoPoint)){
 					last = null;
 					onePoint = null;
 					twoPoint = null;
 				}else{
-					img_0_3.setImage(IMGKB);
-					last.setImage(IMGKB);
-					FadeTransition ftimg = new FadeTransition(Duration.millis(900),img_0_3);
-					ftimg.setFromValue(0);
-					ftimg.setToValue(1);
-					ftimg.setCycleCount(1);
-					ftimg.setAutoReverse(false);
-					ftimg.play();
-					FadeTransition ftlast = new FadeTransition(Duration.millis(900),last);
-					ftlast.setFromValue(0);
-					ftlast.setToValue(1);
-					ftlast.setCycleCount(1);
-					ftlast.setAutoReverse(false);
-					ftlast.play();
+					EventHandler<ActionEvent> lastCardToLeave = e -> {
+						FadeTransition ft = new FadeTransition(Duration.millis(900),last); 
+						ft.setFromValue(1);
+						ft.setToValue(0);
+						ft.setCycleCount(1);
+						ft.setAutoReverse(false);
+						ft.play();
+					};
+					EventHandler<ActionEvent> lastBackToOpen = e -> {
+						last.setImage(IMGKB);
+						FadeTransition ft = new FadeTransition(Duration.millis(900),last); 
+						ft.setFromValue(0);
+						ft.setToValue(1);
+						ft.setCycleCount(1);
+						ft.setAutoReverse(false);
+						ft.play();
+					};
+					KeyFrame kfOfLastBackToOpen = new KeyFrame(Duration.millis(900),lastBackToOpen);
+					KeyFrame kfOfLastCardToLeave = new KeyFrame(Duration.millis(900),lastCardToLeave);
+					Timeline lastCardToBack = new Timeline(kfOfLastCardToLeave,kfOfLastBackToOpen);
+					
+					cardToBack.play();
+					lastCardToBack.play();
 					last = null;
 					onePoint = null;
 					twoPoint = null;
