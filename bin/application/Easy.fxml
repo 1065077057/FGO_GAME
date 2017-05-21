@@ -31,7 +31,18 @@
           </Menu>
         </menus>
       </MenuBar>
-      <HBox prefHeight="200.0" prefWidth="485.0">
+      <HBox prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <TextArea prefHeight="200.0" prefWidth="200.0" text="预留imageview左图片" />
+            <TextArea prefHeight="200.0" prefWidth="200.0" text="预留时间显示" />
+            <Text fx:id="scoreShow" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="CENTER" wrappingWidth="144.0">
+               <font>
+                  <Font size="33.0" />
+               </font>
+            </Text>
+         </children>
+      </HBox>
+      <HBox prefHeight="250.0" prefWidth="799.0">
          <children>
             <ImageView fx:id="img_0_0" fitHeight="200.0" fitWidth="142.0" onMouseClicked="#onClicked00" pickOnBounds="true" preserveRatio="true">
                <HBox.margin>
