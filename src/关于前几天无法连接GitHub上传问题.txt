@@ -1,0 +1,14 @@
+使用 GitHub sync 时在 syncing 后出现提示：
+	Failed to sync this branch:You might need to open a shell and debug the state of this repo.
+很多错误都会出现这样的提示，主要是需要自己去 debug。在 staticoverflower 上这句话引起的错误大部分是分支问题。跟自己方法不同。需要使用 git shell 进行 debug。
+	git pull
+    出现：Already up-to-data.	可以正常拉取
+	git push
+    报错：error:failed to push some refs to '(ssh 地址)'
+	说明是无法获得连接。上面有一句提示一直没看到：
+	push declined due to email privacy restrictions
+    主要是 email 取消了开放权限（自己脑子抽，谷歌翻译没理解，认为取消开放安全。。。）
+    修改方法：
+	Setting--->Emails---->Email preferences
+	第二个选项取消勾选，即：
+	Only receive account related emails, and those I subscribe to. 
