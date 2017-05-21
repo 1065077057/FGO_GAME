@@ -121,6 +121,16 @@ public class Easy extends Main{
 			}
 		}
 	}
+	// 惩罚与奖励特效 Timeline 部分
+	EventHandler<ActionEvent> flowTextForGood = e -> {
+		Text text = new Text();
+		Font textFont = new Font("Times New Roman",68);
+		text.setText("GOOD!");
+		text.setFont(textFont);
+		text.setX(120);
+		text.setY(1200);
+		
+	};
 	
 	/*
 	 * Easy 模式，12张图片，每张图片对应的 MouseEvent 监视器
