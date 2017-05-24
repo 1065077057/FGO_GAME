@@ -134,5 +134,34 @@
          </padding>
       </HBox>
       <Button fx:id="began" mnemonicParsing="false" onAction="#beganOnClicked" prefHeight="109.0" prefWidth="172.0" text="Button" />
+      <Pane prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <Text fx:id="textGood" layoutY="65.0" opacity="0.0" strokeType="OUTSIDE" strokeWidth="0.0" text="GOOD!" textAlignment="CENTER" wrappingWidth="800.0">
+               <font>
+                  <Font size="72.0" />
+               </font>
+            </Text>
+            <Text fx:id="textGreat" layoutY="65.0" opacity="0.0" strokeType="OUTSIDE" strokeWidth="0.0" text="GREAT!" textAlignment="CENTER" wrappingWidth="800.0">
+               <font>
+                  <Font size="72.0" />
+               </font>
+            </Text>
+            <Text fx:id="textUnbelievable" layoutY="65.0" opacity="0.0" strokeType="OUTSIDE" strokeWidth="0.0" text="UNBELIEVABLE!" textAlignment="CENTER" wrappingWidth="800.0">
+               <font>
+                  <Font size="72.0" />
+               </font>
+            </Text>
+            <Text fx:id="textBad" layoutY="65.0" opacity="0.0" strokeType="OUTSIDE" strokeWidth="0.0" text="BAD!" textAlignment="CENTER" wrappingWidth="800.0">
+               <font>
+                  <Font size="72.0" />
+               </font>
+            </Text>
+            <Text fx:id="textWorse" layoutY="65.0" opacity="0.0" strokeType="OUTSIDE" strokeWidth="0.0" text="WORSE!" textAlignment="CENTER" wrappingWidth="800.0">
+               <font>
+                  <Font size="72.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
    </children>
 </VBox>

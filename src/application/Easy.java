@@ -86,19 +86,29 @@ public class Easy extends Main{
 	@FXML
 	private ImageView img_2_3;
 	@FXML
-	MenuItem reStart = new MenuItem();
+	public Text textGood = new Text();
 	@FXML
-	MenuItem chooseLeave = new MenuItem();
+	public Text textGreat = new Text();
 	@FXML
-	MenuItem set = new MenuItem();
+	public Text textUnbelievable = new Text();
 	@FXML
-	MenuItem record = new MenuItem();
+	public Text textBad = new Text();
 	@FXML
-	MenuItem help = new MenuItem();
+	public Text textWorse = new Text();
 	@FXML
-	MenuItem about = new MenuItem();
+	public MenuItem reStart = new MenuItem();
 	@FXML
-	Text scoreShow = new Text();
+	public MenuItem chooseLeave = new MenuItem();
+	@FXML
+	public MenuItem set = new MenuItem();
+	@FXML
+	public MenuItem record = new MenuItem();
+	@FXML
+	public MenuItem help = new MenuItem();
+	@FXML
+	public MenuItem about = new MenuItem();
+	@FXML
+	public Text scoreShow = new Text();
 	
 	// 随机分配图片方法
 	public static Image randomChoose(){
@@ -121,16 +131,92 @@ public class Easy extends Main{
 			}
 		}
 	}
-	// 惩罚与奖励特效 Timeline 部分
+	/*
+	 * 奖励惩罚文字特效测试部分完成。
+	 * 尝试中间暂停失败，如果只使用 Timeline 是无法暂停的，尝试想法：
+	 * 1.如果在 EventHandler 中嵌套 EventHandler 也是像制作分支一样，双方不在
+	 *   同一时间线，无法得到暂停效果。
+	 * 2.设置3条时间线，分别是第一部分与第二部分与end。第一二部分时差产生暂停效
+	 *   果。实际上由于使用了重复，根本无法设置时差。Duration.millis(1) 都要是
+	 *   1。
+	 * 可行方法：
+	 * 	 使用 PathTransition。但是由于 Scene 使用的是 HBox 与 VBox，不能直接加上
+	 * 	 透明的 line。但是理论上这样是可行的。可以利用时差产生暂停。之后尝试。
+	 * 目前效果实现是使用两条时间线，一条是出现字体并且向上移动。利用时差，在经过
+	 * 3000ms 后 end 时间线开始运行。重置字体并且透明度归0。
+	 * 注意：
+	 * 下面部分是整体的代码，具体到使用只是对 Timeline 的设置，只有2行代码，调用
+	 * 了重复次数方法与 play 方法。
+	 * */
 	EventHandler<ActionEvent> flowTextForGood = e -> {
-		Text text = new Text();
-		Font textFont = new Font("Times New Roman",68);
-		text.setText("GOOD!");
-		text.setFont(textFont);
-		text.setX(120);
-		text.setY(1200);
-		
+		textGood.setOpacity(1);
+		textGood.setY(textGood.getY()-1);
 	};
+	EventHandler<ActionEvent> flowTextForGood_end = e -> {
+		textGood.setOpacity(0);
+		textGood.setY(0);
+	};
+	
+	EventHandler<ActionEvent> flowTextForGreat = e -> {
+		textGreat.setOpacity(1);
+		textGreat.setY(textGreat.getY()-2);
+	};
+	EventHandler<ActionEvent> flowTextForGreat_end = e -> {
+		textGreat.setOpacity(0);
+		textGreat.setY(0);
+	};
+	
+	EventHandler<ActionEvent> flowTextForUnbelievable = e -> {
+		textUnbelievable.setOpacity(1);
+		textUnbelievable.setY(textUnbelievable.getY()-2);
+	};
+	EventHandler<ActionEvent> flowTextForUnbelievable_end = e -> {
+		textUnbelievable.setOpacity(0);
+		textUnbelievable.setY(0);
+	};
+	
+	EventHandler<ActionEvent> flowTextForBad = e -> {
+		textBad.setOpacity(1);
+		textBad.setY(textBad.getY()-2);
+	};
+	EventHandler<ActionEvent> flowTextForBad_end = e -> {
+		textBad.setOpacity(0);
+		textBad.setY(0);
+	};
+	
+	EventHandler<ActionEvent> flowTextForWorse = e -> {
+		textWorse.setOpacity(1);
+		textWorse.setY(textWorse.getY()-2);
+	};
+	EventHandler<ActionEvent> flowTextForWorse_end = e -> {
+		textWorse.setOpacity(0);
+		textWorse.setY(0);
+	};
+	
+	KeyFrame kf_flowTextForGood = new KeyFrame(Duration.millis(1),flowTextForGood);
+	KeyFrame kf_flowTextForGood_end = new KeyFrame(Duration.millis(3000),flowTextForGood_end);
+	Timeline flowTextForGoodShow = new Timeline(kf_flowTextForGood);
+	Timeline flowTextForGoodShow_end = new Timeline(kf_flowTextForGood_end);
+	
+	KeyFrame kf_flowTextForGreat = new KeyFrame(Duration.millis(1),flowTextForGreat);
+	KeyFrame kf_flowTextForGreat_end = new KeyFrame(Duration.millis(3000),flowTextForGreat_end);
+	Timeline flowTextForGreatShow = new Timeline(kf_flowTextForGreat);
+	Timeline flowTextForGreatShow_end = new Timeline(kf_flowTextForGreat_end);
+	
+	KeyFrame kf_flowTextForUnbelievable = new KeyFrame(Duration.millis(1),flowTextForUnbelievable);
+	KeyFrame kf_flowTextForUnbelievable_end = new KeyFrame(Duration.millis(3000),flowTextForUnbelievable_end);
+	Timeline flowTextForUnbelievableShow = new Timeline(kf_flowTextForUnbelievable);
+	Timeline flowTextForUnbelievableShow_end = new Timeline(kf_flowTextForUnbelievable_end);
+	
+	KeyFrame kf_flowTextForBad = new KeyFrame(Duration.millis(1),flowTextForBad);
+	KeyFrame kf_flowTextForBad_end = new KeyFrame(Duration.millis(3000),flowTextForBad_end);
+	Timeline flowTextForBadShow = new Timeline(kf_flowTextForBad);
+	Timeline flowTextForBadShow_end = new Timeline(kf_flowTextForBad_end);
+	
+	KeyFrame kf_flowTextForWorse = new KeyFrame(Duration.millis(1),flowTextForWorse);
+	KeyFrame kf_flowTextForWorse_end = new KeyFrame(Duration.millis(3000),flowTextForWorse_end);
+	Timeline flowTextForWorseShow = new Timeline(kf_flowTextForWorse);
+	Timeline flowTextForWorseShow_end = new Timeline(kf_flowTextForWorse_end);
 	
 	/*
 	 * Easy 模式，12张图片，每张图片对应的 MouseEvent 监视器
@@ -161,6 +247,12 @@ public class Easy extends Main{
 	@FXML
 	protected void onClicked00(MouseEvent event){
 		if((event.getButton().toString() == "PRIMARY")&&(img_0_0.getImage() == IMGKB)&&(img_0_0.getOpacity() == 1)){
+
+				flowTextForBadShow.setCycleCount(800);
+				flowTextForBadShow_end.setCycleCount(1);
+				flowTextForBadShow_end.play();
+				flowTextForBadShow.play();
+
 			EventHandler<ActionEvent> backToLeave = e -> {
 				FadeTransition ft = new FadeTransition(Duration.millis(450),img_0_0); 
 				ft.setFromValue(1);
@@ -218,9 +310,27 @@ public class Easy extends Main{
 					reward++;
 					punish = 0;
 					switch(reward){
-						case 3: score += 60;break;
-						case 5: score += 120;break;
-						case 9: score += 380;break;
+						case 3: {
+									score += 60;
+									flowTextForGoodShow.setCycleCount(800);
+									flowTextForGoodShow_end.setCycleCount(1);
+									flowTextForGoodShow_end.play();
+									flowTextForGoodShow.play();
+								}break;
+						case 5: {
+									score += 120;
+									flowTextForGreatShow.setCycleCount(800);
+									flowTextForGreatShow_end.setCycleCount(1);
+									flowTextForGreatShow_end.play();
+									flowTextForGreatShow.play();
+								}break;
+						case 9: {
+									score += 380;
+									flowTextForUnbelievableShow.setCycleCount(800);
+									flowTextForUnbelievableShow_end.setCycleCount(1);
+									flowTextForUnbelievableShow_end.play();
+									flowTextForUnbelievableShow.play();
+								}break;
 					}
 					if(reward == 9){
 						reward = 0;
@@ -260,15 +370,27 @@ public class Easy extends Main{
 					punish++;
 					reward = 0;
 					switch(punish){
-						case 3: if(score >= 50){
-									score -= 50;
-								}else{
-									score = 0;
-								}break;
-						case 5: if(score >= 120){
-									score -= 120;
-								}else{
-									score = 0;
+						case 3: {
+									if(score >= 50){
+										score -= 50;
+									}else{
+										score = 0;
+									}
+									flowTextForBadShow.setCycleCount(800);
+									flowTextForBadShow_end.setCycleCount(1);
+									flowTextForBadShow_end.play();
+									flowTextForBadShow.play();
+							}break;
+						case 5: {
+									if(score >= 50){
+										score -= 120;
+									}else{
+										score = 0;
+									}
+									flowTextForBadShow.setCycleCount(800);
+									flowTextForBadShow_end.setCycleCount(1);
+									flowTextForBadShow_end.play();
+									flowTextForBadShow.play();
 								}break;
 					}
 					if(punish == 5){
