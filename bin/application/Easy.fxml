@@ -34,7 +34,23 @@
       <HBox prefHeight="100.0" prefWidth="200.0">
          <children>
             <TextArea prefHeight="200.0" prefWidth="200.0" text="预留imageview左图片" />
-            <TextArea prefHeight="200.0" prefWidth="200.0" text="预留时间显示" />
+            <ImageView fitHeight="86.0" fitWidth="92.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/icon_clock.jpg" />
+               </image>
+            </ImageView>
+            <Text fx:id="timeMinute" strokeType="OUTSIDE" strokeWidth="0.0" text="1">
+               <font>
+                  <Font size="64.0" />
+               </font></Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text=":">
+               <font>
+                  <Font size="56.0" />
+               </font></Text>
+            <Text fx:id="timeSecond" strokeType="OUTSIDE" strokeWidth="0.0" text="00">
+               <font>
+                  <Font size="64.0" />
+               </font></Text>
             <Text fx:id="scoreShow" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="CENTER" wrappingWidth="144.0">
                <font>
                   <Font size="33.0" />

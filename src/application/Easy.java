@@ -2,6 +2,7 @@
 
 package application;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.Random;
 
@@ -19,9 +20,8 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontPosture;
-import javafx.scene.text.FontWeight;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -109,6 +109,10 @@ public class Easy extends Main{
 	public MenuItem about = new MenuItem();
 	@FXML
 	public Text scoreShow = new Text();
+	@FXML
+	public Text timeMinute = new Text();
+	@FXML
+	public Text timeSecond = new Text();
 	
 	// 随机分配图片方法
 	public static Image randomChoose(){
@@ -247,11 +251,13 @@ public class Easy extends Main{
 	@FXML
 	protected void onClicked00(MouseEvent event){
 		if((event.getButton().toString() == "PRIMARY")&&(img_0_0.getImage() == IMGKB)&&(img_0_0.getOpacity() == 1)){
-
+			
+			/*	奖励惩罚特效测试代码，修改后删除注释符号，点击第一个图片即可运行该动画
 				flowTextForBadShow.setCycleCount(800);
 				flowTextForBadShow_end.setCycleCount(1);
 				flowTextForBadShow_end.play();
 				flowTextForBadShow.play();
+			*/
 
 			EventHandler<ActionEvent> backToLeave = e -> {
 				FadeTransition ft = new FadeTransition(Duration.millis(450),img_0_0); 
@@ -773,6 +779,28 @@ public class Easy extends Main{
 		reward = 0;
 		punish = 0;
 		scoreShow.setText("0");
+		/* 倒计时开始 */
+		timeMinute.setText("1");
+		timeSecond.setText("00");
+		EventHandler<ActionEvent> timeEnd = e -> {
+			int time = Integer.parseInt(timeSecond.getText());
+			int timeChange = Integer.parseInt(timeMinute.getText());
+			if(time == 0 && timeChange == 1){
+				timeMinute.setText("0");
+				timeSecond.setText("59");
+			}else{
+				time--;
+				if(time >= 10){
+					timeSecond.setText(""+time);
+				}else{
+					timeSecond.setText("0"+time);
+				}
+			}
+		};
+		KeyFrame kf_timeEnd = new KeyFrame(Duration.millis(1000),timeEnd);
+		Timeline tl_timeEnd = new Timeline(kf_timeEnd);
+		tl_timeEnd.setCycleCount(60);
+		tl_timeEnd.play();
 	}
 	
 	// MenuBar 各个 MenuItem 监听器

@@ -1,6 +1,8 @@
 package application;
 
+import java.io.File;
 import java.io.IOException;
+
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -10,6 +12,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
 public class Main extends Application{
@@ -30,6 +34,13 @@ public class Main extends Application{
 	
 	public void start(Stage stage) throws IOException{
 		Parent start = FXMLLoader.load(getClass().getResource("Start.fxml"));
+		
+		File musicFile_M1 = new File("src\\application\\music\\M1.mp3");
+		Media musicMedia_M1 = new Media(musicFile_M1.toURI().toASCIIString());
+		MediaPlayer M1 = new MediaPlayer(musicMedia_M1);
+		/*测试阶段 暂时不自动播放
+		M1.setAutoPlay(true);
+		*/
 		
 		Scene scene = new Scene(start,569,900);
 		thisStage.setTitle("FGO Game");
