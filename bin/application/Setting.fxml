@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="537.0" prefWidth="384.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Main">
+   <children>
+      <Text layoutX="12.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="背景音乐">
+         <font>
+            <Font name="System Bold" size="36.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="88.0" fitWidth="87.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="file:/X:/eclipse/workspace/Javafx%20test/src/application/images/icon_setting.jpg" />
+         </image>
+      </ImageView>
+      <Line endX="230.0" layoutX="121.0" layoutY="158.0" opacity="0.87" startX="-100.0" stroke="#65a6fc" />
+      <RadioButton fx:id="bgmM1" layoutX="54.0" layoutY="174.0" mnemonicParsing="false" onAction="#changeM1" prefHeight="22.0" prefWidth="265.0" selected="true" text="总督府的日常-舰队Collocation">
+         <font>
+            <Font size="16.0" />
+         </font>
+         <toggleGroup>
+            <ToggleGroup fx:id="group" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="bgmM2" layoutX="54.0" layoutY="214.0" mnemonicParsing="false" onAction="#changeM2" prefHeight="16.0" prefWidth="256.0" text="穿越海平原-舰队Collocation" toggleGroup="$group">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </RadioButton>
+   </children>
+</Pane>

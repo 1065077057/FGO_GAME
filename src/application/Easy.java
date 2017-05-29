@@ -2,10 +2,8 @@
 
 package application;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.Random;
-
 import javafx.animation.FadeTransition;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -20,13 +18,14 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
 public class Easy extends Main{
+	// 定义 static Stage 用于关闭开始窗口打开新的窗口
+	public static Stage returnStage = new Stage();
+	public static Stage st_chooseLeave = new Stage();
 	// 三个 final static Image 对应3种不同的图片
 	private final static Image IMGA = new Image("application/images/059E.png");
 	private final static Image IMGB = new Image("application/images/060E.png");
@@ -806,19 +805,93 @@ public class Easy extends Main{
 	// MenuBar 各个 MenuItem 监听器
 	@FXML
 	private void onReStart(ActionEvent event) throws IOException{
+		Parent reStart = FXMLLoader.load(getClass().getResource("ReStart.fxml"));
+		
+		Scene returnScene = new Scene(reStart,500,200);
+		returnStage.setScene(returnScene);
+		returnStage.show();
+	}
+	/*ReStart.fxml 数据域映射与监听器*/
+	@FXML
+	Button btDoReturn = new Button();
+	@FXML
+	Button btDontReturn = new Button();
+	@FXML
+	void doReturn(ActionEvent event) throws IOException{
 		Parent start = FXMLLoader.load(getClass().getResource("Start.fxml"));
 		
 		Scene scene = new Scene(start,800,900);
 		thisStage.setScene(scene);
 		thisStage.show();
+		returnStage.close();
 	}
 	@FXML
-	private void onChooseLeave(ActionEvent event){
-//		Parent start = FXMLLoader.load(getClass().getResource("ChooseLeave.fxml"));
+	void dontReturn(ActionEvent event){
+		returnStage.close();
 	}
+	
 	@FXML
-	private void onSet(ActionEvent event){
+	private void onChooseLeave(ActionEvent event) throws IOException{
+		Parent start = FXMLLoader.load(getClass().getResource("ChooseLeave.fxml"));
 		
+		Scene scene = new Scene(start,500,600);
+		st_chooseLeave.setScene(scene);
+		st_chooseLeave.setTitle("Choose Leave");
+		st_chooseLeave.show();
+	}
+	/*ReStart.fxml 数据域映射与监听器*/
+	@FXML
+	Button btChooseEasy = new Button();
+	@FXML
+	Button btChooseNormal = new Button();
+	@FXML
+	Button btChooseHard = new Button();
+	@FXML
+	Button btDontChoose = new Button();
+	@FXML
+	void chooseEasy(ActionEvent event) throws IOException{
+		Parent easy = FXMLLoader.load(getClass().getResource("Easy.fxml"));
+		
+		Scene scene = new Scene(easy,900,900);
+		thisStage.setScene(scene);
+		st_chooseLeave.close();
+	}
+	@FXML
+	void chooseNormal(ActionEvent event) throws IOException{
+		/* 完成后实装
+		Parent normal = FXMLLoader.load(getClass().getResource("Normal.fxml"));
+		
+		Scene scene = new Scene(normal,900,900);
+		thisStage.setScene(scene);
+		st_chooseLeave.close();
+		*/
+	}
+	@FXML
+	void chooseHard(ActionEvent event) throws IOException{
+		/* 完成后实装
+		Parent hard = FXMLLoader.load(getClass().getResource("Hard.fxml"));
+		
+		Scene scene = new Scene(hard,900,900);
+		thisStage.setScene(scene);
+		st_chooseLeave.close();
+		*/
+	}
+	@FXML
+	void dontChoose(ActionEvent event){
+		st_chooseLeave.close();
+	}
+	
+	@FXML
+	private void onSet(ActionEvent event) throws IOException{
+		Parent exit = FXMLLoader.load(getClass().getResource("Setting.fxml"));
+		
+		bgmM1.setToggleGroup(group);
+		bgmM2.setToggleGroup(group);
+
+		Scene scene = new Scene(exit,500,800);
+		setStage.setTitle("设置FGO GAME");
+		setStage.setScene(scene);
+		setStage.show();
 	}
 	@FXML
 	private void onRecord(ActionEvent event){

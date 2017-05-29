@@ -7,14 +7,53 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="497.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Main">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="698.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Main">
    <children>
-      <Button fx:id="startEasy" layoutX="224.0" layoutY="140.0" mnemonicParsing="false" onAction="#onStartEasy" prefHeight="78.0" prefWidth="140.0" text="EASY" />
-      <Button fx:id="startNormal" layoutX="224.0" layoutY="234.0" mnemonicParsing="false" onAction="#onStartNormal" prefHeight="78.0" prefWidth="140.0" text="NORMAL" />
-      <Button fx:id="startHard" layoutX="224.0" layoutY="328.0" mnemonicParsing="false" onAction="#onStartHard" prefHeight="78.0" prefWidth="140.0" text="HARD" />
-      <ImageView fx:id="startHelp" fitHeight="124.0" fitWidth="140.0" layoutX="435.0" layoutY="328.0" onMouseClicked="#onStartHelp" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="startExit" fitHeight="145.0" fitWidth="160.0" layoutX="14.0" layoutY="315.0" onMouseClicked="#onStartExit" pickOnBounds="true" preserveRatio="true" />
-      <Text layoutX="69.0" layoutY="411.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ImageView-预留-退出" />
-      <Text layoutX="480.0" layoutY="395.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ImageView-预留-帮助" />
+      <Button fx:id="startEasy" layoutX="224.0" layoutY="140.0" mnemonicParsing="false" onAction="#onStartEasy" prefHeight="78.0" prefWidth="140.0" text="简单">
+         <font>
+            <Font size="24.0" />
+         </font></Button>
+      <Button fx:id="startNormal" layoutX="224.0" layoutY="234.0" mnemonicParsing="false" onAction="#onStartNormal" prefHeight="78.0" prefWidth="140.0" text="一般">
+         <font>
+            <Font size="24.0" />
+         </font></Button>
+      <Button fx:id="startHard" layoutX="224.0" layoutY="328.0" mnemonicParsing="false" onAction="#onStartHard" prefHeight="78.0" prefWidth="140.0" text="困难">
+         <font>
+            <Font size="24.0" />
+         </font></Button>
+      <ImageView fx:id="startHelp" fitHeight="85.0" fitWidth="86.0" layoutX="50.0" layoutY="140.0" onMouseClicked="#onStartHelp" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="file:/X:/eclipse/workspace/Javafx%20test/src/application/images/icon_help.jpg" />
+         </image></ImageView>
+      <ImageView fx:id="startExit" fitHeight="78.0" fitWidth="78.0" layoutX="50.0" layoutY="296.0" onMouseClicked="#onStartExit" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="file:/X:/eclipse/workspace/Javafx%20test/src/application/images/icon_exit.jpg" />
+         </image></ImageView>
+      <Text layoutX="41.0" layoutY="398.0" strokeType="OUTSIDE" strokeWidth="0.0" text="退出游戏">
+         <font>
+            <Font size="24.0" />
+         </font></Text>
+      <Text layoutX="65.0" layoutY="258.0" strokeType="OUTSIDE" strokeWidth="0.0" text="帮助">
+         <font>
+            <Font size="24.0" />
+         </font></Text>
+      <ImageView fx:id="startSetting" fitHeight="94.0" fitWidth="85.0" layoutX="442.0" layoutY="138.0" onMouseClicked="#onStartSetting" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="file:/X:/eclipse/workspace/Javafx%20test/src/application/images/icon_setting.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="startAbout" fitHeight="78.0" fitWidth="85.0" layoutX="442.0" layoutY="298.0" onMouseClicked="#onStartAbout" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="file:/X:/eclipse/workspace/Javafx%20test/src/application/images/icon_about.jpg" />
+         </image></ImageView>
+      <Text layoutX="453.0" layoutY="257.0" strokeType="OUTSIDE" strokeWidth="0.0" text="设置">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Text layoutX="437.0" layoutY="397.0" strokeType="OUTSIDE" strokeWidth="0.0" text="关于我们">
+         <font>
+            <Font size="24.0" />
+         </font></Text>
    </children>
 </Pane>

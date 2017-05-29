@@ -26,3 +26,7 @@
 奖励惩罚特效太丑了感觉！！！需要修改
 
 BGM 使用舰C BGM 使用特殊BGM不太好感觉 再考虑一下怎么改
+
+倒计时BUG
+
+BGM 在使用 scene builder 的时候，radiobutton 不能通过 setSelected()　方法修改默认选中。是否可以修改？

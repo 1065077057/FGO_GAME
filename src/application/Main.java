@@ -2,7 +2,6 @@ package application;
 
 import java.io.File;
 import java.io.IOException;
-
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -10,6 +9,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.media.Media;
@@ -28,18 +29,29 @@ public class Main extends Application{
 	ImageView startHelp = new ImageView();
 	@FXML
 	ImageView startExit = new ImageView();
+	@FXML
+	ImageView startSetting = new ImageView();
+	@FXML
+	ImageView startAbout = new ImageView();
 	
 	// 定义 static Stage 用于关闭开始窗口打开新的窗口
 	public static Stage thisStage = new Stage();
+	public static Stage exitStage = new Stage();
+	public static Stage setStage = new Stage();
+	public static Stage aboutStage = new Stage();
+	// 继承使用的背景音乐
+	public static File M1 = new File("src\\application\\music\\M1.mp3");
+	public static File M2 = new File("src\\application\\music\\M2.mp3");
+	public static Media mediaBGMM1 = new Media(M1.toURI().toASCIIString());
+	public static MediaPlayer playerBGMM1 = new MediaPlayer(mediaBGMM1);
+	public static Media mediaBGMM2 = new Media(M2.toURI().toASCIIString());
+	public static MediaPlayer playerBGMM2 = new MediaPlayer(mediaBGMM2);
 	
 	public void start(Stage stage) throws IOException{
 		Parent start = FXMLLoader.load(getClass().getResource("Start.fxml"));
-		
-		File musicFile_M1 = new File("src\\application\\music\\M1.mp3");
-		Media musicMedia_M1 = new Media(musicFile_M1.toURI().toASCIIString());
-		MediaPlayer M1 = new MediaPlayer(musicMedia_M1);
+
 		/*测试阶段 暂时不自动播放
-		M1.setAutoPlay(true);
+		playerBGMM1.setAutoPlay(true);
 		*/
 		
 		Scene scene = new Scene(start,569,900);
@@ -58,6 +70,7 @@ public class Main extends Application{
 		thisStage.setScene(scene);
 		Scene helpScene = new Scene(help,250,250);
 		Stage helpStage = new Stage();
+		helpStage.setTitle("FGO Game Help");
 		helpStage.setScene(helpScene);
 		helpStage.show();
 	}
@@ -81,9 +94,70 @@ public class Main extends Application{
 		stage.setScene(scene);
 		stage.show();
 	}
+	
 	@FXML
-	private void onStartExit(MouseEvent event){
+	private void onStartExit(MouseEvent event) throws IOException{
+		Parent exit = FXMLLoader.load(getClass().getResource("Exit.fxml"));
+		
+		Scene scene = new Scene(exit,500,200);
+		exitStage.setTitle("退出FGO GAME");
+		exitStage.setScene(scene);
+		exitStage.show();
+	}
+	/*Exit.fxml 映射的数据域与一些监听器*/
+	@FXML
+	Button btDoExit = new Button();
+	@FXML
+	Button btDontExit = new Button();
+	@FXML
+	void doExit(ActionEvent event){
 		thisStage.close();
+		exitStage.close();
+	}
+	@FXML
+	void dontExit(ActionEvent event){
+		exitStage.close();
+	}
+	
+	
+	@FXML
+	private void onStartAbout(MouseEvent event) throws IOException{
+		Parent about = FXMLLoader.load(getClass().getResource("About.fxml"));
+		Scene scene = new Scene(about,300,300);
+		Stage stage = new Stage();
+		stage.setTitle("关于我们");
+		stage.setScene(scene);
+		stage.show();
+	}
+	
+	@FXML
+	private void onStartSetting(MouseEvent event) throws IOException{
+		Parent exit = FXMLLoader.load(getClass().getResource("Setting.fxml"));
+		
+		bgmM1.setToggleGroup(group);
+		bgmM2.setToggleGroup(group);
+
+		Scene scene = new Scene(exit,500,800);
+		setStage.setTitle("设置FGO GAME");
+		setStage.setScene(scene);
+		setStage.show();
+	}
+	/*Setting.fxml 映射的数据域与一些监听器*/
+	@FXML
+	RadioButton bgmM1 = new RadioButton();
+	@FXML
+	RadioButton bgmM2 = new RadioButton();
+	@FXML
+	ToggleGroup group = new ToggleGroup();
+	@FXML
+	public void changeM1(ActionEvent event){
+		playerBGMM2.stop();
+		playerBGMM1.play();
+	}
+	@FXML
+	public void changeM2(ActionEvent event){
+		playerBGMM1.stop();
+		playerBGMM2.play();
 	}
 	
 	public static void main(String[] args){

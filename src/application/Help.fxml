@@ -7,7 +7,7 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="558.0" prefWidth="417.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <TextArea layoutX="133.0" layoutY="132.0" prefHeight="200.0" prefWidth="200.0" text="如何玩 FGO GAME 保留位置" />
-      <Button layoutX="78.0" layoutY="73.0" mnemonicParsing="false" text="Button" />
+      <Button layoutX="181.0" layoutY="384.0" mnemonicParsing="false" text="Button" />
+      <TextArea layoutX="122.0" layoutY="96.0" prefHeight="200.0" prefWidth="200.0" text="完成后，使用一些截图再搞help" />
    </children>
 </Pane>

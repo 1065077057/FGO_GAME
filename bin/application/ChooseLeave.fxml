@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="473.0" prefWidth="487.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Easy">
+   <children>
+      <Text layoutX="171.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="选择难度" wrappingWidth="146.0">
+         <font>
+            <Font name="System Bold" size="36.0" />
+         </font>
+      </Text>
+      <Button fx:id="btChooseEasy" layoutX="181.0" layoutY="98.0" mnemonicParsing="false" onAction="#chooseEasy" prefHeight="65.0" prefWidth="113.0" text="简单" />
+      <Button fx:id="btChooseNormal" layoutX="181.0" layoutY="172.0" mnemonicParsing="false" onAction="#chooseNormal" prefHeight="65.0" prefWidth="113.0" text="一般" />
+      <Button fx:id="btChooseHard" layoutX="181.0" layoutY="248.0" mnemonicParsing="false" onAction="#chooseHard" prefHeight="65.0" prefWidth="113.0" text="困难" />
+      <Button fx:id="btDontChoose" layoutX="181.0" layoutY="322.0" mnemonicParsing="false" onAction="#dontChoose" prefHeight="65.0" prefWidth="113.0" text="取消" />
+   </children>
+</Pane>
