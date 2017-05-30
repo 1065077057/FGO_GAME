@@ -12,9 +12,10 @@
 	Scene Builder 大致框架-------------完成
 	翻牌逻辑与特效---------------------完成
 	奖励与惩罚特效---------------------完成（需要修改）
+	游戏结束与结算---------------------正在完成（主要逻辑已经写完，还没有完全部署与完成对应的gui）
 次要：
 	音乐部分---------------------------完成（在完成“设置”的时候添加更换BGM设置，完成）
-	倒计时-----------------------------完成
+	倒计时-----------------------------完成（bug已经修改完成）
 	单独几个部分（help等）的完善-------完成
 	分数的保存与游戏保存---------------正在考虑（使用数据库？）
 	边角问题添加与修改-----------------未进行
@@ -28,6 +29,28 @@
 
 BGM 使用舰C BGM 使用特殊BGM不太好感觉 再考虑一下怎么改
 
-倒计时BUG
+倒计时BUG--------已经修复
 
 BGM 在使用 scene builder 的时候，radiobutton 不能通过 setSelected()　方法修改默认选中。是否可以修改？
+
+准备完成记录部分，想到首先完善分数部分。分数目前只是写了分数统计，还没有写游戏结束与结算，先写这一部分。
+
+Timeline 官方文档：（内含自己的大概翻译）
+A simple Timeline can be created like this:
+（一个简单的时间线可以这样创建：）
+
+ final Timeline timeline = new Timeline();
+ timeline.setCycleCount(2);
+ timeline.setAutoReverse(true);
+ timeline.getKeyFrames().add(new KeyFrame(Duration.millis(5000),
+   new KeyValue (node.translateXProperty(), 25)));
+ timeline.play();
+ 
+This Timeline will run for 10s, animating the node by x axis to value 25 and then back to 0 on the second cycle.
+（该时间轴将运行10秒，将节点由x轴设为25，然后在第二个周期返回到0。）
+Warning : A running Timeline is being referenced from the FX runtime. Infinite Timeline might result in a memory leak if not stopped properly. All the objects with animated properties would not be garbage collected.
+（警告：正在从FX运行时引用正在运行的时间轴。如果没有正确停止，无限时间线可能会导致内存泄漏。所有具有动画属性的对象都不会被垃圾回收。）
+很有参考意义（还有这种操作.jpg）
+
+参考官方文档，将时间哪里的bug改了。之后准备好好写一份这方面的东西。
+这一段改的时间有点长，总之还是fx在不太理解情况下就写的结果。但是看文档的能力还是有一定提高的（虽然利用谷歌翻译）

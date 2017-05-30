@@ -23,6 +23,8 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 public class Easy extends Main{
+	// 这里一定要用 final 因为是跟动画有关。只有用final才能固定。
+	public final Timeline tl_timeEnd = new Timeline();
 	// 定义 static Stage 用于关闭开始窗口打开新的窗口
 	public static Stage returnStage = new Stage();
 	public static Stage st_chooseLeave = new Stage();
@@ -43,6 +45,9 @@ public class Easy extends Main{
 	private int score = 0;
 	private int reward = 0;
 	private int punish = 0;
+	// 游戏结束控制，牌全部翻完的情况与时间结束的情况
+	private int cardEndChoose = 0;
+	private int timeDead = 0;
 	
 	private Image img_0_0_kb;
 	private Image img_0_1_kb;
@@ -109,9 +114,9 @@ public class Easy extends Main{
 	@FXML
 	public Text scoreShow = new Text();
 	@FXML
-	public Text timeMinute = new Text();
+	public Text timeMinute = new Text("1");
 	@FXML
-	public Text timeSecond = new Text();
+	public Text timeSecond = new Text("00");
 	
 	// 随机分配图片方法
 	public static Image randomChoose(){
@@ -251,7 +256,7 @@ public class Easy extends Main{
 	protected void onClicked00(MouseEvent event){
 		if((event.getButton().toString() == "PRIMARY")&&(img_0_0.getImage() == IMGKB)&&(img_0_0.getOpacity() == 1)){
 			
-			/*	奖励惩罚特效测试代码，修改后删除注释符号，点击第一个图片即可运行该动画
+			/*	奖励惩罚特效测试代码，修改后删除注释符号，点击第一个图片即可运行该动画进行测试
 				flowTextForBadShow.setCycleCount(800);
 				flowTextForBadShow_end.setCycleCount(1);
 				flowTextForBadShow_end.play();
@@ -314,6 +319,10 @@ public class Easy extends Main{
 					score += 40;
 					reward++;
 					punish = 0;
+					cardEndChoose += 2;
+					if(cardEndChoose == 12){
+						
+					}
 					switch(reward){
 						case 3: {
 									score += 60;
@@ -778,7 +787,14 @@ public class Easy extends Main{
 		reward = 0;
 		punish = 0;
 		scoreShow.setText("0");
-		/* 倒计时开始 */
+		/* 
+		 * 倒计时开始 
+		 * 倒计时这一段算是使用了小技巧，根据官方文档的论述，解决了多重时间线的问题（属于
+		 * 内存泄露）以后要注意这一方面。官方给出：fx中的动画是不能被垃圾回收的，所以要自
+		 * 己控制。利用 final 等，最好将 timeline 等放在数据域中，保证不被内存泄露。
+		 * */
+		// 重置时间与时间结束控制
+		timeDead = 0;
 		timeMinute.setText("1");
 		timeSecond.setText("00");
 		EventHandler<ActionEvent> timeEnd = e -> {
@@ -795,10 +811,35 @@ public class Easy extends Main{
 					timeSecond.setText("0"+time);
 				}
 			}
+			if(time == 55 && timeChange == 0){
+				timeDead = 1;
+				Parent start;
+				
+				/*
+				 * 还是需要单独完成，不能完全复用
+				 * 
+				 * */
+				
+				
+				
+				try{
+					start = FXMLLoader.load(getClass().getResource("GameOver_Fail.fxml"));
+					Scene scene = new Scene(start,800,900);
+					Stage stage = new Stage();
+					stage.setTitle("Fail!");
+					stage.setScene(scene);
+					stage.show();
+				}catch(IOException e1){
+					//
+				}
+			}
 		};
 		KeyFrame kf_timeEnd = new KeyFrame(Duration.millis(1000),timeEnd);
-		Timeline tl_timeEnd = new Timeline(kf_timeEnd);
-		tl_timeEnd.setCycleCount(60);
+		if(tl_timeEnd.getKeyFrames().isEmpty()){
+			tl_timeEnd.getKeyFrames().add(kf_timeEnd);
+			tl_timeEnd.setCycleCount(60);
+		}
+		tl_timeEnd.stop();
 		tl_timeEnd.play();
 	}
 	

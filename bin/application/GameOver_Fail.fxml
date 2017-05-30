@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Easy">
+   <children>
+      <Text layoutX="200.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fail!">
+         <font>
+            <Font name="System Bold" size="96.0" />
+         </font>
+      </Text>
+      <Text layoutX="122.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="科比对绿军的复仇源于08年的失败！">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Button layoutX="236.0" layoutY="256.0" mnemonicParsing="false" onAction="#beganOnClicked" text="在来一次">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+      <Button layoutX="58.0" layoutY="256.0" mnemonicParsing="false" onAction="#onReStart" text="返回标题">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+      <Button layoutX="411.0" layoutY="256.0" mnemonicParsing="false" text="退出游戏">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+   </children>
+</Pane>

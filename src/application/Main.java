@@ -83,7 +83,7 @@ public class Main extends Application{
 		
 	}
 	
-	// Start.fxml 中左右退出与帮助 Button 监视器
+	// Start.fxml 中与帮助 Button 监听器
 	@FXML
 	private void onStartHelp(MouseEvent event) throws IOException{
 		Parent help = FXMLLoader.load(getClass().getResource("Help.fxml"));
@@ -95,6 +95,7 @@ public class Main extends Application{
 		stage.show();
 	}
 	
+	/*Exit.fxml 映射的数据域与一些监听器*/
 	@FXML
 	private void onStartExit(MouseEvent event) throws IOException{
 		Parent exit = FXMLLoader.load(getClass().getResource("Exit.fxml"));
@@ -104,7 +105,6 @@ public class Main extends Application{
 		exitStage.setScene(scene);
 		exitStage.show();
 	}
-	/*Exit.fxml 映射的数据域与一些监听器*/
 	@FXML
 	Button btDoExit = new Button();
 	@FXML
@@ -130,6 +130,7 @@ public class Main extends Application{
 		stage.show();
 	}
 	
+	/*Setting.fxml 映射的数据域与一些监听器*/
 	@FXML
 	private void onStartSetting(MouseEvent event) throws IOException{
 		Parent exit = FXMLLoader.load(getClass().getResource("Setting.fxml"));
@@ -142,7 +143,6 @@ public class Main extends Application{
 		setStage.setScene(scene);
 		setStage.show();
 	}
-	/*Setting.fxml 映射的数据域与一些监听器*/
 	@FXML
 	RadioButton bgmM1 = new RadioButton();
 	@FXML
