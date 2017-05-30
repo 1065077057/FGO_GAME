@@ -8,12 +8,12 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Easy">
    <children>
-      <Text layoutX="200.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fail!">
+      <Text layoutX="200.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Win!">
          <font>
             <Font name="System Bold" size="96.0" />
          </font>
       </Text>
-      <Text layoutX="122.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="科比对绿军的复仇源于08年的失败！">
+      <Text layoutX="265.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="胜亦不骄！">
          <font>
             <Font size="24.0" />
          </font>

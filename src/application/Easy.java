@@ -4,6 +4,7 @@ package application;
 
 import java.io.IOException;
 import java.util.Random;
+
 import javafx.animation.FadeTransition;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -45,9 +46,11 @@ public class Easy extends Main{
 	private int score = 0;
 	private int reward = 0;
 	private int punish = 0;
-	// 游戏结束控制，牌全部翻完的情况与时间结束的情况
+	// 游戏结束控制，牌全部翻完的情况与时间结束的情况以及新的窗口
 	private int cardEndChoose = 0;
 	private int timeDead = 0;
+	public static Stage failStage = new Stage();
+	public static Stage winStage = new Stage();
 	
 	private Image img_0_0_kb;
 	private Image img_0_1_kb;
@@ -253,8 +256,8 @@ public class Easy extends Main{
 	 * 这样封装成帧后在 Timeline 中表现成动画
 	 * */
 	@FXML
-	protected void onClicked00(MouseEvent event){
-		if((event.getButton().toString() == "PRIMARY")&&(img_0_0.getImage() == IMGKB)&&(img_0_0.getOpacity() == 1)){
+	protected void onClicked00(MouseEvent event) throws IOException{
+		if((event.getButton().toString() == "PRIMARY")&&(img_0_0.getImage() == IMGKB)&&(img_0_0.getOpacity() == 1)&&(timeDead == 0)){
 			
 			/*	奖励惩罚特效测试代码，修改后删除注释符号，点击第一个图片即可运行该动画进行测试
 				flowTextForBadShow.setCycleCount(800);
@@ -320,8 +323,15 @@ public class Easy extends Main{
 					reward++;
 					punish = 0;
 					cardEndChoose += 2;
-					if(cardEndChoose == 12){
-						
+					// 胜利！
+					if(cardEndChoose == 2){
+						cardEndChoose = 0;
+						tl_timeEnd.stop();
+						Parent start = FXMLLoader.load(getClass().getResource("GameOver_Win.fxml"));
+						Scene scene = new Scene(start,500,200);
+						winStage.setTitle("WIN!");
+						winStage.setScene(scene);
+						winStage.show();
 					}
 					switch(reward){
 						case 3: {
@@ -795,6 +805,7 @@ public class Easy extends Main{
 		 * */
 		// 重置时间与时间结束控制
 		timeDead = 0;
+		cardEndChoose = 0;
 		timeMinute.setText("1");
 		timeSecond.setText("00");
 		EventHandler<ActionEvent> timeEnd = e -> {
@@ -811,26 +822,28 @@ public class Easy extends Main{
 					timeSecond.setText("0"+time);
 				}
 			}
-			if(time == 55 && timeChange == 0){
+			// time 的值测试使用，实际上应该是 0
+			if(time == 0 && timeChange == 0){
 				timeDead = 1;
-				Parent start;
-				
 				/*
-				 * 还是需要单独完成，不能完全复用
-				 * 
+				 * 还是需要单独完成，不能完全复用，方案：
+				 * 尽量将fail或者win窗口当做跳板。参考成功与失败部分：
+				 * 成功：返回标题，跳到了确认窗口，这样只用对 failStage 使用 close 方法
+				 * 失败：在来一次，直接调用 重新开始 监听器，由于本质上调用的并不是 Easy.fxml
+				 * 		 中的映射，所以无法找到，抛出异常。
+				 * 综上，要么当做跳板，要么单独制作一部分。跳板制作一个确认窗口也是有好
+				 * 处的。
+				 * 不能直接使用 Main 的继承。因为 Easy 继承 Main 跟fail窗口无关
 				 * */
-				
-				
-				
+				Parent start;
 				try{
 					start = FXMLLoader.load(getClass().getResource("GameOver_Fail.fxml"));
 					Scene scene = new Scene(start,800,900);
-					Stage stage = new Stage();
-					stage.setTitle("Fail!");
-					stage.setScene(scene);
-					stage.show();
+					failStage.setTitle("Fail!");
+					failStage.setScene(scene);
+					failStage.show();
 				}catch(IOException e1){
-					//
+					// null
 				}
 			}
 		};
@@ -841,9 +854,23 @@ public class Easy extends Main{
 		}
 		tl_timeEnd.stop();
 		tl_timeEnd.play();
+		failStage.close();
+	}
+	/*fail 窗口单独需要的监听器与数据域映射*/
+	@FXML
+	Button btOnceAgain = new Button();
+	@FXML
+	private void onceAgain(ActionEvent event) throws IOException{
+		Parent easy = FXMLLoader.load(getClass().getResource("Easy.fxml"));
+		
+		Scene scene = new Scene(easy,800,900);
+		thisStage.setScene(scene);
+		failStage.close();
+		winStage.close();
 	}
 	
 	// MenuBar 各个 MenuItem 监听器
+	/*ReStart.fxml 数据域映射与监听器*/
 	@FXML
 	private void onReStart(ActionEvent event) throws IOException{
 		Parent reStart = FXMLLoader.load(getClass().getResource("ReStart.fxml"));
@@ -852,7 +879,6 @@ public class Easy extends Main{
 		returnStage.setScene(returnScene);
 		returnStage.show();
 	}
-	/*ReStart.fxml 数据域映射与监听器*/
 	@FXML
 	Button btDoReturn = new Button();
 	@FXML
@@ -865,10 +891,16 @@ public class Easy extends Main{
 		thisStage.setScene(scene);
 		thisStage.show();
 		returnStage.close();
+		// 添加游戏结束的时候弹出窗口的操作 
+		failStage.close();
+		winStage.close();
 	}
 	@FXML
 	void dontReturn(ActionEvent event){
 		returnStage.close();
+		// 添加游戏结束的时候弹出窗口的操作 
+		failStage.close();
+		winStage.close();
 	}
 	
 	@FXML
