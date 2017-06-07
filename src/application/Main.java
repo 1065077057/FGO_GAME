@@ -39,6 +39,9 @@ public class Main extends Application{
 	public static Stage exitStage = new Stage();
 	public static Stage setStage = new Stage();
 	public static Stage aboutStage = new Stage();
+	// 继承给 Easy 等使用的
+	public static Stage failStage = new Stage();
+	public static Stage winStage = new Stage();
 	// 继承使用的背景音乐
 	public static File M1 = new File("src\\application\\music\\M1.mp3");
 	public static File M2 = new File("src\\application\\music\\M2.mp3");
@@ -113,6 +116,8 @@ public class Main extends Application{
 	void doExit(ActionEvent event){
 		thisStage.close();
 		exitStage.close();
+		winStage.close();
+		failStage.close();
 	}
 	@FXML
 	void dontExit(ActionEvent event){

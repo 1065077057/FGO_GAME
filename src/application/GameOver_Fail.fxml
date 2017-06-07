@@ -18,7 +18,7 @@
             <Font size="24.0" />
          </font>
       </Text>
-      <Button fx:id="btOnceAgain" layoutX="236.0" layoutY="256.0" mnemonicParsing="false" onAction="#onceAgain" text="在来一次">
+      <Button fx:id="btOnceAgain" layoutX="236.0" layoutY="256.0" mnemonicParsing="false" onAction="#onceAgain" text="再来一次">
          <font>
             <Font size="24.0" />
          </font>

@@ -6,32 +6,42 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Easy">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="464.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Easy">
    <children>
       <Text layoutX="200.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Win!">
          <font>
             <Font name="System Bold" size="96.0" />
          </font>
       </Text>
-      <Text layoutX="265.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="胜亦不骄！">
+      <Text layoutX="254.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="胜亦不骄！">
          <font>
             <Font size="24.0" />
          </font>
       </Text>
-      <Button fx:id="btOnceAgain" layoutX="236.0" layoutY="256.0" mnemonicParsing="false" onAction="#onceAgain" text="在来一次">
+      <Button fx:id="btOnceAgain" layoutX="236.0" layoutY="353.0" mnemonicParsing="false" onAction="#onceAgain" text="再来一次">
          <font>
             <Font size="24.0" />
          </font>
       </Button>
-      <Button layoutX="58.0" layoutY="256.0" mnemonicParsing="false" onAction="#onReStart" text="返回标题">
+      <Button layoutX="57.0" layoutY="353.0" mnemonicParsing="false" onAction="#onReStart" text="返回标题">
          <font>
             <Font size="24.0" />
          </font>
       </Button>
-      <Button layoutX="411.0" layoutY="256.0" mnemonicParsing="false" text="退出游戏">
+      <Button fx:id="exit" layoutX="403.0" layoutY="353.0" mnemonicParsing="false" onAction="#onExit" text="退出游戏">
          <font>
             <Font size="24.0" />
          </font>
       </Button>
+      <Text layoutX="214.0" layoutY="250.0" strokeType="OUTSIDE" strokeWidth="0.0" text="游戏得分" wrappingWidth="198.240234375">
+         <font>
+            <Font size="48.0" />
+         </font>
+      </Text>
+      <Text fx:id="finalScore" layoutX="258.0" layoutY="327.0" strokeType="OUTSIDE" strokeWidth="0.0">
+         <font>
+            <Font size="48.0" />
+         </font>
+      </Text>
    </children>
 </Pane>

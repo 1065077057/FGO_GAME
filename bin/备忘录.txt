@@ -61,3 +61,5 @@ Warning : A running Timeline is being referenced from the FX runtime. Infinite T
 游戏中的退出也是结算页面完善的部分。
 
 结算页面的“退出”，参考上文，需要先把游戏中的退出写完，在添加一下就好。
+
+分数显示部分bug，使用scene builder刚开始加载时就是第一次显示时的样子，不能临时改。

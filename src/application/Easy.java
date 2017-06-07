@@ -49,8 +49,6 @@ public class Easy extends Main{
 	// 游戏结束控制，牌全部翻完的情况与时间结束的情况以及新的窗口
 	private int cardEndChoose = 0;
 	private int timeDead = 0;
-	public static Stage failStage = new Stage();
-	public static Stage winStage = new Stage();
 	
 	private Image img_0_0_kb;
 	private Image img_0_1_kb;
@@ -120,6 +118,9 @@ public class Easy extends Main{
 	public Text timeMinute = new Text("1");
 	@FXML
 	public Text timeSecond = new Text("00");
+	// 胜利页面显示分数的映射
+	@FXML
+	public Text finalScore = new Text();
 	
 	// 随机分配图片方法
 	public static Image randomChoose(){
@@ -324,7 +325,11 @@ public class Easy extends Main{
 					punish = 0;
 					cardEndChoose += 2;
 					// 胜利！
+					/*
+					 * 测试，实际上 cardEndChoose 的值应该是当前难度的总卡片数
+					 * */
 					if(cardEndChoose == 2){
+						// 同时初始化 cardEndChoose
 						cardEndChoose = 0;
 						tl_timeEnd.stop();
 						Parent start = FXMLLoader.load(getClass().getResource("GameOver_Win.fxml"));
@@ -332,6 +337,10 @@ public class Easy extends Main{
 						winStage.setTitle("WIN!");
 						winStage.setScene(scene);
 						winStage.show();
+						/*
+						 * 分数显示bug
+						 * */
+						finalScore.setText(""+(score+60-Integer.parseInt(timeSecond.getText())));
 					}
 					switch(reward){
 						case 3: {
@@ -988,5 +997,18 @@ public class Easy extends Main{
 		stage.setTitle("FGO Game About");
 		stage.setScene(scene);
 		stage.show();
+	}
+	
+	/*胜利、失败窗口点击退出的操作*/
+	@FXML
+	public Button exit = new Button();
+	@FXML
+	private void onExit(ActionEvent event) throws IOException{
+		Parent exit = FXMLLoader.load(getClass().getResource("Exit.fxml"));
+		
+		Scene scene = new Scene(exit,500,200);
+		exitStage.setTitle("退出FGO GAME");
+		exitStage.setScene(scene);
+		exitStage.show();
 	}
 }

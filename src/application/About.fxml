@@ -1,13 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="458.0" prefWidth="356.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="394.0" prefWidth="438.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <TextArea layoutX="60.0" layoutY="121.0" prefHeight="200.0" prefWidth="200.0" text="版权等扯淡文本" />
+      <ImageView fitHeight="416.0" fitWidth="200.0" layoutY="107.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="file:/X:/eclipse/workspace/Javafx%20test/src/application/images/about1.jpg" />
+         </image>
+      </ImageView>
+      <Text layoutX="147.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="关于游戏">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Text>
+      <Text layoutX="213.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="该游戏素材来源：" />
+      <Text layoutX="213.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fate/Grande Order" />
+      <Text layoutX="213.0" layoutY="194.0" strokeType="OUTSIDE" strokeWidth="0.0" text="制作人员" />
+      <Text layoutX="213.0" layoutY="219.0" strokeType="OUTSIDE" strokeWidth="0.0" text="哈尔滨师范大学" />
+      <Text layoutX="213.0" layoutY="253.0" strokeType="OUTSIDE" strokeWidth="0.0" text="李东倍" />
+      <Text layoutX="237.0" layoutY="234.0" strokeType="OUTSIDE" strokeWidth="0.0" text="计算机科学与信息工程学院" />
+      <Text layoutX="213.0" layoutY="304.0" strokeType="OUTSIDE" strokeWidth="0.0" text="大一期末项目完成的小游戏" />
+      <Text layoutX="213.0" layoutY="319.0" strokeType="OUTSIDE" strokeWidth="0.0" text="虽然写的很简陋" />
+      <Text layoutX="213.0" layoutY="334.0" strokeType="OUTSIDE" strokeWidth="0.0" text="但是过程中还是学到了很多东西" />
+      <Text layoutX="213.0" layoutY="349.0" strokeType="OUTSIDE" strokeWidth="0.0" text="同时也认识到自己与dalao的差距" />
+      <Text layoutX="213.0" layoutY="364.0" strokeType="OUTSIDE" strokeWidth="0.0" text="只能说学无止境吧" />
+      <Text layoutX="213.0" layoutY="379.0" strokeType="OUTSIDE" strokeWidth="0.0" text="大一结束，大二加油！" />
    </children>
 </Pane>
