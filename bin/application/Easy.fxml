@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="799.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Easy">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1186.0" prefWidth="799.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Easy">
    <children>
       <MenuBar>
         <menus>
@@ -168,40 +168,40 @@
             <Insets left="100.0" right="100.0" />
          </padding>
       </HBox>
-      <Button fx:id="began" mnemonicParsing="false" onAction="#beganOnClicked" prefHeight="178.0" prefWidth="288.0" text="开始/重置游戏">
+      <Button fx:id="began" mnemonicParsing="false" onAction="#beganOnClicked" prefHeight="76.0" prefWidth="288.0" text="开始/重置游戏">
          <font>
             <Font size="24.0" />
          </font>
          <VBox.margin>
             <Insets left="240.0" />
          </VBox.margin></Button>
-      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF;">
+      <Pane prefHeight="331.0" prefWidth="799.0" style="-fx-background-color: #FFFFFF;">
          <children>
-            <Text fx:id="textGood" layoutY="65.0" opacity="0.0" strokeType="OUTSIDE" strokeWidth="0.0" text="GOOD!" textAlignment="CENTER" wrappingWidth="800.0">
-               <font>
-                  <Font size="72.0" />
-               </font>
-            </Text>
-            <Text fx:id="textGreat" layoutY="65.0" opacity="0.0" strokeType="OUTSIDE" strokeWidth="0.0" text="GREAT!" textAlignment="CENTER" wrappingWidth="800.0">
-               <font>
-                  <Font size="72.0" />
-               </font>
-            </Text>
-            <Text fx:id="textUnbelievable" layoutY="65.0" opacity="0.0" strokeType="OUTSIDE" strokeWidth="0.0" text="UNBELIEVABLE!" textAlignment="CENTER" wrappingWidth="800.0">
-               <font>
-                  <Font size="72.0" />
-               </font>
-            </Text>
-            <Text fx:id="textBad" layoutY="65.0" opacity="0.0" strokeType="OUTSIDE" strokeWidth="0.0" text="BAD!" textAlignment="CENTER" wrappingWidth="800.0">
-               <font>
-                  <Font size="72.0" />
-               </font>
-            </Text>
-            <Text fx:id="textWorse" layoutY="65.0" opacity="0.0" strokeType="OUTSIDE" strokeWidth="0.0" text="WORSE!" textAlignment="CENTER" wrappingWidth="800.0">
-               <font>
-                  <Font size="72.0" />
-               </font>
-            </Text>
+            <ImageView fx:id="textGood" fitHeight="386.0" fitWidth="420.0" layoutX="200.0" layoutY="10.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/good.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="textGreat" fitHeight="386.0" fitWidth="420.0" layoutX="210.0" layoutY="20.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/great.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="textUnbelievable" fitHeight="386.0" fitWidth="420.0" layoutX="200.0" layoutY="10.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/unbelievable.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="textBad" fitHeight="386.0" fitWidth="420.0" layoutX="190.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/bad.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="textWorse" fitHeight="386.0" fitWidth="420.0" layoutX="200.0" layoutY="10.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/worse.png" />
+               </image>
+            </ImageView>
          </children>
       </Pane>
    </children>

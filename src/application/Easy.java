@@ -91,15 +91,15 @@ public class Easy extends Main{
 	@FXML
 	private ImageView img_2_3;
 	@FXML
-	public Text textGood = new Text();
+	public ImageView textGood = new ImageView();
 	@FXML
-	public Text textGreat = new Text();
+	public ImageView textGreat = new ImageView();
 	@FXML
-	public Text textUnbelievable = new Text();
+	public ImageView textUnbelievable = new ImageView();
 	@FXML
-	public Text textBad = new Text();
+	public ImageView textBad = new ImageView();
 	@FXML
-	public Text textWorse = new Text();
+	public ImageView textWorse = new ImageView();
 	@FXML
 	public MenuItem reStart = new MenuItem();
 	@FXML
@@ -159,6 +159,9 @@ public class Easy extends Main{
 	 * 注意：
 	 * 下面部分是整体的代码，具体到使用只是对 Timeline 的设置，只有2行代码，调用
 	 * 了重复次数方法与 play 方法。
+	 * 
+	 * 关于特效中命名问题，由于最初版本中是Text呈现的特效，所以为了方便，在改成ImageView
+	 * 后仍然使用原名字
 	 * */
 	EventHandler<ActionEvent> flowTextForGood = e -> {
 		textGood.setOpacity(1);
@@ -260,12 +263,12 @@ public class Easy extends Main{
 	protected void onClicked00(MouseEvent event) throws IOException{
 		if((event.getButton().toString() == "PRIMARY")&&(img_0_0.getImage() == IMGKB)&&(img_0_0.getOpacity() == 1)&&(timeDead == 0)){
 			
-			/*	奖励惩罚特效测试代码，修改后删除注释符号，点击第一个图片即可运行该动画进行测试
-				flowTextForBadShow.setCycleCount(800);
+			
+				flowTextForBadShow.setCycleCount(260);
 				flowTextForBadShow_end.setCycleCount(1);
 				flowTextForBadShow_end.play();
 				flowTextForBadShow.play();
-			*/
+			
 
 			EventHandler<ActionEvent> backToLeave = e -> {
 				FadeTransition ft = new FadeTransition(Duration.millis(450),img_0_0); 
@@ -345,21 +348,21 @@ public class Easy extends Main{
 					switch(reward){
 						case 3: {
 									score += 60;
-									flowTextForGoodShow.setCycleCount(800);
+									flowTextForGoodShow.setCycleCount(260);
 									flowTextForGoodShow_end.setCycleCount(1);
 									flowTextForGoodShow_end.play();
 									flowTextForGoodShow.play();
 								}break;
 						case 5: {
 									score += 120;
-									flowTextForGreatShow.setCycleCount(800);
+									flowTextForGreatShow.setCycleCount(260);
 									flowTextForGreatShow_end.setCycleCount(1);
 									flowTextForGreatShow_end.play();
 									flowTextForGreatShow.play();
 								}break;
 						case 9: {
 									score += 380;
-									flowTextForUnbelievableShow.setCycleCount(800);
+									flowTextForUnbelievableShow.setCycleCount(260);
 									flowTextForUnbelievableShow_end.setCycleCount(1);
 									flowTextForUnbelievableShow_end.play();
 									flowTextForUnbelievableShow.play();
@@ -409,7 +412,7 @@ public class Easy extends Main{
 									}else{
 										score = 0;
 									}
-									flowTextForBadShow.setCycleCount(800);
+									flowTextForBadShow.setCycleCount(260);
 									flowTextForBadShow_end.setCycleCount(1);
 									flowTextForBadShow_end.play();
 									flowTextForBadShow.play();
@@ -420,7 +423,7 @@ public class Easy extends Main{
 									}else{
 										score = 0;
 									}
-									flowTextForBadShow.setCycleCount(800);
+									flowTextForBadShow.setCycleCount(260);
 									flowTextForBadShow_end.setCycleCount(1);
 									flowTextForBadShow_end.play();
 									flowTextForBadShow.play();
