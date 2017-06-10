@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="159.0" prefWidth="487.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Main">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="159.0" prefWidth="487.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Main">
    <children>
       <Button fx:id="btDoExit" layoutX="292.0" layoutY="92.0" mnemonicParsing="false" onAction="#doExit" prefHeight="35.0" prefWidth="99.0" text="退出" />
       <Button fx:id="btDontExit" layoutX="97.0" layoutY="92.0" mnemonicParsing="false" onAction="#dontExit" prefHeight="35.0" prefWidth="99.0" text="再玩一会" />

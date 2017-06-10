@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="698.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Main">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="698.0" prefWidth="600.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Main">
    <children>
       <Button fx:id="startEasy" layoutX="224.0" layoutY="140.0" mnemonicParsing="false" onAction="#onStartEasy" prefHeight="78.0" prefWidth="140.0" text="简单">
          <font>
@@ -55,5 +55,9 @@
          <font>
             <Font size="24.0" />
          </font></Text>
+      <ImageView fitHeight="132.0" fitWidth="527.0" layoutX="36.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="file:/X:/eclipse/workspace/Javafx%20test/src/application/images/indextop.jpg" />
+         </image></ImageView>
    </children>
 </Pane>
