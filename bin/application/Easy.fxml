@@ -177,27 +177,27 @@
          </VBox.margin></Button>
       <Pane prefHeight="331.0" prefWidth="799.0" style="-fx-background-color: #FFFFFF;">
          <children>
-            <ImageView fx:id="textGood" fitHeight="386.0" fitWidth="420.0" layoutX="200.0" layoutY="10.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="textGood" fitHeight="386.0" fitWidth="420.0" layoutX="242.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/good.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="textGreat" fitHeight="386.0" fitWidth="420.0" layoutX="210.0" layoutY="20.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="textGreat" fitHeight="386.0" fitWidth="420.0" layoutX="242.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/great.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="textUnbelievable" fitHeight="386.0" fitWidth="420.0" layoutX="200.0" layoutY="10.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="textUnbelievable" fitHeight="386.0" fitWidth="420.0" layoutX="242.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/unbelievable.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="textBad" fitHeight="386.0" fitWidth="420.0" layoutX="190.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="textBad" fitHeight="386.0" fitWidth="420.0" layoutX="242.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/bad.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="textWorse" fitHeight="386.0" fitWidth="420.0" layoutX="200.0" layoutY="10.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="textWorse" fitHeight="386.0" fitWidth="420.0" layoutX="242.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/worse.png" />
                </image>

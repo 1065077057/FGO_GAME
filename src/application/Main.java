@@ -1,9 +1,9 @@
 package application;
 
 import java.io.File;
-import java.io.FileReader;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
-
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -53,9 +53,8 @@ public class Main extends Application{
 	public static MediaPlayer playerBGMM2 = new MediaPlayer(mediaBGMM2);
 	
 	// 关于记录，以及写入文件
-	public File file = new File("src\\application\\file.txt");
-	public FileReader fr;
-	public int[] record_score = new int[3];
+	public FileInputStream input;
+	public static int[] record_score = new int[3];
 	
 	public void start(Stage stage) throws IOException{
 		Parent start = FXMLLoader.load(getClass().getResource("Start.fxml"));
@@ -64,7 +63,12 @@ public class Main extends Application{
 		playerBGMM1.setAutoPlay(true);
 		*/
 		// 加载得分记录
-//		fr = new FileReader(file);
+		input = new FileInputStream("src/application/text.bat");
+		for(int i = 0;i < 3;i++){
+			record_score[i] = input.read();
+		}
+		input.close();
+		
 		Scene scene = new Scene(start,569,900);
 		thisStage.setTitle("FGO Game");
 		thisStage.setScene(scene);

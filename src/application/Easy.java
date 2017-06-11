@@ -2,6 +2,8 @@
 
 package application;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Random;
 
@@ -43,7 +45,7 @@ public class Easy extends Main{
 	private String twoPoint = null;
 	private ImageView last = null;
 	// 关于分数的部分，记分变量、临时储存惩罚或奖励机制的变量
-	private int score = 0;
+	public static int score = 0;
 	private int reward = 0;
 	private int punish = 0;
 	// 游戏结束控制，牌全部翻完的情况与时间结束的情况以及新的窗口
@@ -142,6 +144,28 @@ public class Easy extends Main{
 						};break;
 			}
 		}
+	}
+	// 写入记录方法。每次游戏结束，都更新记录
+	public static void write_record() throws IOException{
+		for(int i = 2;i >= 0;i--){
+			if(score > record_score[i]){
+				if(i != 2){
+					record_score[i+1] = record_score[i];
+				}
+				if(i == 0){
+					record_score[0] = score;
+				}
+			}else{
+				if(i != 2){
+					record_score[i+1] = score;
+				}
+			}
+		}
+		FileOutputStream output = new FileOutputStream("src/application/text.bat");
+		for(int i = 0;i < 3;i++){
+			output.write(record_score[i]);
+		}
+		output.close();
 	}
 	/*
 	 * 奖励惩罚文字特效测试部分完成。
@@ -262,13 +286,21 @@ public class Easy extends Main{
 	@FXML
 	protected void onClicked00(MouseEvent event) throws IOException{
 		if((event.getButton().toString() == "PRIMARY")&&(img_0_0.getImage() == IMGKB)&&(img_0_0.getOpacity() == 1)&&(timeDead == 0)){
-			
-			
+
+			/*  测试特效使用，直接点击图片 0,0
 				flowTextForBadShow.setCycleCount(260);
 				flowTextForBadShow_end.setCycleCount(1);
 				flowTextForBadShow_end.play();
 				flowTextForBadShow.play();
+			*/
 			
+			/* 记录写入文件测试，直接点击0 0 图片即可测试是否写入文件。
+			score = 30;
+			write_record();
+			for(int i = 0;i < 3;i++){
+				System.out.println(record_score[i]);
+			}
+			*/
 
 			EventHandler<ActionEvent> backToLeave = e -> {
 				FadeTransition ft = new FadeTransition(Duration.millis(450),img_0_0); 
@@ -979,8 +1011,14 @@ public class Easy extends Main{
 		setStage.show();
 	}
 	@FXML
-	private void onRecord(ActionEvent event){
+	private void onRecord(ActionEvent event) throws IOException{
+		Parent record = FXMLLoader.load(getClass().getResource("Record.fxml"));
 		
+		Scene scene = new Scene(record,300,300);
+		Stage stage = new Stage();
+		stage.setTitle("FGO Game Record");
+		stage.setScene(scene);
+		stage.show();
 	}
 	@FXML
 	private void onHelp(ActionEvent event) throws IOException{
@@ -990,7 +1028,7 @@ public class Easy extends Main{
 		Stage stage = new Stage();
 		stage.setTitle("FGO Game Help");
 		stage.setScene(scene);
-		stage.showAndWait();
+		stage.show();
 	}
 	@FXML
 	private void onAbout(ActionEvent event) throws IOException{
