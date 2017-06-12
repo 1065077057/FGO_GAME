@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1186.0" prefWidth="799.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Easy">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1186.0" prefWidth="944.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Easy">
    <children>
       <MenuBar>
         <menus>
@@ -77,38 +77,46 @@
             </Text>
          </children>
       </HBox>
-      <HBox prefHeight="250.0" prefWidth="799.0" style="-fx-background-color: #FFFFFF;">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="10.0" stroke="BLACK" strokeType="INSIDE" width="597.0">
+         <VBox.margin>
+            <Insets left="100.0" top="50.0" />
+         </VBox.margin>
+      </Rectangle>
+      <HBox prefHeight="200.0" prefWidth="799.0" style="-fx-background-color: #FFFFFF;">
          <children>
             <ImageView fx:id="img_0_0" fitHeight="200.0" fitWidth="142.0" onMouseClicked="#onClicked00" pickOnBounds="true" preserveRatio="true">
                <HBox.margin>
                   <Insets />
                </HBox.margin>
                <image>
-                  <Image url="file:/X:/eclipse/workspace/Javafx%20test/src/application/images/KB.png" />
+                  <Image url="@images/KB.png" />
                </image>
             </ImageView>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#00050a" height="200.0" stroke="BLACK" strokeType="INSIDE" width="10.0" />
             <ImageView fx:id="img_0_1" fitHeight="200.0" fitWidth="142.0" onMouseClicked="#onClicked01" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="file:/X:/eclipse/workspace/Javafx%20test/src/application/images/KB.png" />
+                  <Image url="@images/KB.png" />
                </image>
             </ImageView>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#01101e" height="200.0" stroke="BLACK" strokeType="INSIDE" width="10.0" />
             <ImageView fx:id="img_0_2" fitHeight="200.0" fitWidth="142.0" onMouseClicked="#onClicked02" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="file:/X:/eclipse/workspace/Javafx%20test/src/application/images/KB.png" />
+                  <Image url="@images/KB.png" />
                </image>
             </ImageView>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#021628" height="200.0" stroke="BLACK" strokeType="INSIDE" width="10.0" />
             <ImageView fx:id="img_0_3" fitHeight="200.0" fitWidth="142.0" onMouseClicked="#onClicked03" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="file:/X:/eclipse/workspace/Javafx%20test/src/application/images/KB.png" />
+                  <Image url="@images/KB.png" />
                </image>
             </ImageView>
          </children>
          <padding>
-            <Insets left="100.0" right="100.0" top="50.0" />
-         </padding></HBox>
+            <Insets left="100.0" right="100.0" />
+         </padding>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin></HBox>
       <Rectangle arcHeight="5.0" arcWidth="5.0" height="10.0" stroke="BLACK" strokeType="INSIDE" width="597.0">
          <VBox.margin>
             <Insets left="100.0" />
@@ -118,22 +126,25 @@
          <children>
             <ImageView fx:id="img_1_0" fitHeight="200.0" fitWidth="142.0" onMouseClicked="#onClicked10" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="file:/X:/eclipse/workspace/Javafx%20test/src/application/images/059E.png" />
+                  <Image url="@images/KB.png" />
                </image>
             </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#00050a" height="200.0" stroke="BLACK" strokeType="INSIDE" width="10.0" />
             <ImageView fx:id="img_1_1" fitHeight="200.0" fitWidth="142.0" onMouseClicked="#onClicked11" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="file:/X:/eclipse/workspace/Javafx%20test/src/application/images/059E.png" />
+                  <Image url="@images/KB.png" />
                </image>
             </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#00050a" height="200.0" stroke="BLACK" strokeType="INSIDE" width="10.0" />
             <ImageView fx:id="img_1_2" fitHeight="200.0" fitWidth="142.0" onMouseClicked="#onClicked12" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="file:/X:/eclipse/workspace/Javafx%20test/src/application/images/059E.png" />
+                  <Image url="@images/KB.png" />
                </image>
             </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#00050a" height="200.0" stroke="BLACK" strokeType="INSIDE" width="10.0" />
             <ImageView fx:id="img_1_3" fitHeight="200.0" fitWidth="142.0" onMouseClicked="#onClicked13" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="file:/X:/eclipse/workspace/Javafx%20test/src/application/images/059E.png" />
+                  <Image url="@images/KB.png" />
                </image>
             </ImageView>
          </children>
@@ -141,26 +152,34 @@
             <Insets left="100.0" right="100.0" />
          </padding>
       </HBox>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="10.0" stroke="BLACK" strokeType="INSIDE" width="597.0">
+         <VBox.margin>
+            <Insets left="100.0" />
+         </VBox.margin>
+      </Rectangle>
       <HBox prefHeight="200.0" prefWidth="455.0" style="-fx-background-color: #FFFFFF;">
          <children>
             <ImageView fx:id="img_2_0" fitHeight="200.0" fitWidth="142.0" onMouseClicked="#onClicked20" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="file:/X:/eclipse/workspace/Javafx%20test/src/application/images/059E.png" />
+                  <Image url="@images/KB.png" />
                </image>
             </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#00050a" height="200.0" stroke="BLACK" strokeType="INSIDE" width="10.0" />
             <ImageView fx:id="img_2_1" fitHeight="200.0" fitWidth="142.0" onMouseClicked="#onClicked21" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="file:/X:/eclipse/workspace/Javafx%20test/src/application/images/059E.png" />
+                  <Image url="@images/KB.png" />
                </image>
             </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#00050a" height="200.0" stroke="BLACK" strokeType="INSIDE" width="10.0" />
             <ImageView fx:id="img_2_2" fitHeight="200.0" fitWidth="142.0" onMouseClicked="#onClicked22" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="file:/X:/eclipse/workspace/Javafx%20test/src/application/images/059E.png" />
+                  <Image url="@images/KB.png" />
                </image>
             </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#00050a" height="200.0" stroke="BLACK" strokeType="INSIDE" width="10.0" />
             <ImageView fx:id="img_2_3" fitHeight="200.0" fitWidth="142.0" onMouseClicked="#onClicked23" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="file:/X:/eclipse/workspace/Javafx%20test/src/application/images/059E.png" />
+                  <Image url="@images/KB.png" />
                </image>
             </ImageView>
          </children>
@@ -168,6 +187,11 @@
             <Insets left="100.0" right="100.0" />
          </padding>
       </HBox>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="10.0" stroke="BLACK" strokeType="INSIDE" width="597.0">
+         <VBox.margin>
+            <Insets left="100.0" />
+         </VBox.margin>
+      </Rectangle>
       <Button fx:id="began" mnemonicParsing="false" onAction="#beganOnClicked" prefHeight="76.0" prefWidth="288.0" text="开始/重置游戏">
          <font>
             <Font size="24.0" />

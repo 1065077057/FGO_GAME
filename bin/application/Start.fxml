@@ -23,11 +23,11 @@
          </font></Button>
       <ImageView fx:id="startHelp" fitHeight="85.0" fitWidth="86.0" layoutX="50.0" layoutY="140.0" onMouseClicked="#onStartHelp" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="file:/X:/eclipse/workspace/Javafx%20test/src/application/images/icon_help.jpg" />
+            <Image url="@images/icon_help.jpg" />
          </image></ImageView>
       <ImageView fx:id="startExit" fitHeight="78.0" fitWidth="78.0" layoutX="50.0" layoutY="296.0" onMouseClicked="#onStartExit" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="file:/X:/eclipse/workspace/Javafx%20test/src/application/images/icon_exit.jpg" />
+            <Image url="@images/icon_exit.jpg" />
          </image></ImageView>
       <Text layoutX="41.0" layoutY="398.0" strokeType="OUTSIDE" strokeWidth="0.0" text="退出游戏">
          <font>
@@ -39,12 +39,12 @@
          </font></Text>
       <ImageView fx:id="startSetting" fitHeight="94.0" fitWidth="85.0" layoutX="442.0" layoutY="138.0" onMouseClicked="#onStartSetting" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="file:/X:/eclipse/workspace/Javafx%20test/src/application/images/icon_setting.jpg" />
+            <Image url="@images/icon_setting.jpg" />
          </image>
       </ImageView>
       <ImageView fx:id="startAbout" fitHeight="78.0" fitWidth="85.0" layoutX="442.0" layoutY="298.0" onMouseClicked="#onStartAbout" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="file:/X:/eclipse/workspace/Javafx%20test/src/application/images/icon_about.jpg" />
+            <Image url="@images/icon_about.jpg" />
          </image></ImageView>
       <Text layoutX="453.0" layoutY="257.0" strokeType="OUTSIDE" strokeWidth="0.0" text="设置">
          <font>
@@ -57,7 +57,7 @@
          </font></Text>
       <ImageView fitHeight="132.0" fitWidth="527.0" layoutX="36.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="file:/X:/eclipse/workspace/Javafx%20test/src/application/images/indextop.jpg" />
+            <Image url="@images/indextop.jpg" />
          </image></ImageView>
    </children>
 </Pane>

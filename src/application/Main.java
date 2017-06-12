@@ -63,15 +63,17 @@ public class Main extends Application{
 		playerBGMM1.setAutoPlay(true);
 		*/
 		// 加载得分记录
-		input = new FileInputStream("src/application/text.bat");
+		input = new FileInputStream("src/application/record.bat");
 		for(int i = 0;i < 3;i++){
 			record_score[i] = input.read();
 		}
 		input.close();
 		
-		Scene scene = new Scene(start,569,900);
+		Scene scene = new Scene(start,569,450);
 		thisStage.setTitle("FGO Game");
 		thisStage.setScene(scene);
+		// 固定窗口大小
+		thisStage.setResizable(false);
 		thisStage.show();
 	}
 	
@@ -107,6 +109,7 @@ public class Main extends Application{
 		Stage stage = new Stage();
 		stage.setTitle("FGO Game Help");
 		stage.setScene(scene);
+		stage.setResizable(false);
 		stage.show();
 	}
 	
@@ -115,9 +118,10 @@ public class Main extends Application{
 	private void onStartExit(MouseEvent event) throws IOException{
 		Parent exit = FXMLLoader.load(getClass().getResource("Exit.fxml"));
 		
-		Scene scene = new Scene(exit,500,200);
+		Scene scene = new Scene(exit,480,160);
 		exitStage.setTitle("退出FGO GAME");
 		exitStage.setScene(scene);
+		exitStage.setResizable(false);
 		exitStage.show();
 	}
 	@FXML
@@ -140,10 +144,11 @@ public class Main extends Application{
 	@FXML
 	private void onStartAbout(MouseEvent event) throws IOException{
 		Parent about = FXMLLoader.load(getClass().getResource("About.fxml"));
-		Scene scene = new Scene(about,300,300);
+		Scene scene = new Scene(about,400,380);
 		Stage stage = new Stage();
 		stage.setTitle("关于我们");
 		stage.setScene(scene);
+		stage.setResizable(false);
 		stage.show();
 	}
 	
@@ -155,9 +160,10 @@ public class Main extends Application{
 		bgmM1.setToggleGroup(group);
 		bgmM2.setToggleGroup(group);
 
-		Scene scene = new Scene(exit,500,800);
+		Scene scene = new Scene(exit,360,500);
 		setStage.setTitle("设置FGO GAME");
 		setStage.setScene(scene);
+		setStage.setResizable(false);
 		setStage.show();
 	}
 	@FXML

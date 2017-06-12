@@ -11,7 +11,7 @@
    <children>
       <ImageView fitHeight="416.0" fitWidth="200.0" layoutY="107.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="file:/X:/eclipse/workspace/Javafx%20test/src/application/images/about1.jpg" />
+            <Image url="@images/about1.jpg" />
          </image>
       </ImageView>
       <Text layoutX="147.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="关于游戏">

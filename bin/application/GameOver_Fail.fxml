@@ -28,7 +28,7 @@
             <Font size="24.0" />
          </font>
       </Button>
-      <Button layoutX="411.0" layoutY="256.0" mnemonicParsing="false" text="退出游戏">
+      <Button fx:id="exit" layoutX="411.0" layoutY="256.0" mnemonicParsing="false" onAction="#onExit" text="退出游戏">
          <font>
             <Font size="24.0" />
          </font>

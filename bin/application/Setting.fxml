@@ -18,7 +18,7 @@
       </Text>
       <ImageView fitHeight="88.0" fitWidth="87.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="file:/X:/eclipse/workspace/Javafx%20test/src/application/images/icon_setting.jpg" />
+            <Image url="@images/icon_setting.jpg" />
          </image>
       </ImageView>
       <Line endX="230.0" layoutX="121.0" layoutY="158.0" opacity="0.87" startX="-100.0" stroke="#65a6fc" />

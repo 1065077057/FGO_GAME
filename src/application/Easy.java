@@ -2,11 +2,9 @@
 
 package application;
 
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Random;
-
 import javafx.animation.FadeTransition;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -161,7 +159,7 @@ public class Easy extends Main{
 				}
 			}
 		}
-		FileOutputStream output = new FileOutputStream("src/application/text.bat");
+		FileOutputStream output = new FileOutputStream("src/application/record.bat");
 		for(int i = 0;i < 3;i++){
 			output.write(record_score[i]);
 		}
@@ -368,9 +366,10 @@ public class Easy extends Main{
 						cardEndChoose = 0;
 						tl_timeEnd.stop();
 						Parent start = FXMLLoader.load(getClass().getResource("GameOver_Win.fxml"));
-						Scene scene = new Scene(start,500,200);
+						Scene scene = new Scene(start,600,460);
 						winStage.setTitle("WIN!");
 						winStage.setScene(scene);
+						winStage.setResizable(false);
 						winStage.show();
 						/*
 						 * 分数显示bug
@@ -882,9 +881,10 @@ public class Easy extends Main{
 				Parent start;
 				try{
 					start = FXMLLoader.load(getClass().getResource("GameOver_Fail.fxml"));
-					Scene scene = new Scene(start,800,900);
+					Scene scene = new Scene(start,600,360);
 					failStage.setTitle("Fail!");
 					failStage.setScene(scene);
+					failStage.setResizable(false);
 					failStage.show();
 				}catch(IOException e1){
 					// null
@@ -909,6 +909,7 @@ public class Easy extends Main{
 		
 		Scene scene = new Scene(easy,800,900);
 		thisStage.setScene(scene);
+		thisStage.setResizable(false);
 		failStage.close();
 		winStage.close();
 	}
@@ -919,8 +920,10 @@ public class Easy extends Main{
 	private void onReStart(ActionEvent event) throws IOException{
 		Parent reStart = FXMLLoader.load(getClass().getResource("ReStart.fxml"));
 		
-		Scene returnScene = new Scene(reStart,500,200);
+		Scene returnScene = new Scene(reStart,480,140);
 		returnStage.setScene(returnScene);
+		returnStage.setTitle("返回标题");
+		returnStage.setResizable(false);
 		returnStage.show();
 	}
 	@FXML
@@ -931,9 +934,10 @@ public class Easy extends Main{
 	void doReturn(ActionEvent event) throws IOException{
 		Parent start = FXMLLoader.load(getClass().getResource("Start.fxml"));
 		
-		Scene scene = new Scene(start,800,900);
+		Scene scene = new Scene(start,569,450);
 		thisStage.setScene(scene);
 		thisStage.show();
+		thisStage.setResizable(false);
 		returnStage.close();
 		// 添加游戏结束的时候弹出窗口的操作 
 		failStage.close();
@@ -951,9 +955,10 @@ public class Easy extends Main{
 	private void onChooseLeave(ActionEvent event) throws IOException{
 		Parent start = FXMLLoader.load(getClass().getResource("ChooseLeave.fxml"));
 		
-		Scene scene = new Scene(start,500,600);
+		Scene scene = new Scene(start,450,460);
 		st_chooseLeave.setScene(scene);
 		st_chooseLeave.setTitle("Choose Leave");
+		st_chooseLeave.setResizable(false);
 		st_chooseLeave.show();
 	}
 	/*ReStart.fxml 数据域映射与监听器*/
@@ -969,7 +974,7 @@ public class Easy extends Main{
 	void chooseEasy(ActionEvent event) throws IOException{
 		Parent easy = FXMLLoader.load(getClass().getResource("Easy.fxml"));
 		
-		Scene scene = new Scene(easy,900,900);
+		Scene scene = new Scene(easy,800,900);
 		thisStage.setScene(scene);
 		st_chooseLeave.close();
 	}
@@ -1005,19 +1010,21 @@ public class Easy extends Main{
 		bgmM1.setToggleGroup(group);
 		bgmM2.setToggleGroup(group);
 
-		Scene scene = new Scene(exit,500,800);
+		Scene scene = new Scene(exit,360,500);
 		setStage.setTitle("设置FGO GAME");
 		setStage.setScene(scene);
+		setStage.setResizable(false);
 		setStage.show();
 	}
 	@FXML
 	private void onRecord(ActionEvent event) throws IOException{
 		Parent record = FXMLLoader.load(getClass().getResource("Record.fxml"));
 		
-		Scene scene = new Scene(record,300,300);
+		Scene scene = new Scene(record,490,550);
 		Stage stage = new Stage();
 		stage.setTitle("FGO Game Record");
 		stage.setScene(scene);
+		stage.setResizable(false);
 		stage.show();
 	}
 	@FXML
@@ -1033,10 +1040,11 @@ public class Easy extends Main{
 	@FXML
 	private void onAbout(ActionEvent event) throws IOException{
 		Parent about = FXMLLoader.load(getClass().getResource("About.fxml"));
-		Scene scene = new Scene(about,300,300);
+		Scene scene = new Scene(about,400,380);
 		Stage stage = new Stage();
-		stage.setTitle("FGO Game About");
+		stage.setTitle("关于我们");
 		stage.setScene(scene);
+		stage.setResizable(false);
 		stage.show();
 	}
 	
