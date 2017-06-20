@@ -2,7 +2,6 @@ package application;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -52,23 +51,12 @@ public class Main extends Application{
 	public static Media mediaBGMM2 = new Media(M2.toURI().toASCIIString());
 	public static MediaPlayer playerBGMM2 = new MediaPlayer(mediaBGMM2);
 	
-	// 关于记录，以及写入文件
-	public FileInputStream input;
-	public static int[] record_score = new int[3];
-	
 	public void start(Stage stage) throws IOException{
 		Parent start = FXMLLoader.load(getClass().getResource("Start.fxml"));
 
 		/*测试阶段 暂时不自动播放
 		playerBGMM1.setAutoPlay(true);
-		*/
-		// 加载得分记录
-		input = new FileInputStream("src/application/record.bat");
-		for(int i = 0;i < 3;i++){
-			record_score[i] = input.read();
-		}
-		input.close();
-		
+		*/	
 		Scene scene = new Scene(start,569,450);
 		thisStage.setTitle("FGO Game");
 		thisStage.setScene(scene);
@@ -83,7 +71,7 @@ public class Main extends Application{
 		Parent easy = FXMLLoader.load(getClass().getResource("Easy.fxml"));
 		Parent help = FXMLLoader.load(getClass().getResource("Help.fxml"));
 		
-		Scene scene = new Scene(easy,800,900);
+		Scene scene = new Scene(easy,950,900);
 		thisStage.setScene(scene);
 		Scene helpScene = new Scene(help,250,250);
 		Stage helpStage = new Stage();

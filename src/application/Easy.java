@@ -2,9 +2,12 @@
 
 package application;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Random;
+
 import javafx.animation.FadeTransition;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -44,6 +47,7 @@ public class Easy extends Main{
 	private ImageView last = null;
 	// 关于分数的部分，记分变量、临时储存惩罚或奖励机制的变量
 	public static int score = 0;
+	private static Object input;
 	private int reward = 0;
 	private int punish = 0;
 	// 游戏结束控制，牌全部翻完的情况与时间结束的情况以及新的窗口
@@ -115,12 +119,9 @@ public class Easy extends Main{
 	@FXML
 	public Text scoreShow = new Text();
 	@FXML
-	public Text timeMinute = new Text("1");
+	public Text timeMinute = new Text();
 	@FXML
-	public Text timeSecond = new Text("00");
-	// 胜利页面显示分数的映射
-	@FXML
-	public Text finalScore = new Text();
+	public Text timeSecond = new Text();
 	
 	// 随机分配图片方法
 	public static Image randomChoose(){
@@ -143,28 +144,81 @@ public class Easy extends Main{
 			}
 		}
 	}
-	// 写入记录方法。每次游戏结束，都更新记录
+	
+	// 写入记录方法。每次游戏结束，都更新记录。游戏结束时，读取记录并且比较
 	public static void write_record() throws IOException{
+		// 加载记录
+		int[] record_score = new int[3];
+		FileInputStream input = new FileInputStream("src/application/record/record_easy.bat");
+		for(int i = 0;i < 3;i++){
+			record_score[i] = input.read();
+		}
+		input.close();
+		
+		int score_middle = score+staticTime;
 		for(int i = 2;i >= 0;i--){
-			if(score > record_score[i]){
+			if(score_middle > record_score[i]){
 				if(i != 2){
 					record_score[i+1] = record_score[i];
 				}
 				if(i == 0){
-					record_score[0] = score;
+					record_score[0] = score_middle;
 				}
 			}else{
 				if(i != 2){
-					record_score[i+1] = score;
+					record_score[i+1] = score_middle;
 				}
 			}
 		}
-		FileOutputStream output = new FileOutputStream("src/application/record.bat");
+		// 写入记录
+		FileOutputStream output = new FileOutputStream("src/application/record/record_easy.bat");
 		for(int i = 0;i < 3;i++){
 			output.write(record_score[i]);
-		}
+			System.out.println(record_score[i]);
+		} 
 		output.close();
 	}
+	// 游戏胜利显示方法 以及游戏胜利里面映射的数据域与监听器
+	public void gameWin() throws IOException{
+		Parent start = FXMLLoader.load(getClass().getResource("GameOver_Win.fxml"));
+		Scene scene = new Scene(start,700,560);
+		winStage.setTitle("WIN!");
+		winStage.setScene(scene);
+		winStage.setResizable(false);
+		winStage.show();
+	}
+	@FXML
+	public Text finalScore = new Text();
+	@FXML
+	public Text finalTime = new Text();
+	@FXML
+	public Button count = new Button();
+	@FXML
+	public ImageView newRecord = new ImageView();
+	/* 
+	 * 为了保证时间的变化是动态的，使用中间变量，在时间停止的时候记录
+	 * 这样可以保证时间变化，并且可以获得最终值（否则无法获得最终停止的时间）
+	 */
+	public static int staticTime;
+	@FXML
+	protected void beganCount(ActionEvent event) throws IOException{
+		// 加载记录
+		int[] record_score = new int[3];
+		FileInputStream input = new FileInputStream("src/application/record/record_easy.bat");
+		for(int i = 0;i < 3;i++){
+			record_score[i] = input.read();
+		}
+		input.close();
+		
+		count.setOpacity(0);
+		finalScore.setText(""+(score+staticTime));
+		finalTime.setText(""+(60-staticTime));
+		if(Integer.parseInt(finalScore.getText()) > record_score[2]){
+			newRecord.setOpacity(1);
+		}
+		write_record();
+	}
+	
 	/*
 	 * 奖励惩罚文字特效测试部分完成。
 	 * 尝试中间暂停失败，如果只使用 Timeline 是无法暂停的，尝试想法：
@@ -187,7 +241,7 @@ public class Easy extends Main{
 	 * */
 	EventHandler<ActionEvent> flowTextForGood = e -> {
 		textGood.setOpacity(1);
-		textGood.setY(textGood.getY()-1);
+		textGood.setY(textGood.getY()-2);
 	};
 	EventHandler<ActionEvent> flowTextForGood_end = e -> {
 		textGood.setOpacity(0);
@@ -231,27 +285,27 @@ public class Easy extends Main{
 	};
 	
 	KeyFrame kf_flowTextForGood = new KeyFrame(Duration.millis(1),flowTextForGood);
-	KeyFrame kf_flowTextForGood_end = new KeyFrame(Duration.millis(3000),flowTextForGood_end);
+	KeyFrame kf_flowTextForGood_end = new KeyFrame(Duration.millis(1200),flowTextForGood_end);
 	Timeline flowTextForGoodShow = new Timeline(kf_flowTextForGood);
 	Timeline flowTextForGoodShow_end = new Timeline(kf_flowTextForGood_end);
 	
 	KeyFrame kf_flowTextForGreat = new KeyFrame(Duration.millis(1),flowTextForGreat);
-	KeyFrame kf_flowTextForGreat_end = new KeyFrame(Duration.millis(3000),flowTextForGreat_end);
+	KeyFrame kf_flowTextForGreat_end = new KeyFrame(Duration.millis(1200),flowTextForGreat_end);
 	Timeline flowTextForGreatShow = new Timeline(kf_flowTextForGreat);
 	Timeline flowTextForGreatShow_end = new Timeline(kf_flowTextForGreat_end);
 	
 	KeyFrame kf_flowTextForUnbelievable = new KeyFrame(Duration.millis(1),flowTextForUnbelievable);
-	KeyFrame kf_flowTextForUnbelievable_end = new KeyFrame(Duration.millis(3000),flowTextForUnbelievable_end);
+	KeyFrame kf_flowTextForUnbelievable_end = new KeyFrame(Duration.millis(1200),flowTextForUnbelievable_end);
 	Timeline flowTextForUnbelievableShow = new Timeline(kf_flowTextForUnbelievable);
 	Timeline flowTextForUnbelievableShow_end = new Timeline(kf_flowTextForUnbelievable_end);
 	
 	KeyFrame kf_flowTextForBad = new KeyFrame(Duration.millis(1),flowTextForBad);
-	KeyFrame kf_flowTextForBad_end = new KeyFrame(Duration.millis(3000),flowTextForBad_end);
+	KeyFrame kf_flowTextForBad_end = new KeyFrame(Duration.millis(1200),flowTextForBad_end);
 	Timeline flowTextForBadShow = new Timeline(kf_flowTextForBad);
 	Timeline flowTextForBadShow_end = new Timeline(kf_flowTextForBad_end);
 	
 	KeyFrame kf_flowTextForWorse = new KeyFrame(Duration.millis(1),flowTextForWorse);
-	KeyFrame kf_flowTextForWorse_end = new KeyFrame(Duration.millis(3000),flowTextForWorse_end);
+	KeyFrame kf_flowTextForWorse_end = new KeyFrame(Duration.millis(1200),flowTextForWorse_end);
 	Timeline flowTextForWorseShow = new Timeline(kf_flowTextForWorse);
 	Timeline flowTextForWorseShow_end = new Timeline(kf_flowTextForWorse_end);
 	
@@ -285,20 +339,12 @@ public class Easy extends Main{
 	protected void onClicked00(MouseEvent event) throws IOException{
 		if((event.getButton().toString() == "PRIMARY")&&(img_0_0.getImage() == IMGKB)&&(img_0_0.getOpacity() == 1)&&(timeDead == 0)){
 
-			/*  测试特效使用，直接点击图片 0,0
-				flowTextForBadShow.setCycleCount(260);
-				flowTextForBadShow_end.setCycleCount(1);
-				flowTextForBadShow_end.play();
-				flowTextForBadShow.play();
-			*/
+			/*  测试特效使用，直接点击图片 0,0*/
+				flowTextForGoodShow.setCycleCount(310);
+				flowTextForGoodShow_end.setCycleCount(1);
+				flowTextForGoodShow_end.play();
+				flowTextForGoodShow.play();
 			
-			/* 记录写入文件测试，直接点击0 0 图片即可测试是否写入文件。
-			score = 30;
-			write_record();
-			for(int i = 0;i < 3;i++){
-				System.out.println(record_score[i]);
-			}
-			*/
 
 			EventHandler<ActionEvent> backToLeave = e -> {
 				FadeTransition ft = new FadeTransition(Duration.millis(450),img_0_0); 
@@ -365,35 +411,28 @@ public class Easy extends Main{
 						// 同时初始化 cardEndChoose
 						cardEndChoose = 0;
 						tl_timeEnd.stop();
-						Parent start = FXMLLoader.load(getClass().getResource("GameOver_Win.fxml"));
-						Scene scene = new Scene(start,600,460);
-						winStage.setTitle("WIN!");
-						winStage.setScene(scene);
-						winStage.setResizable(false);
-						winStage.show();
-						/*
-						 * 分数显示bug
-						 * */
-						finalScore.setText(""+(score+60-Integer.parseInt(timeSecond.getText())));
+						// 获得最终时间数值
+						staticTime = Integer.parseInt(timeSecond.getText());
+						gameWin();
 					}
 					switch(reward){
 						case 3: {
 									score += 60;
-									flowTextForGoodShow.setCycleCount(260);
+									flowTextForGoodShow.setCycleCount(310);
 									flowTextForGoodShow_end.setCycleCount(1);
 									flowTextForGoodShow_end.play();
 									flowTextForGoodShow.play();
 								}break;
 						case 5: {
 									score += 120;
-									flowTextForGreatShow.setCycleCount(260);
+									flowTextForGreatShow.setCycleCount(310);
 									flowTextForGreatShow_end.setCycleCount(1);
 									flowTextForGreatShow_end.play();
 									flowTextForGreatShow.play();
 								}break;
 						case 9: {
 									score += 380;
-									flowTextForUnbelievableShow.setCycleCount(260);
+									flowTextForUnbelievableShow.setCycleCount(310);
 									flowTextForUnbelievableShow_end.setCycleCount(1);
 									flowTextForUnbelievableShow_end.play();
 									flowTextForUnbelievableShow.play();
@@ -443,7 +482,7 @@ public class Easy extends Main{
 									}else{
 										score = 0;
 									}
-									flowTextForBadShow.setCycleCount(260);
+									flowTextForBadShow.setCycleCount(310);
 									flowTextForBadShow_end.setCycleCount(1);
 									flowTextForBadShow_end.play();
 									flowTextForBadShow.play();
@@ -454,7 +493,7 @@ public class Easy extends Main{
 									}else{
 										score = 0;
 									}
-									flowTextForBadShow.setCycleCount(260);
+									flowTextForBadShow.setCycleCount(310);
 									flowTextForBadShow_end.setCycleCount(1);
 									flowTextForBadShow_end.play();
 									flowTextForBadShow.play();
@@ -896,7 +935,6 @@ public class Easy extends Main{
 			tl_timeEnd.getKeyFrames().add(kf_timeEnd);
 			tl_timeEnd.setCycleCount(60);
 		}
-		tl_timeEnd.stop();
 		tl_timeEnd.play();
 		failStage.close();
 	}
@@ -907,7 +945,7 @@ public class Easy extends Main{
 	private void onceAgain(ActionEvent event) throws IOException{
 		Parent easy = FXMLLoader.load(getClass().getResource("Easy.fxml"));
 		
-		Scene scene = new Scene(easy,800,900);
+		Scene scene = new Scene(easy,950,900);
 		thisStage.setScene(scene);
 		thisStage.setResizable(false);
 		failStage.close();
@@ -974,7 +1012,7 @@ public class Easy extends Main{
 	void chooseEasy(ActionEvent event) throws IOException{
 		Parent easy = FXMLLoader.load(getClass().getResource("Easy.fxml"));
 		
-		Scene scene = new Scene(easy,800,900);
+		Scene scene = new Scene(easy,950,900);
 		thisStage.setScene(scene);
 		st_chooseLeave.close();
 	}
@@ -1016,6 +1054,8 @@ public class Easy extends Main{
 		setStage.setResizable(false);
 		setStage.show();
 	}
+	
+	/**/
 	@FXML
 	private void onRecord(ActionEvent event) throws IOException{
 		Parent record = FXMLLoader.load(getClass().getResource("Record.fxml"));

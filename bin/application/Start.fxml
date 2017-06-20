@@ -58,6 +58,7 @@
       <ImageView fitHeight="132.0" fitWidth="527.0" layoutX="36.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/indextop.jpg" />
-         </image></ImageView>
+         </image>
+      </ImageView>
    </children>
 </Pane>

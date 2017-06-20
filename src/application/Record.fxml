@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
@@ -7,7 +8,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="568.0" prefWidth="501.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Easy">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="568.0" prefWidth="501.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Record">
    <children>
       <Text layoutX="155.0" layoutY="184.0" strokeType="OUTSIDE" strokeWidth="0.0" text="游戏记录">
          <font>
@@ -19,15 +20,15 @@
          <image>
             <Image url="@images/record1.jpg" />
          </image></ImageView>
-      <ImageView fitHeight="67.0" fitWidth="59.0" layoutX="110.0" layoutY="246.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="fx_img1" fitHeight="67.0" fitWidth="59.0" layoutX="110.0" layoutY="246.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/record2.png" />
          </image></ImageView>
-      <ImageView fitHeight="94.0" fitWidth="59.0" layoutX="110.0" layoutY="326.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="fx_img2" fitHeight="94.0" fitWidth="59.0" layoutX="110.0" layoutY="326.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/record3.png" />
          </image></ImageView>
-      <ImageView fitHeight="65.0" fitWidth="59.0" layoutX="110.0" layoutY="401.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="fx_img3" fitHeight="65.0" fitWidth="59.0" layoutX="110.0" layoutY="401.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/record4.png" />
          </image></ImageView>
@@ -36,5 +37,39 @@
             <Image url="@images/record1.jpg" />
          </image>
       </ImageView>
+      <Text fx:id="fx_score1" layoutX="197.0" layoutY="296.0" opacity="0.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+         <font>
+            <Font size="48.0" />
+         </font>
+      </Text>
+      <Text fx:id="fx_score2" layoutX="197.0" layoutY="375.0" opacity="0.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+         <font>
+            <Font size="48.0" />
+         </font>
+      </Text>
+      <Text fx:id="fx_score3" layoutX="197.0" layoutY="453.0" opacity="0.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+         <font>
+            <Font size="48.0" />
+         </font>
+      </Text>
+      <Text fx:id="hover_test" layoutX="145.0" layoutY="240.0" strokeType="OUTSIDE" strokeWidth="0.0" text="查看对应难度的记录" wrappingWidth="220.1484375">
+         <font>
+            <Font size="24.0" />
+         </font></Text>
+      <Button fx:id="record_easy" layoutX="191.0" layoutY="255.0" mnemonicParsing="false" onAction="#onEasy" text="简单">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Button>
+      <Button fx:id="record_normal" layoutX="191.0" layoutY="343.0" mnemonicParsing="false" onAction="#onNormal" text="一般">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Button>
+      <Button fx:id="record_hard" layoutX="191.0" layoutY="430.0" mnemonicParsing="false" onAction="#onHard" text="困难">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Button>
    </children>
 </Pane>
