@@ -81,7 +81,16 @@ public class Main extends Application{
 	}
 	@FXML
 	private void onStartNormal(ActionEvent event) throws IOException{
-		
+		Parent normal = FXMLLoader.load(getClass().getResource("Normal.fxml"));
+		Parent help = FXMLLoader.load(getClass().getResource("Help.fxml"));
+
+		Scene scene = new Scene(normal,950,900);
+		thisStage.setScene(scene);
+		Scene helpScene = new Scene(help,250,250);
+		Stage helpStage = new Stage();
+		helpStage.setTitle("FGO Game Help");
+		helpStage.setScene(helpScene);
+		helpStage.show();
 	}
 	@FXML
 	private void onStartHard(ActionEvent event) throws IOException{
@@ -100,7 +109,7 @@ public class Main extends Application{
 		stage.setResizable(false);
 		stage.show();
 	}
-	
+
 	/*Exit.fxml 映射的数据域与一些监听器*/
 	@FXML
 	private void onStartExit(MouseEvent event) throws IOException{
@@ -128,7 +137,6 @@ public class Main extends Application{
 		exitStage.close();
 	}
 	
-	
 	@FXML
 	private void onStartAbout(MouseEvent event) throws IOException{
 		Parent about = FXMLLoader.load(getClass().getResource("About.fxml"));
@@ -139,12 +147,12 @@ public class Main extends Application{
 		stage.setResizable(false);
 		stage.show();
 	}
-	
+
 	/*Setting.fxml 映射的数据域与一些监听器*/
 	@FXML
 	private void onStartSetting(MouseEvent event) throws IOException{
 		Parent exit = FXMLLoader.load(getClass().getResource("Setting.fxml"));
-		
+
 		bgmM1.setToggleGroup(group);
 		bgmM2.setToggleGroup(group);
 
