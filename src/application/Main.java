@@ -94,7 +94,16 @@ public class Main extends Application{
 	}
 	@FXML
 	private void onStartHard(ActionEvent event) throws IOException{
-		
+		Parent hard = FXMLLoader.load(getClass().getResource("Hard.fxml"));
+		Parent help = FXMLLoader.load(getClass().getResource("Help.fxml"));
+
+		Scene scene = new Scene(hard,950,900);
+		thisStage.setScene(scene);
+		Scene helpScene = new Scene(help,250,250);
+		Stage helpStage = new Stage();
+		helpStage.setTitle("FGO Game Help");
+		helpStage.setScene(helpScene);
+		helpStage.show();
 	}
 	
 	// Start.fxml ÖÐÓë°ïÖú Button ¼àÌýÆ÷

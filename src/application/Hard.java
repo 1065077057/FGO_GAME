@@ -23,7 +23,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
 
-public class Normal extends Easy{
+public class Hard extends Easy{
 	protected final Timeline tl_timeEnd = new Timeline();
 	// 三个 final static Image 对应3种不同的图片
 	protected final static Image IMGA = new Image("application/images/059E.png");
@@ -55,21 +55,31 @@ public class Normal extends Easy{
 	private Image img_0_2_kb;
 	private Image img_0_3_kb;
 	private Image img_0_4_kb;
+	private Image img_0_5_kb;
 	private Image img_1_0_kb;
 	private Image img_1_1_kb;
 	private Image img_1_2_kb;
 	private Image img_1_3_kb;
 	private Image img_1_4_kb;
+	private Image img_1_5_kb;
 	private Image img_2_0_kb;
 	private Image img_2_1_kb;
 	private Image img_2_2_kb;
 	private Image img_2_3_kb;
 	private Image img_2_4_kb;
+	private Image img_2_5_kb;
 	private Image img_3_0_kb;
 	private Image img_3_1_kb;
 	private Image img_3_2_kb;
 	private Image img_3_3_kb;
 	private Image img_3_4_kb;
+	private Image img_3_5_kb;
+	private Image img_4_0_kb;
+	private Image img_4_1_kb;
+	private Image img_4_2_kb;
+	private Image img_4_3_kb;
+	private Image img_4_4_kb;
+	private Image img_4_5_kb;
 	
 	// Easy.fxml 中映射的数据域
 	@FXML
@@ -85,6 +95,8 @@ public class Normal extends Easy{
 	@FXML
 	private ImageView img_0_4;
 	@FXML
+	private ImageView img_0_5;
+	@FXML
 	private ImageView img_1_0;
 	@FXML
 	private ImageView img_1_1;
@@ -94,6 +106,8 @@ public class Normal extends Easy{
 	private ImageView img_1_3;
 	@FXML
 	private ImageView img_1_4;
+	@FXML
+	private ImageView img_1_5;
 	@FXML
 	private ImageView img_2_0;
 	@FXML
@@ -105,6 +119,8 @@ public class Normal extends Easy{
 	@FXML
 	private ImageView img_2_4;
 	@FXML
+	private ImageView img_2_5;
+	@FXML
 	private ImageView img_3_0;
 	@FXML
 	private ImageView img_3_1;
@@ -114,6 +130,20 @@ public class Normal extends Easy{
 	private ImageView img_3_3;
 	@FXML
 	private ImageView img_3_4;
+	@FXML
+	private ImageView img_3_5;
+	@FXML
+	private ImageView img_4_0;
+	@FXML
+	private ImageView img_4_1;
+	@FXML
+	private ImageView img_4_2;
+	@FXML
+	private ImageView img_4_3;
+	@FXML
+	private ImageView img_4_4;
+	@FXML
+	private ImageView img_4_5;
 	@FXML
 	protected ImageView textGood = new ImageView();
 	@FXML
@@ -149,23 +179,23 @@ public class Normal extends Easy{
 		while(true){
 			int choose = random.nextInt(5);
 			switch(choose){
-				case 0: if(IMGANUM < 4){
+				case 0: if(IMGANUM < 6){
 							IMGANUM++;
 							return IMGA;
 						};break;
-				case 1: if(IMGBNUM < 4){
+				case 1: if(IMGBNUM < 6){
 							IMGBNUM++;
 							return IMGB;
 						};break;
-				case 2: if(IMGCNUM < 4){
+				case 2: if(IMGCNUM < 6){
 							IMGCNUM++;
 							return IMGC;
 						};break;
-				case 3: if(IMGDNUM < 4){
+				case 3: if(IMGDNUM < 6){
 							IMGDNUM++;
 							return IMGD;
 						};break;
-				case 4: if(IMGENUM < 4){
+				case 4: if(IMGENUM < 6){
 							IMGENUM++;
 							return IMGE;
 						};break;
@@ -177,7 +207,7 @@ public class Normal extends Easy{
 	private static void write_record() throws IOException{
 		// 加载记录
 		int[] record_score = new int[3];
-		FileInputStream input = new FileInputStream("src/application/record/record_normal.bat");
+		FileInputStream input = new FileInputStream("src/application/record/record_hard.bat");
 		for(int i = 0;i < 3;i++){
 			record_score[i] = input.read();
 		}
@@ -199,7 +229,7 @@ public class Normal extends Easy{
 			}
 		}
 		// 写入记录
-		FileOutputStream output = new FileOutputStream("src/application/record/record_normal.bat");
+		FileOutputStream output = new FileOutputStream("src/application/record/record_hard.bat");
 		for(int i = 0;i < 3;i++){
 			output.write(record_score[i]);
 			System.out.println(record_score[i]);
@@ -208,7 +238,7 @@ public class Normal extends Easy{
 	}
 	// 游戏胜利显示方法 以及游戏胜利里面映射的数据域与监听器
 	protected void gameWin() throws IOException{
-		Parent start = FXMLLoader.load(getClass().getResource("GameOver_Win_Noraml.fxml"));
+		Parent start = FXMLLoader.load(getClass().getResource("GameOver_Win_Hard.fxml"));
 		Scene scene = new Scene(start,700,560);
 		winStage.setTitle("WIN!");
 		winStage.setScene(scene);
@@ -229,7 +259,7 @@ public class Normal extends Easy{
 	private void beganCount(ActionEvent event) throws IOException{
 		// 加载记录
 		int[] record_score = new int[3];
-		FileInputStream input = new FileInputStream("src/application/record/record_normal.bat");
+		FileInputStream input = new FileInputStream("src/application/record/record_hard.bat");
 		for(int i = 0;i < 3;i++){
 			record_score[i] = input.read();
 		}
@@ -339,7 +369,7 @@ public class Normal extends Easy{
 		punish = 0;
 		cardEndChoose += 2;
 
-		if(cardEndChoose == 20){
+		if(cardEndChoose == 30){
 			// 同时初始化 cardEndChoose
 			cardEndChoose = 0;
 			tl_timeEnd.stop();
@@ -629,14 +659,6 @@ public class Normal extends Easy{
 	@FXML
 	private void onClicked04(MouseEvent event) throws IOException{
 		if((event.getButton().toString() == "PRIMARY")&&(img_0_4.getImage() == IMGKB)&&(img_0_4.getOpacity() == 1)&&(timeDead == 0)){
-
-			/*  测试特效使用，直接点击图片 0,0
-				flowTextForGoodShow.setCycleCount(310);
-				flowTextForGoodShow_end.setCycleCount(1);
-				flowTextForGoodShow_end.play();
-				flowTextForGoodShow.play();
-			*/
-
 			EventHandler<ActionEvent> backToLeave = e -> {
 				noname1(img_0_4);
 			};
@@ -666,6 +688,60 @@ public class Normal extends Easy{
 				last = img_0_4;
 			}else{
 				twoPoint = img_0_4_kb.toString();
+				if(onePoint.equals(twoPoint)){
+					noname3();
+				}else{
+					EventHandler<ActionEvent> lastCardToLeave = e -> {
+						noname1(last);
+					};
+					EventHandler<ActionEvent> lastBackToOpen = e -> {
+						last.setImage(IMGKB);
+						noname2(last);
+					};
+					KeyFrame kfOfLastBackToOpen = new KeyFrame(Duration.millis(1800),lastBackToOpen);
+					KeyFrame kfOfLastCardToLeave = new KeyFrame(Duration.millis(1800),lastCardToLeave);
+					Timeline lastCardToBack = new Timeline(kfOfLastCardToLeave,kfOfLastBackToOpen);
+					
+					cardToBack.play();
+					lastCardToBack.play();
+					
+					noname4();
+				}
+			}
+		}
+	}
+	@FXML
+	private void onClicked05(MouseEvent event) throws IOException{
+		if((event.getButton().toString() == "PRIMARY")&&(img_0_5.getImage() == IMGKB)&&(img_0_5.getOpacity() == 1)&&(timeDead == 0)){
+			EventHandler<ActionEvent> backToLeave = e -> {
+				noname1(img_0_5);
+			};
+			EventHandler<ActionEvent> backToOpen = e -> {
+				img_0_5.setImage(IMGKB);
+				noname2(img_0_5);
+			};
+			EventHandler<ActionEvent> cardToOpen = e -> {
+				img_0_5.setImage(img_0_5_kb);
+				noname2(img_0_5);
+			};
+			EventHandler<ActionEvent> cardToLeave = e -> {
+				noname1(img_0_5);
+			};
+
+			KeyFrame kfOfCardToLeave = new KeyFrame(Duration.millis(1),cardToLeave);
+			KeyFrame kfOfCardToOpen = new KeyFrame(Duration.millis(450),cardToOpen);
+			KeyFrame kfOfBackToLeave = new KeyFrame(Duration.millis(1),backToLeave);
+			KeyFrame kfOfBackToOpen = new KeyFrame(Duration.millis(1800),backToOpen);
+			Timeline backToCard = new Timeline(kfOfBackToLeave,kfOfCardToOpen);
+			Timeline cardToBack = new Timeline(kfOfCardToLeave,kfOfBackToOpen);
+			
+			backToCard.play();
+
+			if(onePoint == null){
+				onePoint = img_0_5_kb.toString();
+				last = img_0_5;
+			}else{
+				twoPoint = img_0_5_kb.toString();
 				if(onePoint.equals(twoPoint)){
 					noname3();
 				}else{
@@ -967,6 +1043,60 @@ public class Normal extends Easy{
 		}
 	}
 	@FXML
+	private void onClicked15(MouseEvent event) throws IOException{
+		if((event.getButton().toString() == "PRIMARY")&&(img_1_5.getImage() == IMGKB)&&(img_1_5.getOpacity() == 1)&&(timeDead == 0)){
+			EventHandler<ActionEvent> backToLeave = e -> {
+				noname1(img_1_5);
+			};
+			EventHandler<ActionEvent> backToOpen = e -> {
+				img_1_5.setImage(IMGKB);
+				noname2(img_1_5);
+			};
+			EventHandler<ActionEvent> cardToOpen = e -> {
+				img_1_5.setImage(img_1_5_kb);
+				noname2(img_1_5);
+			};
+			EventHandler<ActionEvent> cardToLeave = e -> {
+				noname1(img_1_5);
+			};
+
+			KeyFrame kfOfCardToLeave = new KeyFrame(Duration.millis(1),cardToLeave);
+			KeyFrame kfOfCardToOpen = new KeyFrame(Duration.millis(450),cardToOpen);
+			KeyFrame kfOfBackToLeave = new KeyFrame(Duration.millis(1),backToLeave);
+			KeyFrame kfOfBackToOpen = new KeyFrame(Duration.millis(1800),backToOpen);
+			Timeline backToCard = new Timeline(kfOfBackToLeave,kfOfCardToOpen);
+			Timeline cardToBack = new Timeline(kfOfCardToLeave,kfOfBackToOpen);
+			
+			backToCard.play();
+
+			if(onePoint == null){
+				onePoint = img_1_5_kb.toString();
+				last = img_1_5;
+			}else{
+				twoPoint = img_1_5_kb.toString();
+				if(onePoint.equals(twoPoint)){
+					noname3();
+				}else{
+					EventHandler<ActionEvent> lastCardToLeave = e -> {
+						noname1(last);
+					};
+					EventHandler<ActionEvent> lastBackToOpen = e -> {
+						last.setImage(IMGKB);
+						noname2(last);
+					};
+					KeyFrame kfOfLastBackToOpen = new KeyFrame(Duration.millis(1800),lastBackToOpen);
+					KeyFrame kfOfLastCardToLeave = new KeyFrame(Duration.millis(1800),lastCardToLeave);
+					Timeline lastCardToBack = new Timeline(kfOfLastCardToLeave,kfOfLastBackToOpen);
+					
+					cardToBack.play();
+					lastCardToBack.play();
+					
+					noname4();
+				}
+			}
+		}
+	}
+	@FXML
 	private void onClicked20(MouseEvent event) throws IOException{
 		if((event.getButton().toString() == "PRIMARY")&&(img_2_0.getImage() == IMGKB)&&(img_2_0.getOpacity() == 1)){
 			EventHandler<ActionEvent> backToLeave = e -> {
@@ -1214,6 +1344,60 @@ public class Normal extends Easy{
 				last = img_2_4;
 			}else{
 				twoPoint = img_2_4_kb.toString();
+				if(onePoint.equals(twoPoint)){
+					noname3();
+				}else{
+					EventHandler<ActionEvent> lastCardToLeave = e -> {
+						noname1(last);
+					};
+					EventHandler<ActionEvent> lastBackToOpen = e -> {
+						last.setImage(IMGKB);
+						noname2(last);
+					};
+					KeyFrame kfOfLastBackToOpen = new KeyFrame(Duration.millis(1800),lastBackToOpen);
+					KeyFrame kfOfLastCardToLeave = new KeyFrame(Duration.millis(1800),lastCardToLeave);
+					Timeline lastCardToBack = new Timeline(kfOfLastCardToLeave,kfOfLastBackToOpen);
+					
+					cardToBack.play();
+					lastCardToBack.play();
+					
+					noname4();
+				}
+			}
+		}
+	}
+	@FXML
+	private void onClicked25(MouseEvent event) throws IOException{
+		if((event.getButton().toString() == "PRIMARY")&&(img_2_5.getImage() == IMGKB)&&(img_2_5.getOpacity() == 1)&&(timeDead == 0)){
+			EventHandler<ActionEvent> backToLeave = e -> {
+				noname1(img_2_5);
+			};
+			EventHandler<ActionEvent> backToOpen = e -> {
+				img_2_5.setImage(IMGKB);
+				noname2(img_2_5);
+			};
+			EventHandler<ActionEvent> cardToOpen = e -> {
+				img_2_5.setImage(img_2_5_kb);
+				noname2(img_2_5);
+			};
+			EventHandler<ActionEvent> cardToLeave = e -> {
+				noname1(img_2_5);
+			};
+
+			KeyFrame kfOfCardToLeave = new KeyFrame(Duration.millis(1),cardToLeave);
+			KeyFrame kfOfCardToOpen = new KeyFrame(Duration.millis(450),cardToOpen);
+			KeyFrame kfOfBackToLeave = new KeyFrame(Duration.millis(1),backToLeave);
+			KeyFrame kfOfBackToOpen = new KeyFrame(Duration.millis(1800),backToOpen);
+			Timeline backToCard = new Timeline(kfOfBackToLeave,kfOfCardToOpen);
+			Timeline cardToBack = new Timeline(kfOfCardToLeave,kfOfBackToOpen);
+			
+			backToCard.play();
+
+			if(onePoint == null){
+				onePoint = img_2_5_kb.toString();
+				last = img_2_5;
+			}else{
+				twoPoint = img_2_5_kb.toString();
 				if(onePoint.equals(twoPoint)){
 					noname3();
 				}else{
@@ -1506,6 +1690,384 @@ public class Normal extends Easy{
 			}
 		}
 	}
+	@FXML
+	private void onClicked35(MouseEvent event) throws IOException{
+		if((event.getButton().toString() == "PRIMARY")&&(img_3_5.getImage() == IMGKB)&&(img_3_5.getOpacity() == 1)&&(timeDead == 0)){
+			EventHandler<ActionEvent> backToLeave = e -> {
+				noname1(img_3_5);
+			};
+			EventHandler<ActionEvent> backToOpen = e -> {
+				img_3_5.setImage(IMGKB);
+				noname2(img_3_5);
+			};
+			EventHandler<ActionEvent> cardToOpen = e -> {
+				img_3_5.setImage(img_3_5_kb);
+				noname2(img_3_5);
+			};
+			EventHandler<ActionEvent> cardToLeave = e -> {
+				noname1(img_3_5);
+			};
+
+			KeyFrame kfOfCardToLeave = new KeyFrame(Duration.millis(1),cardToLeave);
+			KeyFrame kfOfCardToOpen = new KeyFrame(Duration.millis(450),cardToOpen);
+			KeyFrame kfOfBackToLeave = new KeyFrame(Duration.millis(1),backToLeave);
+			KeyFrame kfOfBackToOpen = new KeyFrame(Duration.millis(1800),backToOpen);
+			Timeline backToCard = new Timeline(kfOfBackToLeave,kfOfCardToOpen);
+			Timeline cardToBack = new Timeline(kfOfCardToLeave,kfOfBackToOpen);
+			
+			backToCard.play();
+
+			if(onePoint == null){
+				onePoint = img_3_5_kb.toString();
+				last = img_3_5;
+			}else{
+				twoPoint = img_3_5_kb.toString();
+				if(onePoint.equals(twoPoint)){
+					noname3();
+				}else{
+					EventHandler<ActionEvent> lastCardToLeave = e -> {
+						noname1(last);
+					};
+					EventHandler<ActionEvent> lastBackToOpen = e -> {
+						last.setImage(IMGKB);
+						noname2(last);
+					};
+					KeyFrame kfOfLastBackToOpen = new KeyFrame(Duration.millis(1800),lastBackToOpen);
+					KeyFrame kfOfLastCardToLeave = new KeyFrame(Duration.millis(1800),lastCardToLeave);
+					Timeline lastCardToBack = new Timeline(kfOfLastCardToLeave,kfOfLastBackToOpen);
+					
+					cardToBack.play();
+					lastCardToBack.play();
+					
+					noname4();
+				}
+			}
+		}
+	}
+	@FXML
+	private void onClicked40(MouseEvent event) throws IOException{
+		if((event.getButton().toString() == "PRIMARY")&&(img_4_0.getImage() == IMGKB)&&(img_4_0.getOpacity() == 1)){
+			EventHandler<ActionEvent> backToLeave = e -> {
+				noname1(img_4_0);
+			};
+			EventHandler<ActionEvent> backToOpen = e -> {
+				img_4_0.setImage(IMGKB);
+				noname2(img_4_0);
+			};
+			EventHandler<ActionEvent> cardToOpen = e -> {
+				img_4_0.setImage(img_4_0_kb);
+				noname2(img_4_0);
+			};
+			EventHandler<ActionEvent> cardToLeave = e -> {
+				noname1(img_4_0);
+			};
+
+			KeyFrame kfOfCardToLeave = new KeyFrame(Duration.millis(1),cardToLeave);
+			KeyFrame kfOfCardToOpen = new KeyFrame(Duration.millis(450),cardToOpen);
+			KeyFrame kfOfBackToLeave = new KeyFrame(Duration.millis(1),backToLeave);
+			KeyFrame kfOfBackToOpen = new KeyFrame(Duration.millis(1800),backToOpen);
+			Timeline backToCard = new Timeline(kfOfBackToLeave,kfOfCardToOpen);
+			Timeline cardToBack = new Timeline(kfOfCardToLeave,kfOfBackToOpen);
+			
+			backToCard.play();
+
+			if(onePoint == null){
+				onePoint = img_4_0_kb.toString();
+				last = img_4_0;
+			}else{
+				twoPoint = img_4_0_kb.toString();
+				if(onePoint.equals(twoPoint)){
+					noname3();
+				}else{
+					EventHandler<ActionEvent> lastCardToLeave = e -> {
+						noname1(last);
+					};
+					EventHandler<ActionEvent> lastBackToOpen = e -> {
+						last.setImage(IMGKB);
+						noname2(last);
+					};
+					KeyFrame kfOfLastBackToOpen = new KeyFrame(Duration.millis(1800),lastBackToOpen);
+					KeyFrame kfOfLastCardToLeave = new KeyFrame(Duration.millis(1800),lastCardToLeave);
+					Timeline lastCardToBack = new Timeline(kfOfLastCardToLeave,kfOfLastBackToOpen);
+					
+					cardToBack.play();
+					lastCardToBack.play();
+					
+					noname4();
+				}
+			}
+		}
+	}
+	@FXML
+	private void onClicked41(MouseEvent event) throws IOException{
+		if((event.getButton().toString() == "PRIMARY")&&(img_4_1.getImage() == IMGKB)&&(img_4_1.getOpacity() == 1)){
+			EventHandler<ActionEvent> backToLeave = e -> {
+				noname1(img_4_1);
+			};
+			EventHandler<ActionEvent> backToOpen = e -> {
+				img_4_1.setImage(IMGKB);
+				noname2(img_4_1);
+			};
+			EventHandler<ActionEvent> cardToOpen = e -> {
+				img_4_1.setImage(img_4_1_kb);
+				noname2(img_4_1);
+			};
+			EventHandler<ActionEvent> cardToLeave = e -> {
+				noname1(img_4_1);
+			};
+
+			KeyFrame kfOfCardToLeave = new KeyFrame(Duration.millis(1),cardToLeave);
+			KeyFrame kfOfCardToOpen = new KeyFrame(Duration.millis(450),cardToOpen);
+			KeyFrame kfOfBackToLeave = new KeyFrame(Duration.millis(1),backToLeave);
+			KeyFrame kfOfBackToOpen = new KeyFrame(Duration.millis(1800),backToOpen);
+			Timeline backToCard = new Timeline(kfOfBackToLeave,kfOfCardToOpen);
+			Timeline cardToBack = new Timeline(kfOfCardToLeave,kfOfBackToOpen);
+			
+			backToCard.play();
+
+			if(onePoint == null){
+				onePoint = img_4_1_kb.toString();
+				last = img_4_1;
+			}else{
+				twoPoint = img_4_1_kb.toString();
+				if(onePoint.equals(twoPoint)){
+					noname3();
+				}else{
+					EventHandler<ActionEvent> lastCardToLeave = e -> {
+						noname1(last);
+					};
+					EventHandler<ActionEvent> lastBackToOpen = e -> {
+						last.setImage(IMGKB);
+						noname2(last);
+					};
+					KeyFrame kfOfLastBackToOpen = new KeyFrame(Duration.millis(1800),lastBackToOpen);
+					KeyFrame kfOfLastCardToLeave = new KeyFrame(Duration.millis(1800),lastCardToLeave);
+					Timeline lastCardToBack = new Timeline(kfOfLastCardToLeave,kfOfLastBackToOpen);
+					
+					cardToBack.play();
+					lastCardToBack.play();
+					
+					noname4();
+				}
+			}
+		}
+	}
+	@FXML
+	private void onClicked42(MouseEvent event) throws IOException{
+		if((event.getButton().toString() == "PRIMARY")&&(img_4_2.getImage() == IMGKB)&&(img_4_2.getOpacity() == 1)){
+			EventHandler<ActionEvent> backToLeave = e -> {
+				noname1(img_4_2);
+			};
+			EventHandler<ActionEvent> backToOpen = e -> {
+				img_4_2.setImage(IMGKB);
+				noname2(img_4_2);
+			};
+			EventHandler<ActionEvent> cardToOpen = e -> {
+				img_4_2.setImage(img_4_2_kb);
+				noname2(img_4_2);
+			};
+			EventHandler<ActionEvent> cardToLeave = e -> {
+				noname1(img_4_2);
+			};
+
+			KeyFrame kfOfCardToLeave = new KeyFrame(Duration.millis(1),cardToLeave);
+			KeyFrame kfOfCardToOpen = new KeyFrame(Duration.millis(450),cardToOpen);
+			KeyFrame kfOfBackToLeave = new KeyFrame(Duration.millis(1),backToLeave);
+			KeyFrame kfOfBackToOpen = new KeyFrame(Duration.millis(1800),backToOpen);
+			Timeline backToCard = new Timeline(kfOfBackToLeave,kfOfCardToOpen);
+			Timeline cardToBack = new Timeline(kfOfCardToLeave,kfOfBackToOpen);
+			
+			backToCard.play();
+
+			if(onePoint == null){
+				onePoint = img_4_2_kb.toString();
+				last = img_4_2;
+			}else{
+				twoPoint = img_4_2_kb.toString();
+				if(onePoint.equals(twoPoint)){
+					noname3();
+				}else{
+					EventHandler<ActionEvent> lastCardToLeave = e -> {
+						noname1(last);
+					};
+					EventHandler<ActionEvent> lastBackToOpen = e -> {
+						last.setImage(IMGKB);
+						noname2(last);
+					};
+					KeyFrame kfOfLastBackToOpen = new KeyFrame(Duration.millis(1800),lastBackToOpen);
+					KeyFrame kfOfLastCardToLeave = new KeyFrame(Duration.millis(1800),lastCardToLeave);
+					Timeline lastCardToBack = new Timeline(kfOfLastCardToLeave,kfOfLastBackToOpen);
+					
+					cardToBack.play();
+					lastCardToBack.play();
+					
+					noname4();
+				}
+			}
+		}
+	}
+	@FXML
+	private void onClicked43(MouseEvent event) throws IOException{
+		if((event.getButton().toString() == "PRIMARY")&&(img_4_3.getImage() == IMGKB)&&(img_4_3.getOpacity() == 1)){
+			EventHandler<ActionEvent> backToLeave = e -> {
+				noname1(img_4_3);
+			};
+			EventHandler<ActionEvent> backToOpen = e -> {
+				img_4_3.setImage(IMGKB);
+				noname2(img_4_3);
+			};
+			EventHandler<ActionEvent> cardToOpen = e -> {
+				img_4_3.setImage(img_4_3_kb);
+				noname2(img_4_3);
+			};
+			EventHandler<ActionEvent> cardToLeave = e -> {
+				noname1(img_4_3);
+			};
+
+			KeyFrame kfOfCardToLeave = new KeyFrame(Duration.millis(1),cardToLeave);
+			KeyFrame kfOfCardToOpen = new KeyFrame(Duration.millis(450),cardToOpen);
+			KeyFrame kfOfBackToLeave = new KeyFrame(Duration.millis(1),backToLeave);
+			KeyFrame kfOfBackToOpen = new KeyFrame(Duration.millis(1800),backToOpen);
+			Timeline backToCard = new Timeline(kfOfBackToLeave,kfOfCardToOpen);
+			Timeline cardToBack = new Timeline(kfOfCardToLeave,kfOfBackToOpen);
+			
+			backToCard.play();
+
+			if(onePoint == null){
+				onePoint = img_4_3_kb.toString();
+				last = img_4_3;
+			}else{
+				twoPoint = img_4_3_kb.toString();
+				if(onePoint.equals(twoPoint)){
+					noname3();
+				}else{
+					EventHandler<ActionEvent> lastCardToLeave = e -> {
+						noname1(last);
+					};
+					EventHandler<ActionEvent> lastBackToOpen = e -> {
+						last.setImage(IMGKB);
+						noname2(last);
+					};
+					KeyFrame kfOfLastBackToOpen = new KeyFrame(Duration.millis(1800),lastBackToOpen);
+					KeyFrame kfOfLastCardToLeave = new KeyFrame(Duration.millis(1800),lastCardToLeave);
+					Timeline lastCardToBack = new Timeline(kfOfLastCardToLeave,kfOfLastBackToOpen);
+					
+					cardToBack.play();
+					lastCardToBack.play();
+					
+					noname4();
+				}
+			}
+		}
+	}
+	@FXML
+	private void onClicked44(MouseEvent event) throws IOException{
+		if((event.getButton().toString() == "PRIMARY")&&(img_4_4.getImage() == IMGKB)&&(img_4_4.getOpacity() == 1)&&(timeDead == 0)){
+			EventHandler<ActionEvent> backToLeave = e -> {
+				noname1(img_4_4);
+			};
+			EventHandler<ActionEvent> backToOpen = e -> {
+				img_4_4.setImage(IMGKB);
+				noname2(img_4_4);
+			};
+			EventHandler<ActionEvent> cardToOpen = e -> {
+				img_4_4.setImage(img_4_4_kb);
+				noname2(img_4_4);
+			};
+			EventHandler<ActionEvent> cardToLeave = e -> {
+				noname1(img_4_4);
+			};
+
+			KeyFrame kfOfCardToLeave = new KeyFrame(Duration.millis(1),cardToLeave);
+			KeyFrame kfOfCardToOpen = new KeyFrame(Duration.millis(450),cardToOpen);
+			KeyFrame kfOfBackToLeave = new KeyFrame(Duration.millis(1),backToLeave);
+			KeyFrame kfOfBackToOpen = new KeyFrame(Duration.millis(1800),backToOpen);
+			Timeline backToCard = new Timeline(kfOfBackToLeave,kfOfCardToOpen);
+			Timeline cardToBack = new Timeline(kfOfCardToLeave,kfOfBackToOpen);
+			
+			backToCard.play();
+
+			if(onePoint == null){
+				onePoint = img_4_4_kb.toString();
+				last = img_4_4;
+			}else{
+				twoPoint = img_4_4_kb.toString();
+				if(onePoint.equals(twoPoint)){
+					noname3();
+				}else{
+					EventHandler<ActionEvent> lastCardToLeave = e -> {
+						noname1(last);
+					};
+					EventHandler<ActionEvent> lastBackToOpen = e -> {
+						last.setImage(IMGKB);
+						noname2(last);
+					};
+					KeyFrame kfOfLastBackToOpen = new KeyFrame(Duration.millis(1800),lastBackToOpen);
+					KeyFrame kfOfLastCardToLeave = new KeyFrame(Duration.millis(1800),lastCardToLeave);
+					Timeline lastCardToBack = new Timeline(kfOfLastCardToLeave,kfOfLastBackToOpen);
+					
+					cardToBack.play();
+					lastCardToBack.play();
+					
+					noname4();
+				}
+			}
+		}
+	}
+	@FXML
+	private void onClicked45(MouseEvent event) throws IOException{
+		if((event.getButton().toString() == "PRIMARY")&&(img_3_5.getImage() == IMGKB)&&(img_4_5.getOpacity() == 1)&&(timeDead == 0)){
+			EventHandler<ActionEvent> backToLeave = e -> {
+				noname1(img_4_5);
+			};
+			EventHandler<ActionEvent> backToOpen = e -> {
+				img_4_5.setImage(IMGKB);
+				noname2(img_4_5);
+			};
+			EventHandler<ActionEvent> cardToOpen = e -> {
+				img_4_5.setImage(img_4_5_kb);
+				noname2(img_4_5);
+			};
+			EventHandler<ActionEvent> cardToLeave = e -> {
+				noname1(img_4_5);
+			};
+
+			KeyFrame kfOfCardToLeave = new KeyFrame(Duration.millis(1),cardToLeave);
+			KeyFrame kfOfCardToOpen = new KeyFrame(Duration.millis(450),cardToOpen);
+			KeyFrame kfOfBackToLeave = new KeyFrame(Duration.millis(1),backToLeave);
+			KeyFrame kfOfBackToOpen = new KeyFrame(Duration.millis(1800),backToOpen);
+			Timeline backToCard = new Timeline(kfOfBackToLeave,kfOfCardToOpen);
+			Timeline cardToBack = new Timeline(kfOfCardToLeave,kfOfBackToOpen);
+			
+			backToCard.play();
+
+			if(onePoint == null){
+				onePoint = img_4_5_kb.toString();
+				last = img_4_5;
+			}else{
+				twoPoint = img_4_5_kb.toString();
+				if(onePoint.equals(twoPoint)){
+					noname3();
+				}else{
+					EventHandler<ActionEvent> lastCardToLeave = e -> {
+						noname1(last);
+					};
+					EventHandler<ActionEvent> lastBackToOpen = e -> {
+						last.setImage(IMGKB);
+						noname2(last);
+					};
+					KeyFrame kfOfLastBackToOpen = new KeyFrame(Duration.millis(1800),lastBackToOpen);
+					KeyFrame kfOfLastCardToLeave = new KeyFrame(Duration.millis(1800),lastCardToLeave);
+					Timeline lastCardToBack = new Timeline(kfOfLastCardToLeave,kfOfLastBackToOpen);
+					
+					cardToBack.play();
+					lastCardToBack.play();
+					
+					noname4();
+				}
+			}
+		}
+	}
 	// 重新开始一局 Easy 难度的游戏
 	@FXML
 	private void beganOnClicked(ActionEvent event){
@@ -1514,42 +2076,62 @@ public class Normal extends Easy{
 		img_0_2.setOpacity(1);
 		img_0_3.setOpacity(1);
 		img_0_4.setOpacity(1);
+		img_0_5.setOpacity(1);
 		img_1_0.setOpacity(1);
 		img_1_1.setOpacity(1);
 		img_1_2.setOpacity(1);
 		img_1_3.setOpacity(1);
 		img_1_4.setOpacity(1);
+		img_1_5.setOpacity(1);
 		img_2_0.setOpacity(1);
 		img_2_1.setOpacity(1);
 		img_2_2.setOpacity(1);
 		img_2_3.setOpacity(1);
 		img_2_4.setOpacity(1);
+		img_2_5.setOpacity(1);
 		img_3_0.setOpacity(1);
 		img_3_1.setOpacity(1);
 		img_3_2.setOpacity(1);
 		img_3_3.setOpacity(1);
 		img_3_4.setOpacity(1);
+		img_3_5.setOpacity(1);
+		img_4_0.setOpacity(1);
+		img_4_1.setOpacity(1);
+		img_4_2.setOpacity(1);
+		img_4_3.setOpacity(1);
+		img_4_4.setOpacity(1);
+		img_4_5.setOpacity(1);
 
 		img_0_0.setImage(IMGKB);
 		img_0_1.setImage(IMGKB);
 		img_0_2.setImage(IMGKB);
 		img_0_3.setImage(IMGKB);
 		img_0_4.setImage(IMGKB);
+		img_0_5.setImage(IMGKB);
 		img_1_0.setImage(IMGKB);
 		img_1_1.setImage(IMGKB);
 		img_1_2.setImage(IMGKB);
 		img_1_3.setImage(IMGKB);
 		img_1_4.setImage(IMGKB);
+		img_1_5.setImage(IMGKB);
 		img_2_0.setImage(IMGKB);
 		img_2_1.setImage(IMGKB);
 		img_2_2.setImage(IMGKB);
 		img_2_3.setImage(IMGKB);
 		img_2_4.setImage(IMGKB);
+		img_2_5.setImage(IMGKB);
 		img_3_0.setImage(IMGKB);
 		img_3_1.setImage(IMGKB);
 		img_3_2.setImage(IMGKB);
 		img_3_3.setImage(IMGKB);
 		img_3_4.setImage(IMGKB);
+		img_3_5.setImage(IMGKB);
+		img_4_0.setImage(IMGKB);
+		img_4_1.setImage(IMGKB);
+		img_4_2.setImage(IMGKB);
+		img_4_3.setImage(IMGKB);
+		img_4_4.setImage(IMGKB);
+		img_4_5.setImage(IMGKB);
 		
 		// 随机分牌
 		img_0_0_kb = randomChoose();
@@ -1557,21 +2139,31 @@ public class Normal extends Easy{
 		img_0_2_kb = randomChoose();
 		img_0_3_kb = randomChoose();
 		img_0_4_kb = randomChoose();
+		img_0_5_kb = randomChoose();
 		img_1_0_kb = randomChoose();
 		img_1_1_kb = randomChoose();
 		img_1_2_kb = randomChoose();
 		img_1_3_kb = randomChoose();
 		img_1_4_kb = randomChoose();
+		img_1_5_kb = randomChoose();
 		img_2_0_kb = randomChoose();
 		img_2_1_kb = randomChoose();
 		img_2_2_kb = randomChoose();
 		img_2_3_kb = randomChoose();
 		img_2_4_kb = randomChoose();
+		img_2_5_kb = randomChoose();
 		img_3_0_kb = randomChoose();
 		img_3_1_kb = randomChoose();
 		img_3_2_kb = randomChoose();
 		img_3_3_kb = randomChoose();
 		img_3_4_kb = randomChoose();
+		img_3_5_kb = randomChoose();
+		img_4_0_kb = randomChoose();
+		img_4_1_kb = randomChoose();
+		img_4_2_kb = randomChoose();
+		img_4_3_kb = randomChoose();
+		img_4_4_kb = randomChoose();
+		img_4_5_kb = randomChoose();
 		// 重置计数器，防止死循环
 		IMGANUM = 0;
 		IMGBNUM = 0;
@@ -1603,7 +2195,7 @@ public class Normal extends Easy{
 				}
 			}
 			// time 的值测试使用，实际上应该是 0
-			if(time == 0 && timeChange == 0){
+			if(time == 55 && timeChange == 0){
 				timeDead = 1;
 				Parent start;
 				try{

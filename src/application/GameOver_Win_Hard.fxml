@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="530.0" prefWidth="600.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Hard">
+   <children>
+      <Text layoutX="200.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Win!">
+         <font>
+            <Font name="System Bold" size="96.0" />
+         </font>
+      </Text>
+      <Text layoutX="254.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="胜亦不骄！">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Button fx:id="btOnceAgain" layoutX="236.0" layoutY="450.0" mnemonicParsing="false" onAction="#onceAgain" text="再来一次">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+      <Button layoutX="57.0" layoutY="450.0" mnemonicParsing="false" onAction="#onReStart" text="返回标题">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+      <Button fx:id="exit" layoutX="403.0" layoutY="450.0" mnemonicParsing="false" onAction="#onExit" text="退出游戏">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+      <Text layoutX="214.0" layoutY="250.0" strokeType="OUTSIDE" strokeWidth="0.0" text="数据统计" wrappingWidth="198.240234375">
+         <font>
+            <Font size="48.0" />
+         </font>
+      </Text>
+      <Text fx:id="finalScore" layoutX="286.0" layoutY="397.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+         <font>
+            <Font size="48.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="24.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/record1.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="439.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/record1.jpg" />
+         </image>
+      </ImageView>
+      <Text layoutX="113.0" layoutY="316.0" strokeType="OUTSIDE" strokeWidth="0.0" text="游戏时间 :">
+         <font>
+            <Font size="36.0" />
+         </font></Text>
+      <Text layoutX="113.0" layoutY="393.0" strokeType="OUTSIDE" strokeWidth="0.0" text="最终得分 :">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Text>
+      <Text fx:id="finalTime" layoutX="286.0" layoutY="320.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+         <font>
+            <Font size="48.0" />
+         </font>
+      </Text>
+      <Button fx:id="count" layoutX="403.0" layoutY="278.0" mnemonicParsing="false" onAction="#beganCount" text="开始统计">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+      <ImageView fx:id="newRecord" fitHeight="86.0" fitWidth="183.0" layoutX="380.0" layoutY="325.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/newRecord.PNG" />
+         </image>
+      </ImageView>
+   </children>
+</Pane>

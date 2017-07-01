@@ -196,7 +196,7 @@ public class Easy extends Main{
 	 * 为了保证时间的变化是动态的，使用中间变量，在时间停止的时候记录
 	 * 这样可以保证时间变化，并且可以获得最终值（否则无法获得最终停止的时间）
 	 */
-	public static int staticTime;
+	private static int staticTime;
 	@FXML
 	private void beganCount(ActionEvent event) throws IOException{
 		// 加载记录
@@ -1286,23 +1286,19 @@ public class Easy extends Main{
 	}
 	@FXML
 	void chooseNormal(ActionEvent event) throws IOException{
-		/* 完成后实装
 		Parent normal = FXMLLoader.load(getClass().getResource("Normal.fxml"));
 		
 		Scene scene = new Scene(normal,900,900);
 		thisStage.setScene(scene);
 		st_chooseLeave.close();
-		*/
 	}
 	@FXML
 	void chooseHard(ActionEvent event) throws IOException{
-		/* 完成后实装
 		Parent hard = FXMLLoader.load(getClass().getResource("Hard.fxml"));
 		
 		Scene scene = new Scene(hard,900,900);
 		thisStage.setScene(scene);
 		st_chooseLeave.close();
-		*/
 	}
 	@FXML
 	void dontChoose(ActionEvent event){
