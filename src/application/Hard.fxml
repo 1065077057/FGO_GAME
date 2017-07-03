@@ -246,7 +246,19 @@
                   <Image url="@images/KB.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="123.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="111.0" fitWidth="83.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/014E.png" />
+               </image>
+               <HBox.margin>
+                  <Insets left="8.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView fitHeight="111.0" fitWidth="83.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/091E.png" />
+               </image>
+            </ImageView>
          </children>
          <padding>
             <Insets left="100.0" />

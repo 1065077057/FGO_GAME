@@ -464,7 +464,7 @@ public class Easy extends Main{
 			KeyFrame kfOfCardToLeave = new KeyFrame(Duration.millis(1),cardToLeave);
 			KeyFrame kfOfCardToOpen = new KeyFrame(Duration.millis(450),cardToOpen);
 			KeyFrame kfOfBackToLeave = new KeyFrame(Duration.millis(1),backToLeave);
-			KeyFrame kfOfBackToOpen = new KeyFrame(Duration.millis(1800),backToOpen);
+			KeyFrame kfOfBackToOpen = new KeyFrame(Duration.millis(1200),backToOpen);
 			Timeline backToCard = new Timeline(kfOfBackToLeave,kfOfCardToOpen);
 			Timeline cardToBack = new Timeline(kfOfCardToLeave,kfOfBackToOpen);
 			
@@ -485,8 +485,8 @@ public class Easy extends Main{
 						last.setImage(IMGKB);
 						noname2(last);
 					};
-					KeyFrame kfOfLastBackToOpen = new KeyFrame(Duration.millis(1800),lastBackToOpen);
-					KeyFrame kfOfLastCardToLeave = new KeyFrame(Duration.millis(1800),lastCardToLeave);
+					KeyFrame kfOfLastBackToOpen = new KeyFrame(Duration.millis(1200),lastBackToOpen);
+					KeyFrame kfOfLastCardToLeave = new KeyFrame(Duration.millis(1200),lastCardToLeave);
 					Timeline lastCardToBack = new Timeline(kfOfLastCardToLeave,kfOfLastBackToOpen);
 					
 					cardToBack.play();
@@ -518,7 +518,7 @@ public class Easy extends Main{
 			KeyFrame kfOfCardToLeave = new KeyFrame(Duration.millis(1),cardToLeave);
 			KeyFrame kfOfCardToOpen = new KeyFrame(Duration.millis(450),cardToOpen);
 			KeyFrame kfOfBackToLeave = new KeyFrame(Duration.millis(1),backToLeave);
-			KeyFrame kfOfBackToOpen = new KeyFrame(Duration.millis(1800),backToOpen);
+			KeyFrame kfOfBackToOpen = new KeyFrame(Duration.millis(1200),backToOpen);
 			Timeline backToCard = new Timeline(kfOfBackToLeave,kfOfCardToOpen);
 			Timeline cardToBack = new Timeline(kfOfCardToLeave,kfOfBackToOpen);
 			
@@ -539,8 +539,8 @@ public class Easy extends Main{
 						last.setImage(IMGKB);
 						noname2(last);
 					};
-					KeyFrame kfOfLastBackToOpen = new KeyFrame(Duration.millis(1800),lastBackToOpen);
-					KeyFrame kfOfLastCardToLeave = new KeyFrame(Duration.millis(1800),lastCardToLeave);
+					KeyFrame kfOfLastBackToOpen = new KeyFrame(Duration.millis(1200),lastBackToOpen);
+					KeyFrame kfOfLastCardToLeave = new KeyFrame(Duration.millis(1200),lastCardToLeave);
 					Timeline lastCardToBack = new Timeline(kfOfLastCardToLeave,kfOfLastBackToOpen);
 					
 					cardToBack.play();
@@ -572,7 +572,7 @@ public class Easy extends Main{
 			KeyFrame kfOfCardToLeave = new KeyFrame(Duration.millis(1),cardToLeave);
 			KeyFrame kfOfCardToOpen = new KeyFrame(Duration.millis(450),cardToOpen);
 			KeyFrame kfOfBackToLeave = new KeyFrame(Duration.millis(1),backToLeave);
-			KeyFrame kfOfBackToOpen = new KeyFrame(Duration.millis(1800),backToOpen);
+			KeyFrame kfOfBackToOpen = new KeyFrame(Duration.millis(1200),backToOpen);
 			Timeline backToCard = new Timeline(kfOfBackToLeave,kfOfCardToOpen);
 			Timeline cardToBack = new Timeline(kfOfCardToLeave,kfOfBackToOpen);
 			
@@ -593,8 +593,8 @@ public class Easy extends Main{
 						last.setImage(IMGKB);
 						noname2(last);
 					};
-					KeyFrame kfOfLastBackToOpen = new KeyFrame(Duration.millis(1800),lastBackToOpen);
-					KeyFrame kfOfLastCardToLeave = new KeyFrame(Duration.millis(1800),lastCardToLeave);
+					KeyFrame kfOfLastBackToOpen = new KeyFrame(Duration.millis(1200),lastBackToOpen);
+					KeyFrame kfOfLastCardToLeave = new KeyFrame(Duration.millis(1200),lastCardToLeave);
 					Timeline lastCardToBack = new Timeline(kfOfLastCardToLeave,kfOfLastBackToOpen);
 					
 					cardToBack.play();
@@ -626,7 +626,7 @@ public class Easy extends Main{
 			KeyFrame kfOfCardToLeave = new KeyFrame(Duration.millis(1),cardToLeave);
 			KeyFrame kfOfCardToOpen = new KeyFrame(Duration.millis(450),cardToOpen);
 			KeyFrame kfOfBackToLeave = new KeyFrame(Duration.millis(1),backToLeave);
-			KeyFrame kfOfBackToOpen = new KeyFrame(Duration.millis(1800),backToOpen);
+			KeyFrame kfOfBackToOpen = new KeyFrame(Duration.millis(1200),backToOpen);
 			Timeline backToCard = new Timeline(kfOfBackToLeave,kfOfCardToOpen);
 			Timeline cardToBack = new Timeline(kfOfCardToLeave,kfOfBackToOpen);
 			
@@ -647,8 +647,8 @@ public class Easy extends Main{
 						last.setImage(IMGKB);
 						noname2(last);
 					};
-					KeyFrame kfOfLastBackToOpen = new KeyFrame(Duration.millis(1800),lastBackToOpen);
-					KeyFrame kfOfLastCardToLeave = new KeyFrame(Duration.millis(1800),lastCardToLeave);
+					KeyFrame kfOfLastBackToOpen = new KeyFrame(Duration.millis(1200),lastBackToOpen);
+					KeyFrame kfOfLastCardToLeave = new KeyFrame(Duration.millis(1200),lastCardToLeave);
 					Timeline lastCardToBack = new Timeline(kfOfLastCardToLeave,kfOfLastBackToOpen);
 					
 					cardToBack.play();
@@ -680,7 +680,7 @@ public class Easy extends Main{
 			KeyFrame kfOfCardToLeave = new KeyFrame(Duration.millis(1),cardToLeave);
 			KeyFrame kfOfCardToOpen = new KeyFrame(Duration.millis(450),cardToOpen);
 			KeyFrame kfOfBackToLeave = new KeyFrame(Duration.millis(1),backToLeave);
-			KeyFrame kfOfBackToOpen = new KeyFrame(Duration.millis(1800),backToOpen);
+			KeyFrame kfOfBackToOpen = new KeyFrame(Duration.millis(1200),backToOpen);
 			Timeline backToCard = new Timeline(kfOfBackToLeave,kfOfCardToOpen);
 			Timeline cardToBack = new Timeline(kfOfCardToLeave,kfOfBackToOpen);
 			
@@ -701,8 +701,8 @@ public class Easy extends Main{
 						last.setImage(IMGKB);
 						noname2(last);
 					};
-					KeyFrame kfOfLastBackToOpen = new KeyFrame(Duration.millis(1800),lastBackToOpen);
-					KeyFrame kfOfLastCardToLeave = new KeyFrame(Duration.millis(1800),lastCardToLeave);
+					KeyFrame kfOfLastBackToOpen = new KeyFrame(Duration.millis(1200),lastBackToOpen);
+					KeyFrame kfOfLastCardToLeave = new KeyFrame(Duration.millis(1200),lastCardToLeave);
 					Timeline lastCardToBack = new Timeline(kfOfLastCardToLeave,kfOfLastBackToOpen);
 					
 					cardToBack.play();
@@ -734,7 +734,7 @@ public class Easy extends Main{
 			KeyFrame kfOfCardToLeave = new KeyFrame(Duration.millis(1),cardToLeave);
 			KeyFrame kfOfCardToOpen = new KeyFrame(Duration.millis(450),cardToOpen);
 			KeyFrame kfOfBackToLeave = new KeyFrame(Duration.millis(1),backToLeave);
-			KeyFrame kfOfBackToOpen = new KeyFrame(Duration.millis(1800),backToOpen);
+			KeyFrame kfOfBackToOpen = new KeyFrame(Duration.millis(1200),backToOpen);
 			Timeline backToCard = new Timeline(kfOfBackToLeave,kfOfCardToOpen);
 			Timeline cardToBack = new Timeline(kfOfCardToLeave,kfOfBackToOpen);
 			
@@ -755,8 +755,8 @@ public class Easy extends Main{
 						last.setImage(IMGKB);
 						noname2(last);
 					};
-					KeyFrame kfOfLastBackToOpen = new KeyFrame(Duration.millis(1800),lastBackToOpen);
-					KeyFrame kfOfLastCardToLeave = new KeyFrame(Duration.millis(1800),lastCardToLeave);
+					KeyFrame kfOfLastBackToOpen = new KeyFrame(Duration.millis(1200),lastBackToOpen);
+					KeyFrame kfOfLastCardToLeave = new KeyFrame(Duration.millis(1200),lastCardToLeave);
 					Timeline lastCardToBack = new Timeline(kfOfLastCardToLeave,kfOfLastBackToOpen);
 					
 					cardToBack.play();
@@ -788,7 +788,7 @@ public class Easy extends Main{
 			KeyFrame kfOfCardToLeave = new KeyFrame(Duration.millis(1),cardToLeave);
 			KeyFrame kfOfCardToOpen = new KeyFrame(Duration.millis(450),cardToOpen);
 			KeyFrame kfOfBackToLeave = new KeyFrame(Duration.millis(1),backToLeave);
-			KeyFrame kfOfBackToOpen = new KeyFrame(Duration.millis(1800),backToOpen);
+			KeyFrame kfOfBackToOpen = new KeyFrame(Duration.millis(1200),backToOpen);
 			Timeline backToCard = new Timeline(kfOfBackToLeave,kfOfCardToOpen);
 			Timeline cardToBack = new Timeline(kfOfCardToLeave,kfOfBackToOpen);
 			
@@ -809,8 +809,8 @@ public class Easy extends Main{
 						last.setImage(IMGKB);
 						noname2(last);
 					};
-					KeyFrame kfOfLastBackToOpen = new KeyFrame(Duration.millis(1800),lastBackToOpen);
-					KeyFrame kfOfLastCardToLeave = new KeyFrame(Duration.millis(1800),lastCardToLeave);
+					KeyFrame kfOfLastBackToOpen = new KeyFrame(Duration.millis(1200),lastBackToOpen);
+					KeyFrame kfOfLastCardToLeave = new KeyFrame(Duration.millis(1200),lastCardToLeave);
 					Timeline lastCardToBack = new Timeline(kfOfLastCardToLeave,kfOfLastBackToOpen);
 					
 					cardToBack.play();
@@ -842,7 +842,7 @@ public class Easy extends Main{
 			KeyFrame kfOfCardToLeave = new KeyFrame(Duration.millis(1),cardToLeave);
 			KeyFrame kfOfCardToOpen = new KeyFrame(Duration.millis(450),cardToOpen);
 			KeyFrame kfOfBackToLeave = new KeyFrame(Duration.millis(1),backToLeave);
-			KeyFrame kfOfBackToOpen = new KeyFrame(Duration.millis(1800),backToOpen);
+			KeyFrame kfOfBackToOpen = new KeyFrame(Duration.millis(1200),backToOpen);
 			Timeline backToCard = new Timeline(kfOfBackToLeave,kfOfCardToOpen);
 			Timeline cardToBack = new Timeline(kfOfCardToLeave,kfOfBackToOpen);
 			
@@ -863,8 +863,8 @@ public class Easy extends Main{
 						last.setImage(IMGKB);
 						noname2(last);
 					};
-					KeyFrame kfOfLastBackToOpen = new KeyFrame(Duration.millis(1800),lastBackToOpen);
-					KeyFrame kfOfLastCardToLeave = new KeyFrame(Duration.millis(1800),lastCardToLeave);
+					KeyFrame kfOfLastBackToOpen = new KeyFrame(Duration.millis(1200),lastBackToOpen);
+					KeyFrame kfOfLastCardToLeave = new KeyFrame(Duration.millis(1200),lastCardToLeave);
 					Timeline lastCardToBack = new Timeline(kfOfLastCardToLeave,kfOfLastBackToOpen);
 					
 					cardToBack.play();
@@ -896,7 +896,7 @@ public class Easy extends Main{
 			KeyFrame kfOfCardToLeave = new KeyFrame(Duration.millis(1),cardToLeave);
 			KeyFrame kfOfCardToOpen = new KeyFrame(Duration.millis(450),cardToOpen);
 			KeyFrame kfOfBackToLeave = new KeyFrame(Duration.millis(1),backToLeave);
-			KeyFrame kfOfBackToOpen = new KeyFrame(Duration.millis(1800),backToOpen);
+			KeyFrame kfOfBackToOpen = new KeyFrame(Duration.millis(1200),backToOpen);
 			Timeline backToCard = new Timeline(kfOfBackToLeave,kfOfCardToOpen);
 			Timeline cardToBack = new Timeline(kfOfCardToLeave,kfOfBackToOpen);
 			
@@ -917,8 +917,8 @@ public class Easy extends Main{
 						last.setImage(IMGKB);
 						noname2(last);
 					};
-					KeyFrame kfOfLastBackToOpen = new KeyFrame(Duration.millis(1800),lastBackToOpen);
-					KeyFrame kfOfLastCardToLeave = new KeyFrame(Duration.millis(1800),lastCardToLeave);
+					KeyFrame kfOfLastBackToOpen = new KeyFrame(Duration.millis(1200),lastBackToOpen);
+					KeyFrame kfOfLastCardToLeave = new KeyFrame(Duration.millis(1200),lastCardToLeave);
 					Timeline lastCardToBack = new Timeline(kfOfLastCardToLeave,kfOfLastBackToOpen);
 					
 					cardToBack.play();
@@ -950,7 +950,7 @@ public class Easy extends Main{
 			KeyFrame kfOfCardToLeave = new KeyFrame(Duration.millis(1),cardToLeave);
 			KeyFrame kfOfCardToOpen = new KeyFrame(Duration.millis(450),cardToOpen);
 			KeyFrame kfOfBackToLeave = new KeyFrame(Duration.millis(1),backToLeave);
-			KeyFrame kfOfBackToOpen = new KeyFrame(Duration.millis(1800),backToOpen);
+			KeyFrame kfOfBackToOpen = new KeyFrame(Duration.millis(1200),backToOpen);
 			Timeline backToCard = new Timeline(kfOfBackToLeave,kfOfCardToOpen);
 			Timeline cardToBack = new Timeline(kfOfCardToLeave,kfOfBackToOpen);
 			
@@ -971,8 +971,8 @@ public class Easy extends Main{
 						last.setImage(IMGKB);
 						noname2(last);
 					};
-					KeyFrame kfOfLastBackToOpen = new KeyFrame(Duration.millis(1800),lastBackToOpen);
-					KeyFrame kfOfLastCardToLeave = new KeyFrame(Duration.millis(1800),lastCardToLeave);
+					KeyFrame kfOfLastBackToOpen = new KeyFrame(Duration.millis(1200),lastBackToOpen);
+					KeyFrame kfOfLastCardToLeave = new KeyFrame(Duration.millis(1200),lastCardToLeave);
 					Timeline lastCardToBack = new Timeline(kfOfLastCardToLeave,kfOfLastBackToOpen);
 					
 					cardToBack.play();
@@ -1004,7 +1004,7 @@ public class Easy extends Main{
 			KeyFrame kfOfCardToLeave = new KeyFrame(Duration.millis(1),cardToLeave);
 			KeyFrame kfOfCardToOpen = new KeyFrame(Duration.millis(450),cardToOpen);
 			KeyFrame kfOfBackToLeave = new KeyFrame(Duration.millis(1),backToLeave);
-			KeyFrame kfOfBackToOpen = new KeyFrame(Duration.millis(1800),backToOpen);
+			KeyFrame kfOfBackToOpen = new KeyFrame(Duration.millis(1200),backToOpen);
 			Timeline backToCard = new Timeline(kfOfBackToLeave,kfOfCardToOpen);
 			Timeline cardToBack = new Timeline(kfOfCardToLeave,kfOfBackToOpen);
 			
@@ -1025,8 +1025,8 @@ public class Easy extends Main{
 						last.setImage(IMGKB);
 						noname2(last);
 					};
-					KeyFrame kfOfLastBackToOpen = new KeyFrame(Duration.millis(1800),lastBackToOpen);
-					KeyFrame kfOfLastCardToLeave = new KeyFrame(Duration.millis(1800),lastCardToLeave);
+					KeyFrame kfOfLastBackToOpen = new KeyFrame(Duration.millis(1200),lastBackToOpen);
+					KeyFrame kfOfLastCardToLeave = new KeyFrame(Duration.millis(1200),lastCardToLeave);
 					Timeline lastCardToBack = new Timeline(kfOfLastCardToLeave,kfOfLastBackToOpen);
 					
 					cardToBack.play();
@@ -1058,7 +1058,7 @@ public class Easy extends Main{
 			KeyFrame kfOfCardToLeave = new KeyFrame(Duration.millis(1),cardToLeave);
 			KeyFrame kfOfCardToOpen = new KeyFrame(Duration.millis(450),cardToOpen);
 			KeyFrame kfOfBackToLeave = new KeyFrame(Duration.millis(1),backToLeave);
-			KeyFrame kfOfBackToOpen = new KeyFrame(Duration.millis(1800),backToOpen);
+			KeyFrame kfOfBackToOpen = new KeyFrame(Duration.millis(1200),backToOpen);
 			Timeline backToCard = new Timeline(kfOfBackToLeave,kfOfCardToOpen);
 			Timeline cardToBack = new Timeline(kfOfCardToLeave,kfOfBackToOpen);
 			
@@ -1079,8 +1079,8 @@ public class Easy extends Main{
 						last.setImage(IMGKB);
 						noname2(last);
 					};
-					KeyFrame kfOfLastBackToOpen = new KeyFrame(Duration.millis(1800),lastBackToOpen);
-					KeyFrame kfOfLastCardToLeave = new KeyFrame(Duration.millis(1800),lastCardToLeave);
+					KeyFrame kfOfLastBackToOpen = new KeyFrame(Duration.millis(1200),lastBackToOpen);
+					KeyFrame kfOfLastCardToLeave = new KeyFrame(Duration.millis(1200),lastCardToLeave);
 					Timeline lastCardToBack = new Timeline(kfOfLastCardToLeave,kfOfLastBackToOpen);
 					
 					cardToBack.play();
@@ -1146,6 +1146,9 @@ public class Easy extends Main{
 		IMGBNUM = 0;
 		IMGCNUM = 0;
 		// 重置分数以及奖惩控制
+		last = null;
+		onePoint = null;
+		twoPoint = null;
 		score = 0;
 		reward = 0;
 		punish = 0;
@@ -1335,7 +1338,7 @@ public class Easy extends Main{
 	private void onHelp(ActionEvent event) throws IOException{
 		Parent help = FXMLLoader.load(getClass().getResource("Help.fxml"));
 		
-		Scene scene = new Scene(help,300,300);
+		Scene scene = new Scene(help,766,600);
 		Stage stage = new Stage();
 		stage.setTitle("FGO Game Help");
 		stage.setScene(scene);

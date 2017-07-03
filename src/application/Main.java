@@ -1,7 +1,6 @@
 package application;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -111,7 +110,7 @@ public class Main extends Application{
 	private void onStartHelp(MouseEvent event) throws IOException{
 		Parent help = FXMLLoader.load(getClass().getResource("Help.fxml"));
 		
-		Scene scene = new Scene(help,300,300);
+		Scene scene = new Scene(help,766,600);
 		Stage stage = new Stage();
 		stage.setTitle("FGO Game Help");
 		stage.setScene(scene);
