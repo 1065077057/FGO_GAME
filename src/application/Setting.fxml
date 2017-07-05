@@ -22,7 +22,7 @@
          </image>
       </ImageView>
       <Line endX="230.0" layoutX="121.0" layoutY="158.0" opacity="0.87" startX="-100.0" stroke="#65a6fc" />
-      <RadioButton fx:id="bgmM1" layoutX="54.0" layoutY="174.0" mnemonicParsing="false" onAction="#changeM1" prefHeight="22.0" prefWidth="265.0" selected="true" text="总督府的日常-舰队Collocation">
+      <RadioButton fx:id="bgmM1" layoutX="54.0" layoutY="174.0" mnemonicParsing="false" onAction="#changeM1" prefHeight="22.0" prefWidth="265.0" selected="true" text="洛克王国">
          <font>
             <Font size="16.0" />
          </font>
@@ -30,7 +30,7 @@
             <ToggleGroup fx:id="group" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton fx:id="bgmM2" layoutX="54.0" layoutY="214.0" mnemonicParsing="false" onAction="#changeM2" prefHeight="16.0" prefWidth="256.0" text="穿越海平原-舰队Collocation" toggleGroup="$group">
+      <RadioButton fx:id="bgmM2" layoutX="54.0" layoutY="214.0" mnemonicParsing="false" onAction="#changeM2" prefHeight="16.0" prefWidth="256.0" text="开心消消乐" toggleGroup="$group">
          <font>
             <Font size="16.0" />
          </font>

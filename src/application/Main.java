@@ -53,9 +53,9 @@ public class Main extends Application{
 	public void start(Stage stage) throws IOException{
 		Parent start = FXMLLoader.load(getClass().getResource("Start.fxml"));
 
-		/*测试阶段 暂时不自动播放
+		/*测试阶段 暂时不自动播放*/
 		playerBGMM1.setAutoPlay(true);
-		*/	
+			
 		Scene scene = new Scene(start,569,450);
 		thisStage.setTitle("FGO Game");
 		thisStage.setScene(scene);
@@ -72,7 +72,7 @@ public class Main extends Application{
 		
 		Scene scene = new Scene(easy,950,900);
 		thisStage.setScene(scene);
-		Scene helpScene = new Scene(help,250,250);
+		Scene helpScene = new Scene(help,766,600);
 		Stage helpStage = new Stage();
 		helpStage.setTitle("FGO Game Help");
 		helpStage.setScene(helpScene);
@@ -83,9 +83,9 @@ public class Main extends Application{
 		Parent normal = FXMLLoader.load(getClass().getResource("Normal.fxml"));
 		Parent help = FXMLLoader.load(getClass().getResource("Help.fxml"));
 
-		Scene scene = new Scene(normal,950,900);
+		Scene scene = new Scene(normal,950,930);
 		thisStage.setScene(scene);
-		Scene helpScene = new Scene(help,250,250);
+		Scene helpScene = new Scene(help,766,600);
 		Stage helpStage = new Stage();
 		helpStage.setTitle("FGO Game Help");
 		helpStage.setScene(helpScene);
@@ -96,9 +96,9 @@ public class Main extends Application{
 		Parent hard = FXMLLoader.load(getClass().getResource("Hard.fxml"));
 		Parent help = FXMLLoader.load(getClass().getResource("Help.fxml"));
 
-		Scene scene = new Scene(hard,950,900);
+		Scene scene = new Scene(hard,950,970);
 		thisStage.setScene(scene);
-		Scene helpScene = new Scene(help,250,250);
+		Scene helpScene = new Scene(help,766,600);
 		Stage helpStage = new Stage();
 		helpStage.setTitle("FGO Game Help");
 		helpStage.setScene(helpScene);

@@ -179,25 +179,26 @@ public class Normal extends Easy{
 		input.close();
 		
 		int score_middle = score+staticTime;
-		for(int i = 2;i >= 0;i--){
-			if(score_middle > record_score[i]){
-				if(i != 2){
-					record_score[i+1] = record_score[i];
-				}
-				if(i == 0){
-					record_score[0] = score_middle;
-				}
-			}else{
-				if(i != 2){
-					record_score[i+1] = score_middle;
-				}
+		int key = -1;
+		for(int i = 0;i < 3;i++){
+			if(score_middle >= record_score[i]){
+				key = i;
+				break;
+			}
+		}
+		if(key != -1){
+			int t1;
+			int t2 = score_middle;
+			for(;key < 3;key++){
+				t1 = record_score[key];
+				record_score[key] = t2;
+				t2 = t1;
 			}
 		}
 
 		FileOutputStream output = new FileOutputStream("src/application/record/record_normal.bat");
 		for(int i = 0;i < 3;i++){
 			output.write(record_score[i]);
-			System.out.println(record_score[i]);
 		} 
 		output.close();
 	}
@@ -232,7 +233,7 @@ public class Normal extends Easy{
 		
 		count.setOpacity(0);
 		finalScore.setText(""+(score+staticTime));
-		finalTime.setText(""+(60-staticTime));
+		finalTime.setText(""+(70-staticTime));
 		if(Integer.parseInt(finalScore.getText()) > record_score[2]){
 			newRecord.setOpacity(1);
 		}
@@ -459,7 +460,7 @@ public class Normal extends Easy{
 	}
 	@FXML
 	private void onClicked01(MouseEvent event) throws IOException{
-		if((event.getButton().toString() == "PRIMARY")&&(img_0_1.getImage() == IMGKB)&&(img_0_1.getOpacity() == 1)){
+		if((event.getButton().toString() == "PRIMARY")&&(img_0_1.getImage() == IMGKB)&&(img_0_1.getOpacity() == 1)&&(timeDead == 0)){
 			EventHandler<ActionEvent> backToLeave = e -> {
 				noname1(img_0_1);
 			};
@@ -513,7 +514,7 @@ public class Normal extends Easy{
 	}
 	@FXML
 	private void onClicked02(MouseEvent event) throws IOException{
-		if((event.getButton().toString() == "PRIMARY")&&(img_0_2.getImage() == IMGKB)&&(img_0_2.getOpacity() == 1)){
+		if((event.getButton().toString() == "PRIMARY")&&(img_0_2.getImage() == IMGKB)&&(img_0_2.getOpacity() == 1)&&(timeDead == 0)){
 			EventHandler<ActionEvent> backToLeave = e -> {
 				noname1(img_0_2);
 			};
@@ -567,7 +568,7 @@ public class Normal extends Easy{
 	}
 	@FXML
 	private void onClicked03(MouseEvent event) throws IOException{
-		if((event.getButton().toString() == "PRIMARY")&&(img_0_3.getImage() == IMGKB)&&(img_0_3.getOpacity() == 1)){
+		if((event.getButton().toString() == "PRIMARY")&&(img_0_3.getImage() == IMGKB)&&(img_0_3.getOpacity() == 1)&&(timeDead == 0)){
 			EventHandler<ActionEvent> backToLeave = e -> {
 				noname1(img_0_3);
 			};
@@ -675,7 +676,7 @@ public class Normal extends Easy{
 	}
 	@FXML
 	private void onClicked10(MouseEvent event) throws IOException{
-		if((event.getButton().toString() == "PRIMARY")&&(img_1_0.getImage() == IMGKB)&&(img_1_0.getOpacity() == 1)){
+		if((event.getButton().toString() == "PRIMARY")&&(img_1_0.getImage() == IMGKB)&&(img_1_0.getOpacity() == 1)&&(timeDead == 0)){
 			EventHandler<ActionEvent> backToLeave = e -> {
 				noname1(img_1_0);
 			};
@@ -729,7 +730,7 @@ public class Normal extends Easy{
 	}
 	@FXML
 	private void onClicked11(MouseEvent event) throws IOException{
-		if((event.getButton().toString() == "PRIMARY")&&(img_1_1.getImage() == IMGKB)&&(img_1_1.getOpacity() == 1)){
+		if((event.getButton().toString() == "PRIMARY")&&(img_1_1.getImage() == IMGKB)&&(img_1_1.getOpacity() == 1)&&(timeDead == 0)){
 			EventHandler<ActionEvent> backToLeave = e -> {
 				noname1(img_1_1);
 			};
@@ -783,7 +784,7 @@ public class Normal extends Easy{
 	}
 	@FXML
 	private void onClicked12(MouseEvent event) throws IOException{
-		if((event.getButton().toString() == "PRIMARY")&&(img_1_2.getImage() == IMGKB)&&(img_1_2.getOpacity() == 1)){
+		if((event.getButton().toString() == "PRIMARY")&&(img_1_2.getImage() == IMGKB)&&(img_1_2.getOpacity() == 1)&&(timeDead == 0)){
 			EventHandler<ActionEvent> backToLeave = e -> {
 				noname1(img_1_2);
 			};
@@ -837,7 +838,7 @@ public class Normal extends Easy{
 	}
 	@FXML
 	private void onClicked13(MouseEvent event) throws IOException{
-		if((event.getButton().toString() == "PRIMARY")&&(img_1_3.getImage() == IMGKB)&&(img_1_3.getOpacity() == 1)){
+		if((event.getButton().toString() == "PRIMARY")&&(img_1_3.getImage() == IMGKB)&&(img_1_3.getOpacity() == 1)&&(timeDead == 0)){
 			EventHandler<ActionEvent> backToLeave = e -> {
 				noname1(img_1_3);
 			};
@@ -945,7 +946,7 @@ public class Normal extends Easy{
 	}
 	@FXML
 	private void onClicked20(MouseEvent event) throws IOException{
-		if((event.getButton().toString() == "PRIMARY")&&(img_2_0.getImage() == IMGKB)&&(img_2_0.getOpacity() == 1)){
+		if((event.getButton().toString() == "PRIMARY")&&(img_2_0.getImage() == IMGKB)&&(img_2_0.getOpacity() == 1)&&(timeDead == 0)){
 			EventHandler<ActionEvent> backToLeave = e -> {
 				noname1(img_2_0);
 			};
@@ -999,7 +1000,7 @@ public class Normal extends Easy{
 	}
 	@FXML
 	private void onClicked21(MouseEvent event) throws IOException{
-		if((event.getButton().toString() == "PRIMARY")&&(img_2_1.getImage() == IMGKB)&&(img_2_1.getOpacity() == 1)){
+		if((event.getButton().toString() == "PRIMARY")&&(img_2_1.getImage() == IMGKB)&&(img_2_1.getOpacity() == 1)&&(timeDead == 0)){
 			EventHandler<ActionEvent> backToLeave = e -> {
 				noname1(img_2_1);
 			};
@@ -1053,7 +1054,7 @@ public class Normal extends Easy{
 	}
 	@FXML
 	private void onClicked22(MouseEvent event) throws IOException{
-		if((event.getButton().toString() == "PRIMARY")&&(img_2_2.getImage() == IMGKB)&&(img_2_2.getOpacity() == 1)){
+		if((event.getButton().toString() == "PRIMARY")&&(img_2_2.getImage() == IMGKB)&&(img_2_1.getOpacity() == 1)&&(timeDead == 0)){
 			EventHandler<ActionEvent> backToLeave = e -> {
 				noname1(img_2_2);
 			};
@@ -1107,7 +1108,7 @@ public class Normal extends Easy{
 	}
 	@FXML
 	private void onClicked23(MouseEvent event) throws IOException{
-		if((event.getButton().toString() == "PRIMARY")&&(img_2_3.getImage() == IMGKB)&&(img_2_3.getOpacity() == 1)){
+		if((event.getButton().toString() == "PRIMARY")&&(img_2_3.getImage() == IMGKB)&&(img_2_3.getOpacity() == 1)&&(timeDead == 0)){
 			EventHandler<ActionEvent> backToLeave = e -> {
 				noname1(img_2_3);
 			};
@@ -1215,7 +1216,7 @@ public class Normal extends Easy{
 	}
 	@FXML
 	private void onClicked30(MouseEvent event) throws IOException{
-		if((event.getButton().toString() == "PRIMARY")&&(img_3_0.getImage() == IMGKB)&&(img_3_0.getOpacity() == 1)){
+		if((event.getButton().toString() == "PRIMARY")&&(img_3_0.getImage() == IMGKB)&&(img_3_0.getOpacity() == 1)&&(timeDead == 0)){
 			EventHandler<ActionEvent> backToLeave = e -> {
 				noname1(img_3_0);
 			};
@@ -1269,7 +1270,7 @@ public class Normal extends Easy{
 	}
 	@FXML
 	private void onClicked31(MouseEvent event) throws IOException{
-		if((event.getButton().toString() == "PRIMARY")&&(img_3_1.getImage() == IMGKB)&&(img_3_1.getOpacity() == 1)){
+		if((event.getButton().toString() == "PRIMARY")&&(img_3_1.getImage() == IMGKB)&&(img_3_1.getOpacity() == 1)&&(timeDead == 0)){
 			EventHandler<ActionEvent> backToLeave = e -> {
 				noname1(img_3_1);
 			};
@@ -1323,7 +1324,7 @@ public class Normal extends Easy{
 	}
 	@FXML
 	private void onClicked32(MouseEvent event) throws IOException{
-		if((event.getButton().toString() == "PRIMARY")&&(img_3_2.getImage() == IMGKB)&&(img_3_2.getOpacity() == 1)){
+		if((event.getButton().toString() == "PRIMARY")&&(img_3_2.getImage() == IMGKB)&&(img_3_2.getOpacity() == 1)&&(timeDead == 0)){
 			EventHandler<ActionEvent> backToLeave = e -> {
 				noname1(img_3_2);
 			};
@@ -1377,7 +1378,7 @@ public class Normal extends Easy{
 	}
 	@FXML
 	private void onClicked33(MouseEvent event) throws IOException{
-		if((event.getButton().toString() == "PRIMARY")&&(img_3_3.getImage() == IMGKB)&&(img_3_3.getOpacity() == 1)){
+		if((event.getButton().toString() == "PRIMARY")&&(img_3_3.getImage() == IMGKB)&&(img_3_3.getOpacity() == 1)&&(timeDead == 0)){
 			EventHandler<ActionEvent> backToLeave = e -> {
 				noname1(img_3_3);
 			};
@@ -1566,7 +1567,7 @@ public class Normal extends Easy{
 		timeDead = 0;
 		cardEndChoose = 0;
 		timeMinute.setText("1");
-		timeSecond.setText("00");
+		timeSecond.setText("10");
 		EventHandler<ActionEvent> timeEnd = e -> {
 			int time = Integer.parseInt(timeSecond.getText());
 			int timeChange = Integer.parseInt(timeMinute.getText());

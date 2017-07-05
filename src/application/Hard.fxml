@@ -49,7 +49,7 @@
                <font>
                   <Font size="56.0" />
                </font></Text>
-            <Text fx:id="timeSecond" strokeType="OUTSIDE" strokeWidth="0.0" text="00">
+            <Text fx:id="timeSecond" strokeType="OUTSIDE" strokeWidth="0.0" text="50">
                <font>
                   <Font size="64.0" />
                </font></Text>
