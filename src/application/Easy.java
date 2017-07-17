@@ -173,7 +173,6 @@ public class Easy extends Main{
 		FileOutputStream output = new FileOutputStream("src/application/record/record_easy.bat");
 		for(int i = 0;i < 3;i++){
 			output.write(record_score[i]);
-			System.out.println(record_score[i]);
 		} 
 		output.close();
 	}
@@ -1344,6 +1343,7 @@ public class Easy extends Main{
 		Stage stage = new Stage();
 		stage.setTitle("FGO Game Help");
 		stage.setScene(scene);
+		stage.setResizable(false);
 		stage.show();
 	}
 	@FXML
@@ -1367,6 +1367,7 @@ public class Easy extends Main{
 		Scene scene = new Scene(exit,500,200);
 		exitStage.setTitle("ÍË³öFGO GAME");
 		exitStage.setScene(scene);
+		exitStage.setResizable(false);
 		exitStage.show();
 	}
 }

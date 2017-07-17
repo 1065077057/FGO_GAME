@@ -76,6 +76,7 @@ public class Main extends Application{
 		Stage helpStage = new Stage();
 		helpStage.setTitle("FGO Game Help");
 		helpStage.setScene(helpScene);
+		helpStage.setResizable(false);
 		helpStage.show();
 	}
 	@FXML
@@ -89,6 +90,7 @@ public class Main extends Application{
 		Stage helpStage = new Stage();
 		helpStage.setTitle("FGO Game Help");
 		helpStage.setScene(helpScene);
+		helpStage.setResizable(false);
 		helpStage.show();
 	}
 	@FXML
@@ -102,6 +104,7 @@ public class Main extends Application{
 		Stage helpStage = new Stage();
 		helpStage.setTitle("FGO Game Help");
 		helpStage.setScene(helpScene);
+		helpStage.setResizable(false);
 		helpStage.show();
 	}
 	
